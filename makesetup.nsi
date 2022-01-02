@@ -3,9 +3,9 @@ SetCompressor lzma
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "ljArchive"
-!define PRODUCT_VERSION "0.9.7"
-!define PRODUCT_PUBLISHER "Erik Frey"
-!define PRODUCT_WEB_SITE "http://ljarchive.sourceforge.net/"
+!define PRODUCT_VERSION "0.9.8"
+!define PRODUCT_PUBLISHER "sharpden"
+!define PRODUCT_WEB_SITE "https://github.com/sharpden/ljarchive"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\ljArchive.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
@@ -40,7 +40,7 @@ SetCompressor lzma
 ; MUI end ------
 
 Name "${PRODUCT_NAME}"
-OutFile "Setup.exe"
+OutFile "${PRODUCT_NAME}-${PRODUCT_VERSION}-setup.exe"
 InstallDir "$PROGRAMFILES\ljArchive"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show

@@ -1,3 +1,18 @@
+2022-01-02  sharpden <sharp-c@yandex.ru>
+
+* Bump version numbers for 0.9.8, changed About window, site and name according to license
+
+* Solution updated for VS 2019 and .NET 4.0
+
+* Fixed cookie
+
+* Fix for TLS 1.2
+
+* Fix for compilation with .NET 4.0
+
+* Removed EntryReader plugin, it depends on Microsoft Agent Control with bindings of unknown origin
+
+
 2006-03-22  Erik Frey <erikfrey@users.sourceforge.net>
 
 * Bump version numbers for 0.9.7.

@@ -202,7 +202,7 @@
     <value>Close</value>
   </data>
   <data name="About.lblAbout.Text" xml:space="preserve">
-    <value>ljArchive version {0}, by Erik Frey (sourceforge edition)</value>
+    <value>ljArchive version {0}, by sharpden (based on 0.9.7 by Erik Frey)</value>
   </data>
   <data name="About.btnOK.Text" xml:space="preserve">
     <value>OK</value>
@@ -267,7 +267,7 @@
     &lt;h1&gt;Welcome to ljArchive&lt;/h1&gt;
     &lt;p&gt;To create a new journal archive, select the menu item &lt;b&gt;File|New Archive...&lt;/b&gt;.&lt;/p&gt;
     &lt;p&gt;Once you've downloaded your journal, be sure to try the plugins!  You can access them by selecting the menu item &lt;b&gt;Tools|Plugins...&lt;/b&gt;.&lt;/p&gt;
-    &lt;p&gt;For answers to questions, developer information, and technical information regarding this software, please visit the &lt;a href="http://ljarchive.sourceforge.net/"&gt;ljArchive web site&lt;/a&gt;.
+    &lt;p&gt;For answers to questions, developer information, and technical information regarding this software, please visit the &lt;a href="https://github.com/sharpden/ljarchive"&gt;ljArchive web site&lt;/a&gt;.
     &lt;p&gt;Have fun!&lt;/b&gt;
   &lt;/body&gt;
 &lt;/html&gt;</value>

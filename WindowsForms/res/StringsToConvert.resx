@@ -85,7 +85,7 @@
 		<value>Close</value>
 	</data>
 	<data name="About.lblAbout.Text">
-		<value>ljArchive version {0}, by Erik Frey</value>
+		<value>ljArchive version {0}, by sharpden (based on 0.9.7 by Erik Frey)</value>
 	</data>
 	<data name="About.btnOK.Text">
 		<value>OK</value>

@@ -983,7 +983,7 @@ namespace EF.ljArchive.WindowsForms
 			{
 				try
 				{
-					System.Diagnostics.Process.Start("http://ljarchive.sourceforge.net/");
+					System.Diagnostics.Process.Start("https://github.com/sharpden/ljarchive");
 				}
 				catch (System.ComponentModel.Win32Exception) {}
 			}

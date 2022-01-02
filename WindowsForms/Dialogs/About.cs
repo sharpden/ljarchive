@@ -75,7 +75,7 @@ namespace EF.ljArchive.WindowsForms.Dialogs
 			this.llURL.Size = new System.Drawing.Size(127, 16);
 			this.llURL.TabIndex = 1;
 			this.llURL.TabStop = true;
-			this.llURL.Text = "http://ljarchive.sourceforge.net/";
+			this.llURL.Text = "https://github.com/sharpden/ljarchive";
 			this.llURL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llURL_LinkClicked);
 			// 
 			// btnOK
