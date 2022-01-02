@@ -68,8 +68,8 @@ namespace EF.ljArchive.Engine
 				// Old-style session cookies, just in case.
 				wr.CookieContainer.Add(new Cookie("ljsession", ljsession, "/", uri.Host));
 				// New-style session cookies.
-				wr.CookieContainer.Add(new Cookie("ljmastersession", ljsession, "/", uri.Host));
-				wr.CookieContainer.Add(new Cookie("ljloggedin", ljsession.Substring(ljsession.IndexOf(":") + 1, ljsession.LastIndexOf(":") - ljsession.IndexOf(":") - 1), "/", uri.Host));
+				//wr.CookieContainer.Add(new Cookie("ljmastersession", ljsession, "/", uri.Host));
+				//wr.CookieContainer.Add(new Cookie("ljloggedin", ljsession.Substring(ljsession.IndexOf(":") + 1, ljsession.LastIndexOf(":") - ljsession.IndexOf(":") - 1), "/", uri.Host));
 			}
 			return wr;
 		}

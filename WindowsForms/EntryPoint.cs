@@ -19,6 +19,10 @@ namespace EF.ljArchive.WindowsForms
 			// run internally system invariant to avoid date and decimal weirdness
 			Application.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
 
+			// https://www.koskila.net/how-to-force-an-outdated-net-project-to-use-tls-1-2/
+			// https://stackoverflow.com/questions/47269609/system-net-securityprotocoltype-tls12-definition-not-found
+			System.Net.ServicePointManager.SecurityProtocol = (System.Net.SecurityProtocolType) 0xC00;
+
 			if (System.Environment.Version.Major > 1) // .NET 2.0 XP styles
 				System.Windows.Forms.Application.EnableVisualStyles();
 #if DEBUG

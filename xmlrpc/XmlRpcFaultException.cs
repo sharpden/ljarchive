@@ -66,6 +66,7 @@ namespace CookComputing.XmlRpc
 
     // public methods
     //
+    /*
     public override void GetObjectData(
       SerializationInfo info, 
       StreamingContext context)
@@ -74,6 +75,7 @@ namespace CookComputing.XmlRpc
       info.AddValue("m_faultString", m_faultString);
       base.GetObjectData(info, context);
     }
+    */
         
     // data
     //
