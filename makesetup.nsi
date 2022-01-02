@@ -79,13 +79,13 @@ SectionEnd
 Section "Plugins" SEC02
   SetOutPath "$INSTDIR\plugins"
   SetOverwrite try
-  File "bin\Release\plugins\AxInterop.AgentObjects.dll"
+  ;File "bin\Release\plugins\AxInterop.AgentObjects.dll"
   File "bin\Release\plugins\EF.ljArchive.MIDIJournalWriter.dll"
   File "bin\Release\plugins\EF.ljArchive.Plugins.Core.dll"
   File "bin\Release\plugins\EF.ljArchive.Plugins.WindowsForms.dll"
   File "bin\Release\plugins\EF.ljArchive.XMLJournalWriter.dll"
   File "bin\Release\plugins\EF.SimpleMIDI.dll"
-  File "bin\Release\plugins\Interop.AgentObjects.dll"
+  ;File "bin\Release\plugins\Interop.AgentObjects.dll"
   File "bin\Release\plugins\ZedGraph.dll"
 SectionEnd
 
@@ -152,13 +152,13 @@ Section Uninstall
   Delete "$INSTDIR\templates\generator.ljt"
   Delete "$INSTDIR\templates\component.ljt"
   Delete "$INSTDIR\plugins\ZedGraph.dll"
-  Delete "$INSTDIR\plugins\Interop.AgentObjects.dll"
+  ;Delete "$INSTDIR\plugins\Interop.AgentObjects.dll"
   Delete "$INSTDIR\plugins\EF.SimpleMIDI.dll"
   Delete "$INSTDIR\plugins\EF.ljArchive.XMLJournalWriter.dll"
   Delete "$INSTDIR\plugins\EF.ljArchive.Plugins.WindowsForms.dll"
   Delete "$INSTDIR\plugins\EF.ljArchive.Plugins.Core.dll"
   Delete "$INSTDIR\plugins\EF.ljArchive.MIDIJournalWriter.dll"
-  Delete "$INSTDIR\plugins\AxInterop.AgentObjects.dll"
+  ;Delete "$INSTDIR\plugins\AxInterop.AgentObjects.dll"
   Delete "$INSTDIR\index.htm"
   Delete "$INSTDIR\Update.exe"
   Delete "$INSTDIR\ljArchive.exe"

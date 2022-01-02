@@ -83,10 +83,6 @@
     <EmbeddedResource Include="CommentCount.resx">
       <DependentUpon>CommentCount.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="EntryReader.cs" />
-    <EmbeddedResource Include="EntryReader.resx">
-      <DependentUpon>EntryReader.cs</DependentUpon>
-    </EmbeddedResource>
     <Compile Include="PostFrequency.cs" />
     <EmbeddedResource Include="PostFrequency.resx">
       <DependentUpon>PostFrequency.cs</DependentUpon>
@@ -108,7 +104,6 @@
       <DependentUpon>ZedGraphControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="res\CommentCount.png" />
-    <EmbeddedResource Include="res\EntryReader.png" />
     <EmbeddedResource Include="res\PostFrequency.gif" />
     <EmbeddedResource Include="res\RIDAnalysis.png" />
     <EmbeddedResource Include="res\RIDInfo.rtf" />
@@ -125,15 +120,6 @@
       <Name>PluginsCore</Name>
       <Private>True</Private>
     </ProjectReference>
-    <COMReference Include="Microsoft Agent Control 2.0">
-      <Guid>{F5BE8BC2-7DE6-11D0-91FE-00C04FD701A5}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>aximp</WrapperTool>
-      <Isolated>False</Isolated>
-      <SpecificVersion>True</SpecificVersion>
-    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>
