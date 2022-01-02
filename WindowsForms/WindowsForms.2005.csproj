@@ -1,4 +1,4 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -16,6 +16,11 @@
     <BaseAddress>4194304</BaseAddress>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <FileAlignment>4096</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <NoStdLib>false</NoStdLib>
@@ -154,12 +159,12 @@
     <Compile Include="Utils\UpdateChecker.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Documents and Settings\ERIK FREY\My Documents\code\ljArchive\Common\Common.2005.csproj">
+    <ProjectReference Include="..\Common\Common.2005.csproj">
       <Project>{4685249B-BEB1-4443-8CF2-ED9EC71A1FFA}</Project>
       <Name>Common</Name>
       <Private>True</Private>
     </ProjectReference>
-    <ProjectReference Include="C:\Documents and Settings\ERIK FREY\My Documents\code\ljArchive\Engine\Engine.2005.csproj">
+    <ProjectReference Include="..\Engine\Engine.2005.csproj">
       <Project>{0E0F2AE6-4AD3-44E0-AA37-FDF91ECC27C6}</Project>
       <Name>Engine</Name>
       <Private>True</Private>
