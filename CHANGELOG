@@ -1,0 +1,60 @@
+2006-03-22  Erik Frey <erikfrey@users.sourceforge.net>
+
+* Bump version numbers for 0.9.7.
+
+* Community archiving.
+
+* Proper "go to entry" instead of "go to day entry".
+
+* Displays lj comm tag.
+
+* XP-theming if built on .NET 2.0.
+
+* Cleans invalid UTF8 characters.
+
+* Proxy support for .NET 1.1.
+
+* ljArchive core builds in Mono.
+
+* Fixed some internationalization issues regarding how ljArchive stores dates and numbers.
+
+* Manual build files.
+
+* Fixed ' (single tick) crashing search.
+
+* Fixed thread abort error when cancelling a Sync.
+
+* Better archive file format support.
+
+2006-02-19  Deb Hooker <deb@users.sourceforge.net>
+
+* Bump version numbers for 0.9.6.
+
+* Use the new LJ session cookies (we still set the old one as well,
+  in case we're communicating with a site that uses old-style cookies).
+
+* Some low-level changes to the XMLRPC protocol to match what LJ is
+  now doing.  Hopefully this'll stop all the XmlRpc errors.
+
+2005-07-27  Deb Hooker <deb@users.sourceforge.net>
+
+* Bump version numbers as appropriate for a 0.9.5 release.
+
+* Basic support for tags.  (Nothing fancy, but at least we download
+  them and display them now.)
+
+* Update various URLs and informational strings to point to the
+  sourceforge homepage instead of to fawx.com for now.
+  (The sourceforge page will maintain a link to fawx.com, of course,
+  but as we update things we'd rather have people come to the up-to-date site
+  first.) Also update the online-update-check links to something we can
+  actually update as we release new releases.
+
+2005-07-09  Deb Hooker <deb@users.sourceforge.net>
+
+* ljArchive.build:  Add a really basic NAnt build file to build the various
+  release file packages.  Has hardcoded pathnames to executables in it, so it
+  needs work, but it's a start.
+
+* WindowsForms/Explorer.cs:  Handle FormatException and InvalidCastException
+  when trying to get the last update-check date.  (Fixes bug 1235116.)

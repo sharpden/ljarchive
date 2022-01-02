@@ -1,0 +1,163 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project name = "ljArchive" default = "build">
+
+  <!-- ========== Properties ========== -->
+
+  <property name="dist.dir" value = "dist" overwrite="false" />
+  <property name="doc.dir" value = "doc" overwrite="false" />
+  <property name="lib.dir" value="${path::get-full-path('lib')}" overwrite="false" />
+  <property name="etc.dir" value="${path::get-full-path('etc')}" overwrite="false" />
+  <property name="debug" value="false" overwrite="false" />
+  <property name="optimize" value="true" overwrite="false" />
+  <property name="warninglevel" value="4" overwrite="false" />
+  <property name="verbose" value="false" overwrite="false" />
+  <property name="doc" value="false" overwrite="false" />
+  <if test="${debug}">
+    <property name="build.dir" value = "${path::get-full-path('bin/Debug')}" overwrite="false" />
+    <property name="define" value="DEBUG;TRACE" overwrite="false" />
+  </if>
+  <if test="${not debug}">
+    <property name="build.dir" value = "${path::get-full-path('bin/Release')}" overwrite="false" />
+    <property name="define" value="TRACE" overwrite="false" />
+  </if>
+  <property name="plugins.dir" value="${build.dir}/plugins" overwrite="false" />
+  <property name="lib.Common" value="${build.dir}/EF.ljArchive.Common.dll" overwrite="false" />
+  <property name="lib.xmlrpc" value="${build.dir}/CookComputing.XmlRpcLocal.dll" overwrite="false" />
+  <property name="lib.Engine" value="${build.dir}/EF.ljArchive.Engine.dll" overwrite="false" />
+  <property name="lib.PluginsCore" value="${plugins.dir}/EF.ljArchive.Plugins.Core.dll" overwrite="false" />
+  <property name="lib.ZedGraph" value="${lib.dir}/ZedGraph.dll" overwrite="false" />
+  <property name="lib.CommandBar" value="${lib.dir}/CommandBar.dll" overwrite="false" />
+  <property name="lib.GenghisLocal" value="${lib.dir}/GenghisLocal.dll" overwrite="false" />
+  <property name="lib.ICSharpCode.SharpZipLib" value="${lib.dir}/ICSharpCode.SharpZipLib" overwrite="false" />
+
+  <!-- ========== Targets ========== -->
+  
+  <target name = "check-version">
+    <fail message = "'version' property must be set in order to build."
+      unless = "${property::exists('version')}"/>
+    <property name = "prefix" value = "${dist.dir}/ljArchive-${version}"/>
+  </target>
+
+  <target name="init" depends="check-version">
+    <mkdir dir = "${dist.dir}"/>
+  </target>
+
+  <target name="build-core">
+    <nant buildfile="Common/Common.build" />
+    <nant buildfile="xmlrpc/xmlrpc.build" />
+    <nant buildfile="XMLJournalWriter/XMLJournalWriter.build">
+      <properties>
+        <property name="build.dir" value="${plugins.dir}" />
+      </properties>
+    </nant>
+    <nant buildfile="MIDIJournalWriter/MIDIJournalWriter.build">
+      <properties>
+        <property name="build.dir" value="${plugins.dir}" />
+      </properties>
+    </nant>
+    <nant buildfile="PluginsCore/PluginsCore.build">
+      <properties>
+        <property name="build.dir" value="${plugins.dir}" />
+      </properties>
+    </nant>
+    <nant buildfile="Engine/Engine.build" />
+  </target>
+  
+  <target name="build-win32" depends="build-core">
+    <nant buildfile="WindowsFormsPlugins/WindowsFormsPlugins.build">
+      <properties>
+        <property name="build.dir" value="${plugins.dir}" />
+      </properties>
+    </nant>
+    <nant buildfile="WindowsFormsUpdate/WindowsFormsUpdate.build" />
+    <nant buildfile="WindowsForms/WindowsForms.build" />
+    <copy todir="${build.dir}">
+      <fileset basedir="etc">
+        <include name="templates/*" />
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="build">
+    <if test="${platform::is-win32()}">
+      <call target="build-win32" />
+    </if>
+    <if test="${platform::is-unix()}">
+      <call target="build-core" />
+    </if>
+  </target>
+  
+  <target name = "build-doc-solution" depends = "check-version">
+    <solution configuration = "Doc" solutionfile = "ljArchive.2003.sln"/>
+  </target>
+
+  <target name = "build-doc" depends = "build-doc-solution">
+    <!-- use exec instead of ndoc so that it uses the config file -->
+    <exec program = "C:\Program Files\NDoc 1.3\bin\net\1.1\NDocConsole.exe">
+      <arg value = "-project=ljArchive.ndoc"/>
+    </exec>
+  </target>
+
+  <target name = "doc-zip" depends = "build-doc, init">
+    <zip zipfile = "${prefix}-doc.zip">
+      <fileset basedir = "${doc.dir}">
+        <include name = "**/*"/>
+        <exclude name = "ljArchive Documentation.*"/>
+        <exclude name = "ndoc.log"/>
+      </fileset>
+    </zip>
+  </target>
+
+  <target name = "doc-chm" depends = "build-doc, init">
+    <copy file = "${doc.dir}/ljArchive Documentation.chm"
+      tofile = "${prefix}-doc.chm"
+      overwrite = "true"/>
+  </target>
+
+  <target name = "installer-win32" depends = "build-win32, init">
+    <exec program = "C:\Program Files\NSIS\makensis.exe">
+      <arg file = "makesetup.nsi"/>
+    </exec>
+    <move file = "Setup.exe" tofile = "${prefix}.exe" overwrite = "true"/>
+  </target>
+
+  <target name = "src-zip" depends = "init">
+    <!-- consider using a clean cvs export, since NAnt can do CVS -->
+    <zip zipfile = "${prefix}-src.zip">
+      <fileset basedir = ".">
+        <include name = "**/*"/>
+        <exclude name = "**/${dist.dir}/**"/>
+        <exclude name = "**/${doc.dir}/**"/>
+        <exclude name = "**/bin/**"/>
+        <exclude name = "**/obj/**"/>
+        <exclude name = "**/*.suo"/>
+        <exclude name = "**/*.user"/>
+      </fileset>
+    </zip>
+  </target>
+
+  <target name = "common-lib" depends = "build-core">
+    <copy file = "${build.dir}/EF.ljArchive.Common.dll"
+      tofile = "${dist.dir}/EF.ljArchive.Common-${version}.dll"
+      overwrite = "true"/>
+  </target>
+
+  <target name = "manifest" depends = "init">
+    <echo file = "${dist.dir}/Manifest">${version}</echo>
+  </target>
+
+  <target name = "dist" depends = "installer-win32, src-zip, doc-zip, doc-chm, common-lib, manifest"/>
+
+  <target name = "clean">
+    <delete>
+      <fileset>
+        <include name="${dist.dir}/**" />
+        <include name="${doc.dir}/**" />
+        <include name="${build.dir}/**" />
+        <include name="*/bin/**" />
+        <include name="*/doc/**" />
+        <include name="*/obj/**" />
+      </fileset>
+    </delete>
+  </target>
+</project>

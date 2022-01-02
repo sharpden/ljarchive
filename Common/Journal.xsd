@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="Journal" targetNamespace="http://tempuri.org/Journal.xsd" elementFormDefault="qualified"
+	attributeFormDefault="qualified" xmlns="http://tempuri.org/Journal.xsd" xmlns:mstns="http://tempuri.org/Journal.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xs:element name="Journal" msdata:IsDataSet="true">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="Options">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ServerURL" type="xs:string" minOccurs="0" />
+							<xs:element name="DefaultPicURL" type="xs:string" minOccurs="0" />
+							<xs:element name="CommunityPicURL" type="xs:string" minOccurs="0" />
+							<xs:element name="FullName" type="xs:string" minOccurs="0" />
+							<xs:element name="UserName" type="xs:string" minOccurs="0" />
+							<xs:element name="HPassword" type="xs:string" minOccurs="0" />
+							<xs:element name="LastSync" type="xs:dateTime" minOccurs="0" />
+							<xs:element name="GetComments" type="xs:boolean" minOccurs="0" />
+							<xs:element name="UseJournal" type="xs:string" minOccurs="0" />							
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Events">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ID" type="xs:int" minOccurs="0" />
+							<xs:element name="Date" type="xs:dateTime" minOccurs="0" />
+							<xs:element name="Security" type="xs:string" minOccurs="0" />
+							<xs:element name="AllowMask" type="xs:int" minOccurs="0" />
+							<xs:element name="Subject" type="xs:string" minOccurs="0" />
+							<xs:element name="Body" type="xs:string" minOccurs="0" />
+							<xs:element name="Poster" type="xs:string" minOccurs="0" />
+							<xs:element name="Anum" type="xs:int" minOccurs="0" />
+							<xs:element name="CurrentMood" type="xs:string" minOccurs="0" />
+							<xs:element name="CurrentMoodID" type="xs:int" minOccurs="0" />
+							<xs:element name="CurrentMusic" type="xs:string" minOccurs="0" />
+							<xs:element name="Preformatted" type="xs:boolean" minOccurs="0" />
+							<xs:element name="NoComments" type="xs:boolean" minOccurs="0" />
+							<xs:element name="PictureKeyword" type="xs:string" minOccurs="0" />
+							<xs:element name="Backdated" type="xs:boolean" minOccurs="0" />
+							<xs:element name="NoEmail" type="xs:boolean" minOccurs="0" />
+							<xs:element name="Unknown8Bit" type="xs:boolean" minOccurs="0" />
+							<xs:element name="ScreenedComments" type="xs:boolean" minOccurs="0" />
+							<xs:element name="NumberOfRevisions" type="xs:int" minOccurs="0" />
+							<xs:element name="CommentAlter" type="xs:int" minOccurs="0" />
+							<xs:element name="SyndicationURL" type="xs:string" minOccurs="0" />
+							<xs:element name="SyndicationID" type="xs:string" minOccurs="0" />
+							<xs:element name="LastRevision" type="xs:dateTime" minOccurs="0" />
+							<xs:element name="TagList" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="UserPics">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="PicKeyword" type="xs:string" minOccurs="0" />
+							<xs:element name="PicURL" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Moods">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ID" type="xs:int" minOccurs="0" />
+							<xs:element name="Name" type="xs:string" minOccurs="0" />
+							<xs:element name="Parent" type="xs:int" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Comments">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ID" type="xs:int" minOccurs="0" />
+							<xs:element name="PosterID" type="xs:int" minOccurs="0" />
+							<xs:element name="State" type="xs:string" minOccurs="0" />
+							<xs:element name="JItemID" type="xs:int" minOccurs="0" />
+							<xs:element name="ParentID" type="xs:int" minOccurs="0" />
+							<xs:element name="Body" type="xs:string" minOccurs="0" />
+							<xs:element name="Subject" type="xs:string" minOccurs="0" />
+							<xs:element name="Date" type="xs:dateTime" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Users">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ID" type="xs:int" minOccurs="0" />
+							<xs:element name="User" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+		<xs:key name="PK_Events" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:Events" />
+			<xs:field xpath="mstns:ID" />
+		</xs:key>
+		<xs:key name="PK_UserPics" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:UserPics" />
+			<xs:field xpath="mstns:PicKeyword" />
+		</xs:key>
+		<xs:key name="PK_Moods" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:Moods" />
+			<xs:field xpath="mstns:ID" />
+		</xs:key>
+		<xs:key name="PK_Comments" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:Comments" />
+			<xs:field xpath="mstns:ID" />
+		</xs:key>
+		<xs:key name="PK_Users" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:Users" />
+			<xs:field xpath="mstns:ID" />
+		</xs:key>
+	</xs:element>
+</xs:schema>

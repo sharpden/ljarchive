@@ -1,0 +1,261 @@
+<!--
+
+  Default ljArchive Template
+  An adaptation of the 'Generator' style from http://www.livejournal.com/ 
+
+-->
+
+
+
+<!--
+  This is the Page Header section.
+
+  It always gets printed once at the beginning of a page build.
+-->
+<% SECTIONPAGEHEADER %>
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <style type="text/css">
+      body, td, th {
+        font-family: verdana, sans-serif;
+        font-size: 10pt;
+      }
+      tt, pre {
+        font-family: monospace;
+      }
+      a {
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .index {
+        font-size: 8pt;
+      }
+      .caption, .index {
+        color: #<% EntryHeaderTextColor %>;
+      }
+      .comments {
+        font-size: 8pt;
+        color: #<% EntryFooterTextColor %>;
+      }
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><% UseJournal %><% !!UseJournal %><% FullName %><% /!!UseJournal %></title>
+  </head>
+  <body bgcolor="#<% PageBackgroundColor %>" text="#<% PageTextColor %>" link="#<% PageLinkColor %>" vlink="#<% PageVisitedLinkColor %>" alink="#<% PageActiveLinkColor %>">
+<% /SECTIONPAGEHEADER %>
+
+
+
+<!--
+  This is the Entry section.
+
+  It gets printed once per journal entry that the user is exporting.
+
+  There are specific ljArchive tags that apply to this section only.
+
+  A list of those tags is available in the documentation.
+-->
+<% SECTIONENTRY %>
+    <p />
+    <div align="center">
+      <table width="600" cellpadding="2" cellspacing="0" border="0" summary="" class="entrybox">
+        <tr align='left'>
+          <td bgcolor="#<% EntryHeaderBackgroundColor %>" align="center">
+            <table width="100%" cellpadding="5" cellspacing="0" border="0" summary="">
+              <tr align='left'>
+                <td class="caption">
+<% !SecurityIconpath %>
+                  <img src="<% ServerURL %><% SecurityIconpath %>">
+<% /!SecurityIconpath %>
+                  <% Subject %>
+                </td>
+                <td class="index" align="right"><% Date %></td>
+              </tr>
+              <tr align='left'>
+                <td colspan="2" bgcolor="#<% EntryBackgroundColor %>" style="color: #<% EntryTextColor %>">
+                  <table cellpadding="1" align="right" cellspacing="0" border="0" summary="">
+                    <tr align='left'>
+                      <td>
+                        <table cellpadding="2" align="center" cellspacing="0" border="0" summary="">
+                          <tr align='left'>
+                            <td align="center" style="color: #<% EntryTextColor %>">
+<% !UseJournal %>
+                              <a href='<% ServerURL %>/community/<% UseJournal %>/'>
+  <% !UserpicURL %>
+                                <img border="0" src="<% UserpicURL %>" alt=""><br />
+  <% /!UserpicURL %>
+                                <% UseJournal %></a><br />
+                                [<a href='<% ServerURL %>/users/<% PosterUserName %>'><% PosterUserName %></a>]
+<% /!UseJournal %>
+<% !!UseJournal %>
+                              <a href='<% ServerURL %>/users/<% PosterUserName %>'>
+  <% !UserpicURL %>
+                                <img border="0" src="<% UserpicURL %>" alt=""><br />
+  <% /!UserpicURL %>
+                                <% PosterUserName %></a>
+<% /!!UseJournal %>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  <table cellspacing="0" cellpadding="0" border="0" summary="" style="color: #<% EntryTextColor %>">
+<% !CurrentMood %>
+                    <tr>
+                      <td>[</td><td align="right"><b>Current Mood</b></td>
+                      <td align="center">|</td><td><% CurrentMood %></td><td>]</td>
+                    </tr>
+<% /!CurrentMood %>
+<% !CurrentMusic %>
+                    <tr>
+                      <td>[</td><td align="right"><b>Current Music</b></td>
+                      <td align="center">|</td><td><% CurrentMusic %></td><td>]</td>
+                    </tr>
+<% /!CurrentMusic %>
+<% !TagList %>
+                    <tr>
+                      <td>[</td><td align="right"><b>Tags</b></td>
+                      <td align="center">|</td><td><% TagList %></td><td>]</td>
+                    </tr>
+<% /!TagList %>
+                  </table>
+                  <p /><% Body %>
+                </td>
+              </tr>
+              <tr bgcolor="#<% EntryFooterBackgroundColor %>">
+                <td align='left'  class='comments'>&nbsp;</td>
+                <td align='right' class='comments'>&nbsp;</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+<% /SECTIONENTRY %>
+
+
+
+<!--
+  This is the Comments Header section.
+
+  This section only gets printed if comments exist for the associated entry.
+
+  If comments exist, it's printed once at the beginning of the comment block.
+
+  Otherwise, this section is ignored completely.
+-->
+<% SECTIONCOMMENTSHEADER %>
+    <p />
+    <div align="center">
+      <table class=entrybox cellSpacing=0 cellpadding=2 width=600 summary="" border=0>
+        <tbody>
+          <tr align=left>
+            <td align="middle" bgcolor="#000000">
+              <table cellspacing=0 cellpadding=5 width="100%" summary="" border=0>
+                <tbody>
+                  <tr align="left">
+                    <td class="caption" colspan=2>Comments:</td>
+                  </tr>
+                  <tr align="left">
+                    <td bgcolor="#ffffff" colspan=2>
+<% /SECTIONCOMMENTSHEADER %>
+
+
+
+
+<!--
+  This is the Comments section.
+
+  It gets printed once per journal comment that the user is exporting.
+
+  There are specific ljArchive tags that apply to this section only.
+
+  A list of those tags is available in the documentation.
+-->
+<% SECTIONCOMMENT %>
+                      <div style="margin-top: 5px; margin-left: <% SpacerWidth %>px; color: #<% CommentTextColor %> "><a name="t<% ID %>"></a>
+                        <div style="margin-top: 10px; width: 100%; background-color: #<% CommentBackgroundColor %>">
+                          <table style="width: 100%" cellspacing=0 cellpadding=2 summary=0>
+                            <tbody>
+                              <tr valign="top">
+                                <td style="width: 100%">
+                                  <table style="width: 100%">
+                                    <tbody>
+                                      <tr>
+                                        <td style="width: 50%" align=left>
+                                          <table>
+                                            <tbody>
+                                              <tr>
+                                                <th style="white-space: nowrap" align="right">From:</th>
+                                                <td style="white-space: nowrap">
+<% !NonAnonymous %>
+                                                  <span style="white-space: nowrap"><a href="<% ServerURL %>/userinfo.bml?user=<% PosterUserName %>"><img style="border-top-width: 0px; border-left-width: 0px; border-bottom-width: 0px; vertical-align: bottom; border-right-width: 0px" height=17 alt=[info] src="<% ServerURL %><% UserInfoIconPath %>" width=17></a><a href="<% ServerURL %>/users/<% PosterUserName %>"><b><% PosterUserName %></b></a></span>
+<% /!NonAnonymous %>
+<% !Anonymous %>
+                                                  <i>(Anonymous)</i>
+<% /!Anonymous %>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <th style="white-space: nowrap" align="right">Date:</th>
+                                                <td style="white-space: nowrap"><% Date %></td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                        <td style="width: 50%" align="right"></td>
+                                      </tr>
+                                      <tr valign="top">
+                                        <td style="width: 100%"><h3><% Subject %></h3></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div style="margin-left: 5px"><% Body %></div>
+                      </div>
+<% /SECTIONCOMMENT %>
+
+
+
+
+<!--
+  This is the Comments Footer section.
+
+  This section only gets printed if comments exist for the associated entry.
+
+  If comments exist, it's printed once at the end of the comment block.
+
+  Otherwise, this section is ignored completely.
+-->
+<% SECTIONCOMMENTSFOOTER %>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+<% /SECTIONCOMMENTSFOOTER %>
+
+
+
+
+<!--
+  This is the Page Footer section.
+
+  It always gets printed once at the end of a page build.
+-->
+<% SECTIONPAGEFOOTER %>
+  </body>
+</html>
+<% /SECTIONPAGEFOOTER %>

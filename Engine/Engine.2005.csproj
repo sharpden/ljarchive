@@ -1,0 +1,114 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0E0F2AE6-4AD3-44E0-AA37-FDF91ECC27C6}</ProjectGuid>
+    <RootNamespace>EF.ljArchive.Engine</RootNamespace>
+    <AssemblyName>EF.ljArchive.Engine</AssemblyName>
+    <OutputType>Library</OutputType>
+    <RunPostBuildEvent>OnSuccessfulBuild</RunPostBuildEvent>
+    <NoConfig>false</NoConfig>
+    <DebugType>Full</DebugType>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <NoStdLib>false</NoStdLib>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <OutputPath>bin\Debug\</OutputPath>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <NoStdLib>false</NoStdLib>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>true</Optimize>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+    <OutputPath>bin\Release\</OutputPath>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Doc|AnyCPU' ">
+    <NoStdLib>false</NoStdLib>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>true</Optimize>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+    <OutputPath>bin\Doc\</OutputPath>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <HintPath>C:\WINNT\Microsoft.NET\Framework\v1.1.4322\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>C:\WINNT\Microsoft.NET\Framework\v1.1.4322\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>C:\WINNT\Microsoft.NET\Framework\v1.1.4322\System.XML.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <HintPath>C:\WINNT\Microsoft.NET\Framework\v1.1.4322\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Exporter.cs" />
+    <Compile Include="ILJServer.cs" />
+    <Compile Include="Journal.cs" />
+    <Compile Include="Sync.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="XmlCommentReader.cs" />
+    <Compile Include="Collections\CommentCollection.cs" />
+    <Compile Include="Collections\EventCollection.cs" />
+    <Compile Include="Collections\JournalWriterCollection.cs" />
+    <Compile Include="Collections\PluginCollection.cs" />
+    <Compile Include="Collections\SyncItemCollection.cs" />
+    <Compile Include="Collections\UserMapCollection.cs" />
+    <Compile Include="HTML\CommentNode.cs" />
+    <Compile Include="HTML\HTMLJournalWriter.cs" />
+    <Compile Include="HTML\HTMLJournalWriterSettings.cs" />
+    <EmbeddedResource Include="res\Consts.resx" />
+    <Compile Include="XMLStructs\Comment.cs" />
+    <Compile Include="XMLStructs\Event.cs" />
+    <Compile Include="XMLStructs\EventProps.cs" />
+    <Compile Include="XMLStructs\FriendGroup.cs" />
+    <Compile Include="XMLStructs\GetChallengeResponse.cs" />
+    <Compile Include="XMLStructs\GetEventsParams.cs" />
+    <Compile Include="XMLStructs\GetEventsResponse.cs" />
+    <Compile Include="XMLStructs\LoginParams.cs" />
+    <Compile Include="XMLStructs\LoginResponse.cs" />
+    <Compile Include="XMLStructs\Menu.cs" />
+    <Compile Include="XMLStructs\Mood.cs" />
+    <Compile Include="XMLStructs\SessionGenerateParams.cs" />
+    <Compile Include="XMLStructs\SessionGenerateResponse.cs" />
+    <Compile Include="XMLStructs\SyncItem.cs" />
+    <Compile Include="XMLStructs\SyncItemParams.cs" />
+    <Compile Include="XMLStructs\SyncItemsResponse.cs" />
+    <Compile Include="XMLStructs\UserMap.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Documents and Settings\ERIK FREY\My Documents\code\ljArchive\Common\Common.2005.csproj">
+      <Project>{4685249B-BEB1-4443-8CF2-ED9EC71A1FFA}</Project>
+      <Name>Common</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="C:\Documents and Settings\ERIK FREY\My Documents\code\ljArchive\xmlrpc\xmlrpc.2005.csproj">
+      <Project>{1B4B0A58-0AFB-4090-91DD-18912CC7DE65}</Project>
+      <Name>xmlrpc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+</Project>

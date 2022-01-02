@@ -1,0 +1,159 @@
+<project name="WindowsFormsUpdate" default="build">
+
+  <!-- ========== Properties ========== -->
+  
+  <property name="debug" value="false" overwrite="false" />
+  <property name="optimize" value="true" overwrite="false" />
+  <property name="warninglevel" value="4" overwrite="false" />
+  <property name="verbose" value="false" overwrite="false" />
+  <property name="doc" value="false" overwrite="false" />
+
+  <if test="${debug}">
+    <property name="build.dir" value="bin/Debug" overwrite="false"/>
+    <property name="define" value="DEBUG;TRACE" overwrite="false" />
+    <property name="lib.Common" value="../Common/bin/Debug/EF.ljArchive.Common.dll" overwrite="false" />
+    <property name="lib.Engine" value="../Engine/bin/Debug/EF.ljArchive.Engine.dll" overwrite="false" />
+  </if>
+  <if test="${not debug}">
+    <property name="build.dir" value="bin/Release" overwrite="false"/>
+    <property name="define" value="TRACE" overwrite="false" />
+    <property name="lib.Common" value="../Common/bin/Release/EF.ljArchive.Common.dll" overwrite="false" />
+    <property name="lib.Engine" value="../Engine/bin/Release/EF.ljArchive.Engine.dll" overwrite="false" />
+  </if>
+  <property name="docfile" value="${build.dir}/ljArchive.xml" />
+  <property name="output" value="${build.dir}/ljArchive.exe" />
+  <property name="win32icon" value="res/App.ico" />
+  <property name="main" value="EF.ljArchive.WindowsForms.EntryPoint" />
+  <property name="lib.CommandBar" value="../lib/CommandBar.dll" />
+  <property name="lib.GenghisLocal" value="../lib/GenghisLocal.dll" />
+  
+  <assemblyfileset id="references">
+    <include name="System.dll" />
+    <include name="System.Data.dll" />
+    <include name="System.XML.dll" />
+    <include name="System.Windows.Forms.dll" />
+    <include name="System.Design.dll" />
+    <include name="System.Drawing.dll" />
+    <include name="${lib.CommandBar}" />
+    <include name="${lib.GenghisLocal}" />
+    <include name="${lib.Common}" />
+    <include name="${lib.Engine}" />
+  </assemblyfileset>
+  
+  <assemblyfileset id="lib.references">
+    <include name="${lib.CommandBar}" />
+    <include name="${lib.GenghisLocal}" />
+    <include name="${lib.Common}" />
+    <include name="${lib.Engine}" />
+  </assemblyfileset>
+  
+  <fileset id="sources">
+    <include name="AssemblyInfo.cs" />
+    <include name="EntryPoint.cs" />
+    <include name="Explorer.cs" />
+    <include name="Controls/CalendarPanel.cs" />
+    <include name="Controls/CommandBarManager.cs" />
+    <include name="Controls/DataGridImageColumn.cs" />
+    <include name="Controls/DataGridList.cs" />
+    <include name="Controls/DataGridTextViewColumn.cs" />
+    <include name="Controls/FindPanel.cs" />
+    <include name="Controls/LineControl.cs" />
+    <include name="Controls/NewJournalArchiveAccountSettings.cs" />
+    <include name="Controls/NewJournalArchiveFinish.cs" />
+    <include name="Controls/NewJournalArchiveIntroPage.cs" />
+    <include name="Dialogs/About.cs" />
+    <include name="Dialogs/ExpectedError.cs" />
+    <include name="Dialogs/Export.cs" />
+    <include name="Dialogs/GeneralError.cs" />
+    <include name="Dialogs/Options.cs" />
+    <include name="Dialogs/Properties.cs" />
+    <include name="Html/HtmlControl.cs" />
+    <include name="Html/HtmlElement.cs" />
+    <include name="Html/HtmlSite.cs" />
+    <include name="Html/NativeMethods.cs" />
+    <include name="Utils/Busy.cs" />
+    <include name="Utils/Localizer.cs" />
+    <include name="Utils/TemplateCollection.cs" />
+    <include name="Utils/UpdateChecker.cs" />
+  </fileset>
+  
+  <resourcefileset id="resources-in" dynamicprefix="true" prefix="EF.ljArchive.WindowsForms">
+    <include name="Explorer.resx" />
+    <include name="Controls/CalendarPanel.resx" />
+    <include name="Controls/CommandBarManager.resx" />
+    <include name="Controls/FindPanel.resx" />
+    <include name="Controls/NewJournalArchiveAccountSettings.resx" />
+    <include name="Controls/NewJournalArchiveFinish.resx" />
+    <include name="Controls/NewJournalArchiveIntroPage.resx" />
+    <include name="Dialogs/About.resx" />
+    <include name="Dialogs/ExpectedError.resx" />
+    <include name="Dialogs/Export.resx" />
+    <include name="Dialogs/GeneralError.resx" />
+    <include name="Dialogs/Options.resx" />
+    <include name="Dialogs/Properties.resx" />
+    <include name="res/Strings.fr-FR.resx" />
+    <include name="res/Strings.resx" />
+  </resourcefileset>  
+  
+  <resourcefileset id="resources-out">
+    <include name="obj/EF.ljArchive.WindowsForms.Explorer.resources" />
+    <include name="obj/EF.ljArchive.WindowsForms.Controls.CalendarPanel.resources" />
+    <include name="obj/EF.ljArchive.WindowsForms.Controls.CommandBarManager.resources" />
+    <include name="obj/EF.ljArchive.WindowsForms.Controls.FindPanel.resources" />
+    <include name="obj/EF.ljArchive.WindowsForms.Controls.NewJournalArchiveAccountSettings.resources" />
+    <include name="obj/EF.ljArchive.WindowsForms.Controls.NewJournalArchiveFinish.resources" />
+    <include name="obj/EF.ljArchive.WindowsForms.Controls.NewJournalArchiveIntroPage.resources" />
+    <include name="obj/EF.ljArchive.WindowsForms.Dialogs.About.resources" />
+    <include name="obj/EF.ljArchive.WindowsForms.Dialogs.ExpectedError.resources" />
+    <include name="obj/EF.ljArchive.WindowsForms.Dialogs.Export.resources" />
+    <include name="obj/EF.ljArchive.WindowsForms.Dialogs.GeneralError.resources" />
+    <include name="obj/EF.ljArchive.WindowsForms.Dialogs.Options.resources" />
+    <include name="obj/EF.ljArchive.WindowsForms.Dialogs.Properties.resources" />
+    <include name="obj/EF.ljArchive.WindowsForms.res.Strings.fr-FR.resources" />
+    <include name="obj/EF.ljArchive.WindowsForms.res.Strings.resources" />
+  </resourcefileset>
+  
+  <resourcefileset id="resources" dynamicprefix="true" prefix="EF.ljArchive.WindowsForms">
+    <include name="res/Glyphs16.png" />
+    <include name="res/IconDeleted.png" />
+    <include name="res/IconPrivate.png" />
+    <include name="res/IconProtected.png" />
+  </resourcefileset>
+  
+  <!-- ========== Targets ========== -->
+
+  <target name="setup">
+    <mkdir dir="${build.dir}" />
+  </target>
+
+  <target name="build" depends="setup">
+    <resgen todir="obj">
+      <resources refid="resources-in" />
+    </resgen>
+    <csc target="winexe" output="${output}" main="${main}" win32icon="${win32icon}" verbose="${verbose}" debug="${debug}" define="${define}" warninglevel="${warninglevel}" doc="${docfile}" optimize="${optimize}" if="${doc}">
+      <sources refid="sources" />
+      <references refid="references" />
+      <resources refid="resources-out" />
+      <resources refid="resources" />
+    </csc>
+    <csc target="winexe" output="${output}" main="${main}" win32icon="${win32icon}" verbose="${verbose}" debug="${debug}" define="${define}" warninglevel="${warninglevel}" optimize="${optimize}" unless="${doc}">
+      <sources refid="sources" />
+      <references refid="references" />
+      <resources refid="resources-out" />
+      <resources refid="resources" />
+    </csc>
+    <copy todir="${build.dir}" flatten="true">
+      <fileset refid="lib.references" />
+    </copy>
+  </target>
+  
+  <target name="clean">
+    <delete>
+      <fileset>
+    <include name="bin/**" />
+    <include name="obj/**" />
+    <include name="doc/**" />
+      </fileset>
+    </delete>
+  </target>
+</project>

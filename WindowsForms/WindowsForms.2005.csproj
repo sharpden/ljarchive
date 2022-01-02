@@ -1,0 +1,169 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{305F95F0-8CC9-4ECD-B89A-6A7F55C6ED19}</ProjectGuid>
+    <RootNamespace>EF.ljArchive.WindowsForms</RootNamespace>
+    <AssemblyName>ljArchive</AssemblyName>
+    <OutputType>WinExe</OutputType>
+    <ApplicationIcon>res\App.ico</ApplicationIcon>
+    <RunPostBuildEvent>OnSuccessfulBuild</RunPostBuildEvent>
+    <StartupObject>EF.ljArchive.WindowsForms.EntryPoint</StartupObject>
+    <NoConfig>false</NoConfig>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <NoStdLib>false</NoStdLib>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>false</Optimize>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugType>Full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <NoStdLib>false</NoStdLib>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>true</Optimize>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugType>None</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Doc|AnyCPU' ">
+    <NoStdLib>false</NoStdLib>
+    <WarningLevel>4</WarningLevel>
+    <Optimize>true</Optimize>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+    <OutputPath>..\bin\Doc\</OutputPath>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugType>None</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <HintPath>C:\WINNT\Microsoft.NET\Framework\v1.1.4322\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>C:\WINNT\Microsoft.NET\Framework\v1.1.4322\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <HintPath>C:\WINNT\Microsoft.NET\Framework\v1.1.4322\System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>C:\WINNT\Microsoft.NET\Framework\v1.1.4322\System.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>C:\WINNT\Microsoft.NET\Framework\v1.1.4322\System.XML.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Design">
+      <HintPath>C:\WINNT\Microsoft.NET\Framework\v1.1.4322\System.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="CommandBar">
+      <HintPath>..\lib\CommandBar.dll</HintPath>
+    </Reference>
+    <Reference Include="GenghisLocal">
+      <HintPath>..\lib\GenghisLocal.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="EntryPoint.cs" />
+    <Compile Include="Explorer.cs" />
+    <EmbeddedResource Include="Explorer.resx">
+      <DependentUpon>Explorer.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Controls\CalendarPanel.cs" />
+    <EmbeddedResource Include="Controls\CalendarPanel.resx">
+      <DependentUpon>CalendarPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Controls\CommandBarManager.cs" />
+    <EmbeddedResource Include="Controls\CommandBarManager.resx">
+      <DependentUpon>CommandBarManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Controls\DataGridImageColumn.cs" />
+    <Compile Include="Controls\DataGridList.cs" />
+    <Compile Include="Controls\DataGridTextViewColumn.cs" />
+    <Compile Include="Controls\FindPanel.cs" />
+    <EmbeddedResource Include="Controls\FindPanel.resx">
+      <DependentUpon>FindPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Controls\LineControl.cs" />
+    <Compile Include="Controls\NewJournalArchiveAccountSettings.cs" />
+    <EmbeddedResource Include="Controls\NewJournalArchiveAccountSettings.resx">
+      <DependentUpon>NewJournalArchiveAccountSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Controls\NewJournalArchiveFinish.cs" />
+    <EmbeddedResource Include="Controls\NewJournalArchiveFinish.resx">
+      <DependentUpon>NewJournalArchiveFinish.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Controls\NewJournalArchiveIntroPage.cs" />
+    <EmbeddedResource Include="Controls\NewJournalArchiveIntroPage.resx">
+      <DependentUpon>NewJournalArchiveIntroPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Dialogs\About.cs" />
+    <EmbeddedResource Include="Dialogs\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Dialogs\ExpectedError.cs" />
+    <EmbeddedResource Include="Dialogs\ExpectedError.resx">
+      <DependentUpon>ExpectedError.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Dialogs\Export.cs" />
+    <EmbeddedResource Include="Dialogs\Export.resx">
+      <DependentUpon>Export.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Dialogs\GeneralError.cs" />
+    <EmbeddedResource Include="Dialogs\GeneralError.resx">
+      <DependentUpon>GeneralError.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Dialogs\Options.cs" />
+    <EmbeddedResource Include="Dialogs\Options.resx">
+      <DependentUpon>Options.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Dialogs\Properties.cs" />
+    <EmbeddedResource Include="Dialogs\Properties.resx">
+      <DependentUpon>Properties.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Html\HtmlControl.cs" />
+    <Compile Include="Html\HtmlElement.cs" />
+    <Compile Include="Html\HtmlSite.cs" />
+    <Compile Include="Html\NativeMethods.cs" />
+    <EmbeddedResource Include="res\Glyphs16.png" />
+    <EmbeddedResource Include="res\IconDeleted.png" />
+    <EmbeddedResource Include="res\IconPrivate.png" />
+    <EmbeddedResource Include="res\IconProtected.png" />
+    <EmbeddedResource Include="res\Strings.fr-FR.resx" />
+    <EmbeddedResource Include="res\Strings.resx" />
+    <Compile Include="Utils\Busy.cs" />
+    <Compile Include="Utils\Localizer.cs" />
+    <Compile Include="Utils\TemplateCollection.cs" />
+    <Compile Include="Utils\UpdateChecker.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Documents and Settings\ERIK FREY\My Documents\code\ljArchive\Common\Common.2005.csproj">
+      <Project>{4685249B-BEB1-4443-8CF2-ED9EC71A1FFA}</Project>
+      <Name>Common</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="C:\Documents and Settings\ERIK FREY\My Documents\code\ljArchive\Engine\Engine.2005.csproj">
+      <Project>{0E0F2AE6-4AD3-44E0-AA37-FDF91ECC27C6}</Project>
+      <Name>Engine</Name>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+</Project>

@@ -1,0 +1,385 @@
+<!--
+
+  Unearthed ljArchive Template
+  An adaptation of the 'Unearthed' style from http://www.livejournal.com/ 
+
+-->
+
+<!--
+  This is the Page Header section.
+
+  It always gets printed once at the beginning of a page build.
+-->
+<% SECTIONPAGEHEADER %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title><% UseJournal %><% !!UseJournal %><% FullName %><% /!!UseJournal %></title>
+<style type="text/css">
+body {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    background-color: #<% PageBackgroundColor %>;
+    color: #<% PageTextColor %>;
+
+    font-family: "Georgia", serif;
+
+}
+#Content {
+    background-color: #<% PageBackgroundColor %>;
+    width: 90%;
+    padding: 0;
+
+    margin-right: 5%;
+    margin-left: 5%
+
+}
+#Title {
+    color: #<% PageTextColor %>;
+    background-color: #<% PageAlternateBackgroundColor %>;
+
+    background-image: url("<% ServerURL %>/palimg/textures/marble.png/pt<% PageAlternateBackgroundColor %>");
+
+}
+
+
+#GlobalTitle { 
+    width: 80%;
+    margin-left: 20%;
+    font-size: 3em; 
+    margin-bottom: 0; 
+    margin-top: 0; 
+}
+#GlobalSubtitle { 
+    width: 75%; 
+    margin-left: 25%; 
+    font-size: .80em; 
+    margin-top: 2px; 
+    margin-bottom: 0; 
+    font-style: italic; 
+}
+.overflow, .BoxContent { 
+    overflow: auto;
+}
+#Header { 
+
+    font-family: "Trebuchet MS", sans-serif;
+
+    width: 100%; 
+    background-color: #6699cc; 
+    color: #000000; 
+    margin-bottom: 10px; 
+}
+.Box  { 
+
+    font-family: "Georgia", sans-serif;
+
+    background-color: #<% EntryBackgroundColor %>;
+    color: #<% EntryTextColor %>;
+    width: 100%; 
+}
+.BoxContents {
+    background-color: #<% EntryBackgroundColor %>;
+    color: #<% EntryTextColor %>;
+    width: 100%;
+}
+.DropShadow { 
+    margin-bottom: 10px 
+}
+.BoxSideBar { 
+    width: 175px; 
+    height: 100%; 
+    background-color: #<% EntryFooterBackgroundColor %>; 
+    color: #<% EntryFooterTextColor %>; 
+}
+
+
+.BoxSideBar table { 
+    width: 175px; 
+    height: 100%;
+}
+.BoxSidebar table a {
+    background-color: #<% EntryFooterBackgroundColor %>;
+    color: #<% PageLinkColor %>;
+}
+.BoxSidebar table a:visited {
+    background-color: #<% EntryFooterBackgroundColor %>;
+    color: #<% PageLinkVisitedColor %>;
+}
+.BoxSideBar table th { 
+    background-color: #<% EntryFooterBackgroundColor %>; 
+    color: #<% EntryFooterTextColor %>;
+}
+.BoxSideBarContents { 
+    height: 100%; 
+    padding: 5px; 
+}
+.BoxTitle { 
+    text-align: left; 
+    background-color: #<% EntryHeaderBackgroundColor %>;
+    color: #<% EntryHeaderTextColor %>;
+    padding: 5px; 
+}
+.BoxContents { 
+    padding: 5px; 
+}
+
+
+.HeaderNavMenu { 
+    background: #<% EntryFooterBackgroundColor %> url("<% ServerURL %>/palimg/shadow/t.gif/pt<% PageAlternateBackgroundColor %><% EntryFooterBackgroundColor %>") top center repeat-x; 
+    width: 100%; 
+    background-color: #<% EntryFooterBackgroundColor %>; 
+    margin: 0; 
+    padding-left: 0; 
+    padding-top: 5px;
+}
+.HeaderNavSubMenu { 
+    width: 100%; 
+    background-color: #<% EntryHeaderBackgroundColor %>;
+    margin: 0; 
+    padding-left: 20px; 
+}
+.HeaderNavMenu li, .HeaderNavSubMenu li { 
+    margin-right: 10px; 
+    display: inline; 
+    padding-left: 5px; 
+    padding-right: 5px; 
+    padding-top: 5px;
+}
+
+
+.HeaderNavMenuFirst {
+    margin-left: 50px; 
+    padding: 0; 
+    visibility: hidden; 
+}
+
+.CommentBarOne, .CommentBarTwo, .CommentBarScreened
+{
+    width: 100%; margin-top: 1em; height: 100%;
+}
+.CommentBarOne
+{
+    background-color: #dddddd;
+    color: #000000;
+}
+
+.CommentBarScreened
+{
+    background-color: #f1f1f1;
+    color: #000000;
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<table id="Header" cellpadding='0' cellspacing='0'>
+  <tr>
+    <td>
+      <div id="Title"><h1 id="GlobalTitle"><% UseJournal %><% !!UseJournal %><% FullName %><% /!!UseJournal %></h1></div>
+      <ul class="HeaderNavMenu">
+        <li class="HeaderNavMenuFirst">&nbsp;</li>
+      </ul>
+      <ul class="HeaderNavSubMenu">
+        <li class="HeaderNavMenuFirst">&nbsp;</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td><img src='<% ServerURL %>/palimg/shadow/b.gif/pt<% PageBackgroundColor %>000000'style='width: 100%; height: 10px;' /></td>
+  </tr>
+</table>
+
+<div id="Content">
+<% /SECTIONPAGEHEADER %>
+
+
+<!--
+  This is the Entry section.
+
+  It gets printed once per journal entry that the user is exporting.
+
+  There are specific ljArchive tags that apply to this section only.
+
+  A list of those tags is available in the documentation.
+-->
+<% SECTIONENTRY %>
+<table border="0" cellspacing="0" cellpadding="0" style="width: 95%; height: ; " class="DropShadow">
+  <tr>
+    <td style='width: 100%' colspan='2'>
+      <table class="Box" cellpadding="0" cellspacing="0">
+        <tr>
+          <th class="BoxTitle" colspan="2">
+            <span style="float: right"><% Date %></span>
+<% !SecurityIconpath %>
+            <img src="<% ServerURL %><% SecurityIconpath %>">
+<% /!SecurityIconpath %>
+            <% Subject %>
+          </th>
+        </tr>
+        <tr valign="top">
+          <td class="BoxContents">
+            <div class="currents">
+              <% !CurrentMood %><strong>Current Mood:</strong> <% CurrentMood %><br /><% /!CurrentMood %>
+              <% !CurrentMusic %><strong>Current Music:</strong> <% CurrentMusic %><br /><% /!CurrentMusic %>
+              <% !TagList %><strong>Tags:</strong> <% TagList %><br /><% /!TagList %>
+              <% !CurrentMood %>&nbsp;<% /!CurrentMood %><% !CurrentMusic %>&nbsp;<% /!CurrentMusic %><% !TagList %>&nbsp;<% /!TagList %>
+            </div>
+            <% Body %>
+          </td>
+          <td class="BoxSideBar">
+            <table cellpadding="0" cellspacing="0">
+              <tr><th>About this Entry</th></tr>
+              <tr valign="top">
+                <td class="BoxSideBarContents">
+<% !UserPicURL %>
+                  <table border="0" cellspacing="0" cellpadding="0" style="width: 100px; height: 100px; margin-left: 37px; margin-right: 37px;" class="DropShadow">
+                    <tr>
+                      <td style='width: 100%' colspan='2'>
+                        <% !UserPicURL %><img src="<% UserPicURL %>" alt='' height="100" width="100" /><% /!UserPicURL %>
+                      </td>
+                      <td style='text-align: right; background-image: url(<% ServerURL %>/palimg/shadow/r.gif/pt<% EntryFooterBackgroundColor %>000000)' valign='top'><img src='<% ServerURL %>/palimg/shadow/bottomright/tr.gif/pt<% EntryFooterBackgroundColor %>000000' border='0' width='10' height='10' alt='' /></td>
+                    </tr>
+                    <tr>
+                      <td style='width: 10px'><img src='<% ServerURL %>/palimg/shadow/bottomright/bl.gif/pt<% EntryFooterBackgroundColor %>000000' border='0' width='10' height='10' alt='' /></td>
+                      <td style='width: 100%; height: 10px; background-image: url(<% ServerURL %>/palimg/shadow/b.gif/pt<% EntryFooterBackgroundColor %>000000);'></td>
+                      <td style='width: 10px'><img src='<% ServerURL %>/palimg/shadow/bottomright/br.gif/pt<% EntryFooterBackgroundColor %>000000' border='0' width='10' height='10' alt='' /></td>
+                    </tr>
+                  </table>
+<% /!UserPicURL %>
+<p style="text-align: center"><a href="<% ServerURL %>/userinfo.bml?user=<% PosterUserName %>"><img src="<% ServerURL %><% UserInfoIconPath %>" alt="[info]" width="17" height="17" style="vertical-align: bottom; border: 0;" /></a><a href="<% ServerURL %>/users/<% PosterUserName %>"><b><% PosterUserName %></b></a></p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td style='text-align: right; background-image: url(<% ServerURL %>/palimg/shadow/r.gif/pt<% PageBackgroundColor %>000000)' valign='top'><img src='<% ServerURL %>/palimg/shadow/bottomright/tr.gif/pt<% PageBackgroundColor %>000000' border='0' width='10' height='10' alt='' /></td>
+  </tr>
+  <tr>
+    <td style='width: 10px'><img src='<% ServerURL %>/palimg/shadow/bottomright/bl.gif/pt<% PageBackgroundColor %>000000' border='0' width='10' height='10' alt='' /></td>
+    <td style='width: 100%; height: 10px; background-image: url(<% ServerURL %>/palimg/shadow/b.gif/pt<% PageBackgroundColor %>000000);'></td>
+    <td style='width: 10px'><img src='<% ServerURL %>/palimg/shadow/bottomright/br.gif/pt<% PageBackgroundColor %>000000' border='0' width='10' height='10' alt='' /></td>
+  </tr>
+</table>
+<% /SECTIONENTRY %>
+
+
+
+
+<!--
+  This is the Comments Header section.
+
+  This section only gets printed if comments exist for the associated entry.
+
+  If comments exist, it"s printed once at the beginning of the comment block.
+
+  Otherwise, this section is ignored completely.
+-->
+<% SECTIONCOMMENTSHEADER %>
+
+
+<table border="0" cellspacing="0" cellpadding="0" style="width: 95%; height: ; " class="DropShadow">
+  <tr>
+    <td style='width: 100%' colspan='2'>
+      <div style="background-color: #<% EntryBackgroundColor %>; padding: 5px;">
+<% /SECTIONCOMMENTSHEADER %>
+
+
+
+<!--
+  This is the Comments section.
+
+  It gets printed once per journal comment that the user is exporting.
+
+  There are specific ljArchive tags that apply to this section only.
+
+  A list of those tags is available in the documentation.
+-->
+<% SECTIONCOMMENT %>
+        <div style='margin-left: <% SpacerWidth %>px; margin-top: 5px'>
+          <a name="t<% ID %>"></a>
+          <div class="CommentBarOne">
+            <table cellpadding="2" cellspacing="0" style="width: 100%" bgcolor="#<% CommentBackgroundColor %>">
+              <tr valign="top">
+                <!-- user pic -->
+                <td style="width: 100%">
+                  <table style="width: 100%">
+                    <tr>
+                      <td align="left" valign="top" style="width: 50%">
+                        <table>
+                          <tr>
+                            <th align="right">From:</th>
+                            <td>
+<% !NonAnonymous %>
+                              <span class='ljuser' style='white-space:nowrap;'>
+                                <a href='<% ServerURL %>/userinfo.bml?user=<% PosterUserName %>'><img src='<% ServerURL %><% UserInfoIconPath %>' alt='[info]' width='17' height='17' style='vertical-align:bottom;border:0;' /></a><a href='<% ServerURL %>/users/<% PosterUserName %>/'><b><% PosterUserName %></b></a>
+                              </span>
+<% /!NonAnonymous %>
+<% !Anonymous %>
+                              <i>(Anonymous)</i>
+<% /!Anonymous %>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th align="right">Date:</th><td style="white-space: nowrap"><% Date %></td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td align="left" valign="top" style="width: 50%"></td>
+                    </tr>
+                    <tr>
+                      <td style="width: 50%" valign="top">
+<% !Subject %>
+                        <h3 style="display: inline"> <% Subject %></h3>
+<% /!Subject %>
+                      </td>
+                      <td style="width: 50%" align="right" valign="top">
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div style="margin-left: 5px; height: 100%; color: #<% CommentTextColor %>;"><% Body %></div>
+        </div>
+<% /SECTIONCOMMENT %>
+
+
+
+<!--
+  This is the Comments Footer section.
+
+  This section only gets printed if comments exist for the associated entry.
+
+  If comments exist, it"s printed once at the end of the comment block.
+
+  Otherwise, this section is ignored completely.
+-->
+<% SECTIONCOMMENTSFOOTER %>
+      </div>
+    </td>
+    <td style='text-align: right; background-image: url(<% ServerURL %>/palimg/shadow/r.gif/pt<% PageBackgroundColor %>000000)' valign='top'><img src='<% ServerURL %>/palimg/shadow/bottomright/tr.gif/pt<% PageBackgroundColor %>000000' border='0' width='10' height='10' alt='' /></td>
+  </tr>
+  <tr>
+    <td style='width: 10px'><img src='<% ServerURL %>/palimg/shadow/bottomright/bl.gif/pt<% PageBackgroundColor %>000000' border='0' width='10' height='10' alt='' /></td>
+    <td style='width: 100%; height: 10px; background-image: url(<% ServerURL %>/palimg/shadow/b.gif/pt<% PageBackgroundColor %>000000);'></td>
+    <td style='width: 10px'><img src='<% ServerURL %>/palimg/shadow/bottomright/br.gif/pt<% PageBackgroundColor %>000000' border='0' width='10' height='10' alt='' /></td>
+  </tr>
+</table>
+<% /SECTIONCOMMENTSFOOTER %>
+
+
+<!--
+  This is the Page Footer section.
+
+  It always gets printed once at the end of a page build.
+-->
+<% SECTIONPAGEFOOTER %>
+</div>
+</body>
+</html>
+<% /SECTIONPAGEFOOTER %>

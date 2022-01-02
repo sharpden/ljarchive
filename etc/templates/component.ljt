@@ -1,0 +1,596 @@
+<!--
+
+  Component ljArchive Template
+  An adaptation of the 'Component' style from http://www.livejournal.com/ 
+
+-->
+
+
+
+<% SECTIONPAGEHEADER %>
+<!DOCTYPE html 
+    	 PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<style type="text/css">
+		body {
+			background-color: #<% PageBackgroundColor %>;
+			background-image: url("<% ServerURL %>/palimg/component/bg.gif/p0<% PageAlternateBackgroundColor %>");
+			background-repeat: repeat;
+			background-position: center;
+			background-attachment: scroll;
+		
+			margin-top: 0px; margin-left: 0px;
+			margin-right: 0px;
+			font-family: Tahoma, sans-serif;
+			font-size: 12px;
+			color: #232f6d;
+		}
+		
+		td, tr {
+			font-family: Tahoma, sans-serif;
+			font-size: 12px;
+			color: #232f6d;
+			line-height: 22px;
+		}
+		
+		a {
+			color: #2d3679;
+			text-decoration: none;
+		}
+		
+		a:visited {
+			color: #555555;
+		}
+		
+		a:hover { text-decoration: underline;}
+		
+		.subject { font-weight: bold; }
+		.small { margin-top: 3px;}
+	
+	
+		.userTitle {
+			font-size: 20px;
+			text-weight: bolder;
+			line-height: 17px;
+		}
+		
+		.userSubTitle { 
+			font-size: 13px;
+			color: #000078;
+			line-height: 22px;
+		}
+		
+		.header-item {
+			padding-left: 15px;
+			position: relative;
+			top: 5px;
+		}
+		
+		.dkLine { background-color: #666666; }
+		.ltLine { background-color: #bbbbbb; }
+		.medLine { background-color: #999999; }
+		.divLine { background-color: #000000; }
+		.tabBg { background-color: #<% EntryHeaderBackgroundColor %>; color: #<% EntryHeaderTextColor %>;}
+		
+		.entryDate {
+			font-size: 12px;
+		}
+		
+		.entryHolderBg {
+			background-color: #<% EntryFooterBackgroundColor %>;
+			color: #<% EntryFooterTextColor %>;
+			padding-top: 7px;
+			padding-right: 7px;
+			padding-left: 7px;
+			padding-bottom: 7px;
+		}
+		
+		.entry {
+			padding-top: 7px;
+			padding-right: 7px;
+			padding-left: 7px;
+			padding-bottom: 7px;
+			background-color: #<% EntryBackgroundColor %>;
+			font-size: 13px;
+			color: #<% EntryTextColor %>;
+		}
+		
+		.entryHeader {
+			font-size: 13px;
+			font-weight: bold;
+		}
+		
+		.entryComments {
+			font-size: 12px;
+			margin-top: 8px;
+			margin-left: 8px;
+			color: #232f6d;
+		}
+		
+		.entryDash {
+			background-color: #<% EntryTextColor %>;
+			width: 100%;
+			height: 1px;
+		}
+		
+		.sideHeader {
+			font-size: 12px;
+			color: #<% EntryHeaderTextColor %>;
+		}
+		
+		.comp { margin-bottom: 3px; }
+
+		.compBg { background-color: #<% EntryFooterBackgroundColor %>; }
+
+		.compContent {
+			padding-left: 6px;
+			padding-right: 6px;
+			padding-bottom: 6px;
+			padding-top: 3px;
+			line-height: 18px;
+			color: #<% EntryFooterTextColor %>;
+		}
+		
+		.compFont {
+			color: #<% EntryFooterBackgroundColor %>;
+		}
+
+		.compList {
+			line-height: 20px;
+			padding-left: 6px;
+		}
+		
+		.userPic { border-color: #8bc4ff; }
+		
+		.shortLine {
+			width: 20px;
+			background-color: #<% PageTextColor %>;
+			margin-bottom: 1px;
+		}
+		</style>
+		<title><% UseJournal %><% !!UseJournal %><% FullName %><% /!!UseJournal %></title>
+	</head>
+	<body marginwidth="0" marginheight="0" topmargin="0" leftmargin="0">
+		<div><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="3"
+				alt="" border="0" /></div>
+		<table cellspacing="0" cellpadding="0" border="0" width="100%">
+			<tr>
+				<td><img src="<% ServerURL %>/palimg/component/clear.gif" width="3" height="1"
+						alt="" border="0" /></td>
+				<!-- USER HEADER -->
+				<td valign="top" width="99%">
+					<table cellspacing="0" cellpadding="0" border="0" width="100%">
+						<tr>
+							<td valign="top" rowspan="3" colspan="3" width="5"><img src="<% ServerURL %>/palimg/component/curve-top-left.gif/p0bbbbbb16666662<% EntryHeaderBackgroundColor %>"
+									width="5" height="5" alt="" border="0" /></td>
+							<td class="dkLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+							<td valign="top" rowspan="3" colspan="3" width="5"><img src="<% ServerURL %>/palimg/component/curve-top-right.gif/p0bbbbbb16666662<% EntryHeaderBackgroundColor %>"
+									width="5" height="5" alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td class="ltLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td class="tabBg"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="3"
+									alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td class="dkLine" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+							<td class="ltLine" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+							<td class="tabBg" width="3"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="3"
+									alt="" border="0" /></td>
+							<td class="tabBg" width="100%"><!-- HEADER CONTENT -->
+								<div class="userTitle">
+<% !!UseJournal %>
+									<% FullName %>
+<% /!!UseJournal %>
+<% !UseJournal %>
+									<% UseJournal %>
+<% /!UseJournal %>
+								</div>
+							</td>
+							<td class="tabBg" width="3"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="3"
+									alt="" border="0" /></td>
+							<td class="ltLine" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+							<td class="dkLine" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td valign="top" rowspan="3" colspan="3" width="5"><img src="<% ServerURL %>/palimg/component/curve-bottom-left.gif/p0bbbbbb16666662<% EntryHeaderBackgroundColor %>"
+									width="5" height="5" alt="" border="0" /></td>
+							<td class="tabBg"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="3"
+									alt="" border="0" /></td>
+							<td valign="top" rowspan="3" colspan="3" width="5"><img src="<% ServerURL %>/palimg/component/curve-bottom-right.gif/p0bbbbbb16666662<% EntryHeaderBackgroundColor %>"
+									width="5" height="5" alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td class="ltLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td class="dkLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+					</table>
+<% /SECTIONPAGEHEADER %>
+
+
+
+
+
+<% SECTIONENTRY %>
+					<div><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="4"
+							alt="" border="0" /></div>
+					<table cellspacing="0" cellpadding="0" border="0" width="100%">
+						<tr>
+							<td valign="top" rowspan="3" colspan="3" width="5"><!--HERE --><img src="<% ServerURL %>/palimg/component/curve-top-left.gif/p0bbbbbb16666662<% EntryHeaderBackgroundColor %>"
+									width="5" height="5" alt="" border="0" /></td>
+							<td class="dkLine" colspan="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+							<td valign="top" rowspan="3" colspan="3" width="5"><img src="<% ServerURL %>/palimg/component/curve-top-right.gif/p0bbbbbb16666662<% EntryHeaderBackgroundColor %>"
+									width="5" height="5" alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td class="ltLine" colspan="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td></tr>
+						<tr>
+							<td class="tabBg" colspan="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="3"
+									alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td class="dkLine" width="1" rowspan="3"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+							<td class="ltLine" width="1" rowspan="2"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+							<td class="tabBg" width="3"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="3"
+									alt="" border="0" /></td>
+							<td class="tabBg" width="100%"><!-- HEADER CONTENT -->
+								<div class="entryDate">
+									<% Date %>
+								</div>
+							</td>
+							<td class="tabBg" width="3"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="3"
+									alt="" border="0" /></td>
+							<td class="ltLine" width="1" rowspan="2"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+							<td class="dkLine" width="1" rowspan="3"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td class="medLine" colspan="4"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td class="dkLine" colspan="5"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+					</table>
+					<table cellspacing="0" cellpadding="0" border="0" width="100%">
+						<tr>
+							<td class="dkLine" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+							<td valign="top" class="entryHolderBg"><% !UserPicURL %><div align="center"><a href="<% ServerURL %>/users/<% UserName %>/"><img border="1" src="<% UserPicURL %>"
+											alt="<% UserName %>" class="userpic" /></a></div><% /!UserPicURL %>
+								<span class='ljuser' style='white-space:nowrap;'>
+									<a href='<% ServerURL %>/userinfo.bml?user=<% PosterUserName %>'><img src='<% ServerURL %><% UserInfoIconPath %>' alt='[info]' width='17' height='17'
+											style='vertical-align:bottom;border:0;' /></a><a href='<% ServerURL %>/users/<% PosterUserName %>/'><b><% PosterUserName %></b></a></span>
+							</td>
+							<td class="entryHolderBg" width="100%" valign="top">
+								<table cellspacing="0" cellpadding="0" border="0" width="100%">
+									<tr>
+										<td width="1" class="medLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+												alt="" border="0" /></td>
+										<td class="medLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+												alt="" border="0" /></td>
+										<td width="1" class="medLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+												alt="" border="0" /></td>
+									</tr>
+									<tr>
+										<td width="1" class="medLine"><% !Subject %><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+												alt="" border="0" /><% /!Subject %></td>
+										<td class="entry">
+											<div class="entryHeader">
+<% !SecurityIconpath %>
+                                                                        <img src="<% ServerURL %><% SecurityIconpath %>">
+<% /!SecurityIconpath %>
+                                                                                        <% Subject %></div>
+											<% !Subject %><div class="entryDash"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+													alt="" border="0" /></div><% /!Subject %>
+										</td>
+										<td width="1" class="medLine"><% !Subject %><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+												alt="" border="0" /><% /!Subject %></td>
+									</tr>
+									<tr>
+										<td width="1" class="medLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+												alt="" border="0" /></td>
+										<td class="entry">
+											<div>
+												<% Body %>
+												<p><% !CurrentMood %><strong>Current Mood:</strong> 
+													<% CurrentMood %> <br /><% /!CurrentMood %>
+												   <% !CurrentMusic %><strong>Current Music:</strong> 
+													<% CurrentMusic %> <br /><% /!CurrentMusic %>
+												   <% !TagList %><strong>Tags:</strong> 
+													<% TagList %> <br /><% /!TagList %>
+												</p>
+											</div>
+										</td>
+										<td width="1" class="medLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+												alt="" border="0" /></td>
+									</tr>
+									<tr>
+										<td width="1" class="medLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+												alt="" border="0" /></td>
+										<td class="medLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+												alt="" border="0" /></td>
+										<td width="1" class="medLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+												alt="" border="0" /></td>
+									</tr>
+								</table>
+								<div class="entryComments">&nbsp;
+								</div>
+							</td>
+							<td class="dkLine" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td colspan="5" class="dkLine" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+					</table>
+					<div><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="3"
+							alt="" border="0" /></div>
+<% /SECTIONENTRY %>
+
+
+
+
+<% SECTIONCOMMENTSHEADER %>
+					<table cellspacing="0" cellpadding="0" border="0">
+						<tr>
+							<td colspan="3" class="dkLine" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td class="dkLine" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+							<td class="entryHolderBg" width="100%"><b>Comments</b>
+							</td>
+							<td class="dkLine" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td colspan="3" class="dkLine" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+					</table>
+					</div><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="3"
+						alt="" border="0" /></div>
+<% /SECTIONCOMMENTSHEADER %>
+
+
+
+
+
+<% SECTIONCOMMENT %>
+					<a name="t<% ID %>"></a>
+					<table cellspacing="0" cellpadding="0" border="0" width="100%" ID="Table1">
+						<tr>
+							<td><img src="<% ServerURL %>/palimg/component/clear.gif" width="<% SpacerWidth %>" height="1"></td>
+							<td width="100%">
+								<table cellspacing="0" cellpadding="0" border="0" width="100%" ID="Table2">
+									<tr>
+										<td width="1" class="medLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+												alt="" border="0" /></td>
+										<td class="medLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+												alt="" border="0" /></td>
+										<td width="1" class="medLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+												alt="" border="0" /></td>
+									</tr>
+									<tr>
+										<td width="1" class="medLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+												alt="" border="0" /></td>
+										<td class="entry">
+											<div style="background-color: #84b5d2; color: #232f6d; margin-top: 10px;">
+												<table cellpadding="2" cellspacing="0" summary="0" width="100%" bgcolor="#<% CommentBackgroundColor %>" ID="Table3">
+													<tr valign="top">
+														<td rowspan="2" align="center"></td>
+														<td align="left" style="white-space: nowrap"><strong>From:</strong>
+<% !NonAnonymous %>
+															<span class='ljuser' style='white-space:nowrap;'>
+																<a href='<% ServerURL %>/userinfo.bml?user=<% PosterUserName %>'><img src='<% ServerURL %><% UserInfoIconPath %>' alt='[info]' width='17' height='17'
+																		style='vertical-align:bottom;border:0;' /></a><a href='<% ServerURL %>/users/<% PosterUserName %>/'><b><% PosterUserName %></b></a></span>
+<% /!NonAnonymous %>
+<% !Anonymous %>
+															<i>(Anonymous)</i>
+<% /!Anonymous %>
+														</td>
+														<td align="left" style="white-space: nowrap"><strong>Date:</strong> <% Date %></td>
+														<td style='text-align: center;'>
+														<td align="right">&nbsp;</strong></td>
+													</tr>
+													<tr valign="top">
+														<td colspan="7" style="width: 95%"><% !Subject %><p class="subject"> <% Subject %></p><% /!Subject %></td>
+													</tr>
+												</table>
+											</div>
+											<div style="margin-left: 5px" style="color: #<% CommentTextColor %>"><% Body %>
+											</div>
+										</td>
+										<td width="1" class="medLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+												alt="" border="0" /></td>
+									</tr>
+									<tr>
+										<td width="1" class="medLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+												alt="" border="0" /></td>
+										<td class="medLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+												alt="" border="0" /></td>
+										<td width="1" class="medLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+												alt="" border="0" /></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<div><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="3"
+							alt="" border="0" /></div>
+<% /SECTIONCOMMENT %>
+
+
+
+
+
+<% SECTIONCOMMENTSFOOTER %>
+					<table cellspacing="0" cellpadding="0" border="0">
+						<tr>
+							<td colspan="3" class="dkLine" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td class="dkLine" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+							<td class="entryHolderBg" width="100%"><b> Comments</b>
+							</td>
+							<td class="dkLine" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td colspan="3" class="dkLine" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+					</table>
+					<div><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="3"
+							alt="" border="0" /></div>
+<% /SECTIONCOMMENTSFOOTER %>
+
+
+
+
+
+<% SECTIONPAGEFOOTER %>
+				</td>
+				<td><img src="<% ServerURL %>/palimg/component/clear.gif" width="3" height="1"
+						alt="" border="0" /></td>
+				<td valign="top" width="184">
+					<table cellspacing="0" cellpadding="0" border="0" width="184">
+						<tr>
+							<td valign="top" rowspan="3" colspan="3" width="5"><img src="<% ServerURL %>/palimg/component/curve-top-left.gif/p0bbbbbb16666662<% EntryHeaderBackgroundColor %>"
+									width="5" height="5" alt="" border="0" /></td>
+							<td class="dkLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+							<td valign="top" rowspan="3" colspan="3" width="5"><img src="<% ServerURL %>/palimg/component/curve-top-right.gif/p0bbbbbb16666662<% EntryHeaderBackgroundColor %>"
+									width="5" height="5" alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td class="ltLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td class="tabBg"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="3"
+									alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td class="dkLine" width="1" rowspan="3"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+							<td class="ltLine" width="1" rowspan="2"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+							<td class="tabBg" width="3"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="3"
+									alt="" border="0" /></td>
+							<td class="tabBg" width="100%"><div class="sideHeader">
+									profile
+								</div>
+							</td>
+							<td class="tabBg" width="3"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="3"
+									alt="" border="0" /></td>
+							<td class="ltLine" width="1" rowspan="2"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+							<td class="dkLine" width="1" rowspan="3"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td class="medLine" colspan="4"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td class="dkLine" colspan="5"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td class="dkLine" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+							<td class="compBg" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="3"
+									alt="" border="0" /></td>
+							<td class="compBg" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="3"
+									alt="" border="0" /></td>
+							<td class="compBg"><div class="compFont">
+									<table cellspacing="0" cellpadding="0" border="0">
+<% !DefaultPicURL %>
+										<tr>
+											<td width="50%" align="center">
+												<div class="shortLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+														alt="" border="0" /></div>
+												<div class="shortLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+														alt="" border="0" /></div>
+											</td>
+											<td align="center"><img src="<% DefaultPicURL %>" alt="<% UserName %>"
+													border="1" vspace="4" class="userpic" /></td>
+											<td width="50%" align="center">
+												<div class="shortLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+														alt="" border="0" /></div>
+												<div class="shortLine"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+														alt="" border="0" /></div>
+											</td>
+										</tr>
+<% /!DefaultPicURL %>
+										<tr>
+											<td colspan="3" class="compContent">
+<% !UseJournal %>
+												<div><b>Community:</b>
+													<span class='ljuser' style='white-space:nowrap;'>
+														<a href='<% ServerURL %>/userinfo.bml?user=<% UseJournal %>'><img src='<% ServerURL %><% CommunityInfoIconPath %>' alt='[info]' width='17' height='17'
+																style='vertical-align:bottom;border:0;' /></a><a href='<% ServerURL %>/community/<% UseJournal %>/'><b><% UseJournal %></b></a></span></div>
+<% /!UseJournal %>
+<% !!UseJournal %>
+												<div><b>User:</b>
+													<span class='ljuser' style='white-space:nowrap;'>
+														<a href='<% ServerURL %>/userinfo.bml?user=<% UserName %>'><img src='<% ServerURL %><% UserInfoIconPath %>' alt='[info]' width='17' height='17'
+																style='vertical-align:bottom;border:0;' /></a><a href='<% ServerURL %>/users/<% UserName %>/'><b><% UserName %></b></a></span></div>
+												<div><b>Name:</b> <% FullName %></div>
+<% /!!UseJournal %>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</td>
+							<td class="compBg" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="3"
+									alt="" border="0" /></td>
+							<td class="compBg" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="3"
+									alt="" border="0" /></td>
+							<td class="dkLine" width="1"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td class="dkLine" colspan="8"><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="1"
+									alt="" border="0" /></td>
+						</tr>
+						<tr>
+							<td><img src="<% ServerURL %>/palimg/component/clear.gif" width="1" height="3"
+									alt="" border="0" /></td>
+						</tr>
+					</table>
+				</td>
+				<td><img src="<% ServerURL %>/palimg/component/clear.gif" width="3" height="1"
+						alt="" border="0" /></td>
+			</tr>
+		</table>
+	</body>
+</html>
+<% /SECTIONPAGEFOOTER %>

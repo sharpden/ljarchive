@@ -1,0 +1,193 @@
+<!--
+
+  Simple ljArchive Template
+  A very basic template that you can use to make your own templates.
+  Think of it as a template template.
+
+-->
+
+
+
+
+<!--
+  This is the Page Header section.
+
+  It always gets printed once at the beginning of a page build.
+-->
+<% SECTIONPAGEHEADER %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
+      body
+      {
+        color:            #<% PageTextColor %>;
+        background-image: url('<% ServerURL %>/palimg/textures/type.png/pt<% PageBackgroundColor %><% PageAlternateBackgroundColor %>');#
+      }
+      a
+      {
+        color:            #<% PageLinkColor %>;
+      }
+      a:visited
+      {
+        color:            #<% PageVisitedLinkColor %>;
+      }
+      a:active
+      {
+        color:            #<% PageActiveLinkColor %>;
+      }
+      div
+      {
+        padding:          2px;
+      }
+      .entryHeader
+      {
+        color:            #<% EntryHeaderTextColor %>;
+        background-color: #<% EntryHeaderBackgroundColor %>;
+      }
+      .entry
+      {
+        color:            #<% EntryTextColor %>;
+        background-color: #<% EntryBackgroundColor %>;
+      }
+      .commentsblock
+      {
+        color:            #<% EntryFooterTextColor %>;
+        background-color: #<% EntryFooterBackgroundColor %>;
+      }      
+    </style>
+    <title><% UseJournal %><% !!UseJournal %><% FullName %><% /!!UseJournal %></title>
+  </head>
+  <body>
+<% !UseJournal %>
+  Here's the journal of the <% UseJournal %> community:<br />&nbsp;
+<% /!UseJournal %>
+<% !!UseJournal %>
+  Here's the journal of <% UserName %>, also known as <% FullName %>:<br />&nbsp;
+<% /!!UseJournal %>
+<% /SECTIONPAGEHEADER %>
+
+
+
+<!--
+  This is the Entry section.
+
+  It gets printed once per journal entry that the user is exporting.
+
+  There are specific ljArchive tags that apply to this section only.
+
+  A list of those tags is available in the documentation.
+-->
+<% SECTIONENTRY %>
+    <div class="entryHeader">
+<% !UserPicURL %>
+      <img src="<% UserPicURL %>" title="<% Picture_Keyword %>" alt="">
+      <br />
+<% /!UserPicURL %>
+<% !UseJournal %>
+      <b>Poster:</b> <% PosterUserName %>
+      <br />
+<% /!UseJournal %>
+<% !SecurityIconpath %>
+      <b>Security:</b> <img src="<% ServerURL %><% SecurityIconpath %>"> (<% Security %>)
+      <br />
+<% /!SecurityIconpath %>
+<% !CurrentMood %>
+        <b>Current Mood:</b> <% CurrentMood %>
+        <br />
+<% /!CurrentMood %>
+<% !CurrentMusic %>
+        <b>Current Mood:</b> <% CurrentMusic %>
+        <br />
+<% /!CurrentMusic %>
+<% !TagList %>
+        <b>Tags:</b> <% TagList %>
+        <br />
+<% /!TagList %>
+<% !Subject %>
+      <b>Subject:</b> <% Subject %>
+      <br />
+<% /!Subject %>
+      <b>Date:</b> <% Date %>
+      <br />
+    </div>
+    <div class="entry">
+      <% Body %>
+    </div>
+<% /SECTIONENTRY %>
+
+
+
+<!--
+  This is the Comments Header section.
+
+  This section only gets printed if comments exist for the associated entry.
+
+  If comments exist, it"s printed once at the beginning of the comment block.
+
+  Otherwise, this section is ignored completely.
+-->
+<% SECTIONCOMMENTSHEADER %>
+    <div class="commentsblock">Here's some comments:</div>
+<% /SECTIONCOMMENTSHEADER %>
+
+
+
+
+<!--
+  This is the Comments section.
+
+  It gets printed once per journal comment that the user is exporting.
+
+  There are specific ljArchive tags that apply to this section only.
+
+  A list of those tags is available in the documentation.
+-->
+<% SECTIONCOMMENT %>
+    <div style="background-color: #<% CommentBackgroundColor %>; color: #<% CommentTextColor %>; margin-left: <% SpacerWidth %>px;">
+      <a name="t<% ID %>" ></a>
+      <b>From:</b> <% !NonAnonymous %><% PosterUserName %><% /!NonAnonymous %><% !Anonymous %><i>(Anonymous)</i><% /!Anonymous %>
+      <br />
+<% !Subject %>
+      <b>Subject:</b> <% Subject %>
+      <br />
+<% /!Subject %>
+      <b>Date:</b> <% Date %>
+      <br />
+    </div>
+    <div class="entry" style="margin-left: <% SpacerWidth %>px;">
+      <% Body %>
+    </div>
+<% /SECTIONCOMMENT %>
+
+
+
+
+<!--
+  This is the Comments Footer section.
+
+  This section only gets printed if comments exist for the associated entry.
+
+  If comments exist, it"s printed once at the end of the comment block.
+
+  Otherwise, this section is ignored completely.
+-->
+<% SECTIONCOMMENTSFOOTER %>
+    <div class="commentsblock">There went some comments.</div>
+<% /SECTIONCOMMENTSFOOTER %>
+
+
+
+
+<!--
+  This is the Page Footer section.
+
+  It always gets printed once at the end of a page build.
+-->
+<% SECTIONPAGEFOOTER %>
+<br />
+  That was the journal of <% UserName %>, also known as <% FullName %>.
+  </body>
+</html>
+<% /SECTIONPAGEFOOTER %>

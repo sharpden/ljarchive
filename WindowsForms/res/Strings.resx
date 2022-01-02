@@ -1,0 +1,616 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CommandBarManager.NewArchive.Text" xml:space="preserve">
+    <value>&amp;New Archive ...</value>
+  </data>
+  <data name="CommandBarManager.Open.Text" xml:space="preserve">
+    <value>&amp;Open ...</value>
+  </data>
+  <data name="CommandBarManager.Print.Text" xml:space="preserve">
+    <value>&amp;Print ...</value>
+  </data>
+  <data name="CommandBarManager.exportMenu.Text" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="CommandBarManager.Exit.Text" xml:space="preserve">
+    <value>E&amp;xit</value>
+  </data>
+  <data name="CommandBarManager.JournalSettings.Text" xml:space="preserve">
+    <value>Journal &amp;Settings</value>
+  </data>
+  <data name="CommandBarManager.GotoEntry.Text" xml:space="preserve">
+    <value>Go to &amp;Entry</value>
+  </data>
+  <data name="CommandBarManager.GoBack.Text" xml:space="preserve">
+    <value>Go &amp;Back</value>
+  </data>
+  <data name="CommandBarManager.GoForward.Text" xml:space="preserve">
+    <value>Go &amp;Forward</value>
+  </data>
+  <data name="CommandBarManager.Find.Text" xml:space="preserve">
+    <value>&amp;Find</value>
+  </data>
+  <data name="CommandBarManager.Grid.Text" xml:space="preserve">
+    <value>&amp;Grid</value>
+  </data>
+  <data name="CommandBarManager.HtmlSettings.Text" xml:space="preserve">
+    <value>&amp;HTML Settings</value>
+  </data>
+  <data name="CommandBarManager.Sync.Text" xml:space="preserve">
+    <value>&amp;Sync</value>
+  </data>
+  <data name="CommandBarManager.Abort.Text" xml:space="preserve">
+    <value>&amp;Abort</value>
+  </data>
+  <data name="CommandBarManager.Options.Text" xml:space="preserve">
+    <value>&amp;Options</value>
+  </data>
+  <data name="CommandBarManager.pluginsMenu.Text" xml:space="preserve">
+    <value>&amp;Plugins</value>
+  </data>
+  <data name="CommandBarManager.Website.Text" xml:space="preserve">
+    <value>ljArchive &amp;Web Site</value>
+  </data>
+  <data name="CommandBarManager.About.Text" xml:space="preserve">
+    <value>&amp;About</value>
+  </data>
+  <data name="CommandBarManager.fileMenu.Text" xml:space="preserve">
+    <value>&amp;File</value>
+  </data>
+  <data name="CommandBarManager.editMenu.Text" xml:space="preserve">
+    <value>&amp;Edit</value>
+  </data>
+  <data name="CommandBarManager.viewMenu.Text" xml:space="preserve">
+    <value>&amp;View</value>
+  </data>
+  <data name="CommandBarManager.toolsMenu.Text" xml:space="preserve">
+    <value>&amp;Tools</value>
+  </data>
+  <data name="CommandBarManager.helpMenu.Text" xml:space="preserve">
+    <value>&amp;Help</value>
+  </data>
+  <data name="FindPanel.lblFindJournalItems.Text" xml:space="preserve">
+    <value>Find Journal Items</value>
+  </data>
+  <data name="FindPanel.lblWithText.Text" xml:space="preserve">
+    <value>With Text:</value>
+  </data>
+  <data name="FindPanel.rbComments.Text" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="FindPanel.btnGo.Text" xml:space="preserve">
+    <value>Go!</value>
+  </data>
+  <data name="FindPanel.btnClose.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="About.lblAbout.Text" xml:space="preserve">
+    <value>ljArchive version {0}, by Erik Frey (sourceforge edition)</value>
+  </data>
+  <data name="About.btnOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="About.Text" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Explorer.browser.DefaultText" xml:space="preserve">
+    <value>&lt;html&gt;
+  &lt;head&gt;
+    &lt;style type="text/css"&gt;
+	body
+	{
+	font-family: verdana, sans-serif;
+	color: #333;
+	background: #fff;
+	font-size: x-small;
+	}
+
+	a:link
+	{
+	color: #5b80b2;
+	}
+
+	a:visited
+	{
+	color: #969;
+	}
+
+	a:hover
+	{
+	color: #036;
+	}
+
+	p
+	{
+	margin: 1em 0 1em;
+	padding: 0;
+	}
+
+	h1
+	{
+	font-family: "lucida grande", verdana, sans-serif;
+	font-size: 110%;
+	font-weight: bold;
+	color: #930;
+	padding: 0;
+	margin: 0;
+	}
+
+	h2
+	{
+	font-family: "lucida grande", verdana, sans-serif;
+	font-size: 105%;
+	color: #930;
+	padding: 0;
+	margin: 0 0 1em 0;
+	}     
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Welcome to ljArchive&lt;/h1&gt;
+    &lt;p&gt;To create a new journal archive, select the menu item &lt;b&gt;File|New Archive...&lt;/b&gt;.&lt;/p&gt;
+    &lt;p&gt;Once you've downloaded your journal, be sure to try the plugins!  You can access them by selecting the menu item &lt;b&gt;Tools|Plugins...&lt;/b&gt;.&lt;/p&gt;
+    &lt;p&gt;For answers to questions, developer information, and technical information regarding this software, please visit the &lt;a href="http://ljarchive.sourceforge.net/"&gt;ljArchive web site&lt;/a&gt;.
+    &lt;p&gt;Have fun!&lt;/b&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</value>
+  </data>
+  <data name="Explorer.tpEvents.Text" xml:space="preserve">
+    <value>Entries</value>
+  </data>
+  <data name="Explorer.tpComments.Text" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="Explorer.ofd.Filter" xml:space="preserve">
+    <value>ljArchive Files (*.lja)|*.lja|All files (*.*)|*.*</value>
+  </data>
+  <data name="ExpectedError.Text" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="ExpectedError.llEmail.Text" xml:space="preserve">
+    <value>Is this a bug?  If so, email {0} and supply the following info:</value>
+  </data>
+  <data name="ExpectedError.btnCopyToClipboard.Text" xml:space="preserve">
+    <value>Copy Error to Clipboard</value>
+  </data>
+  <data name="ExpectedError.llMoreInfo.Text" xml:space="preserve">
+    <value>More Info &gt;</value>
+  </data>
+  <data name="ExpectedError.btnOK.Text" xml:space="preserve">
+    <value>O&amp;k</value>
+  </data>
+  <data name="ExpectedError.ExpectedErrorCategories.BadFileFormat" xml:space="preserve">
+    <value>ljArchive could not open this file, because it did not recognize the file format.</value>
+  </data>
+  <data name="GeneralError.Text" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="GeneralError.lblTitle.Text" xml:space="preserve">
+    <value>General Error</value>
+  </data>
+  <data name="GeneralError.lblFoundTheFollowingError.Text" xml:space="preserve">
+    <value>ljArchive found the following error while trying to process your request:</value>
+  </data>
+  <data name="GeneralError.btnCopyToClipboard.Text" xml:space="preserve">
+    <value>Copy Error to Clipboard</value>
+  </data>
+  <data name="GeneralError.btnClose.Text" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="SyncOperation.ExportCommentsBody" xml:space="preserve">
+    <value>Downloading comments - {0} of {1}...</value>
+  </data>
+  <data name="SyncOperation.ExportCommentsMeta" xml:space="preserve">
+    <value>Downloading comment index...</value>
+  </data>
+  <data name="SyncOperation.Failure" xml:space="preserve">
+    <value>Sync Error</value>
+  </data>
+  <data name="SyncOperation.GetEvents" xml:space="preserve">
+    <value>Downloading entries - {0} of {1}...</value>
+  </data>
+  <data name="SyncOperation.Initialize" xml:space="preserve">
+    <value>Initializing...</value>
+  </data>
+  <data name="SyncOperation.Login" xml:space="preserve">
+    <value>Logging in...</value>
+  </data>
+  <data name="SyncOperation.Merge" xml:space="preserve">
+    <value>Merging downloaded data...</value>
+  </data>
+  <data name="SyncOperation.SessionGenerate" xml:space="preserve">
+    <value>Generating web session...</value>
+  </data>
+  <data name="SyncOperation.Success" xml:space="preserve">
+    <value>Done.  Downloaded {0} entries and {1} comments.</value>
+  </data>
+  <data name="SyncOperation.SyncItems" xml:space="preserve">
+    <value>Downloading sync index - {0} of {1}...</value>
+  </data>
+  <data name="ExpectedError.ExpectedErrorCategories.SyncCancel" xml:space="preserve">
+    <value>Cancelled</value>
+  </data>
+  <data name="ExpectedError.ExpectedErrorCategories.SyncInvalidPassword" xml:space="preserve">
+    <value>Invalid password.  Please change the password in Edit-&gt;Journal Settings, and try again.</value>
+  </data>
+  <data name="ExpectedError.ExpectedErrorCategories.SyncRepeatedRequests" xml:space="preserve">
+    <value>The server has aborted the sync due to repeated requests.  Please try again later.  (It usually takes an hour to reset).</value>
+  </data>
+  <data name="ExpectedError.ExpectedErrorCategories.SyncNoEncodingSettings" xml:space="preserve">
+    <value>The server requires that you set your encoding setting before your journal can be downloaded.  This setting can be found at your journal's web site, at the bottom of the 'Edit Personal Information' page in the 'Auto-convert older entries from:' box.</value>
+  </data>
+  <data name="ExpectedError.ExpectedErrorCategories.SyncXMLRPCNotSupported" xml:space="preserve">
+    <value>The server does not support XML-RPC.  Did you enter the correct address?  You can check in Edit-&gt;Journal Settings.</value>
+  </data>
+  <data name="ExpectedError.ExpectedErrorCategories.SyncExportCommentsNotSupported" xml:space="preserve">
+    <value>The server does not support exporting comments.  You can turn off the option to download comments in Edit-&gt;Journal Settings.</value>
+  </data>
+  <data name="ExpectedError.ExpectedErrorCategories.FileNotFound" xml:space="preserve">
+    <value>File not found.</value>
+  </data>
+  <data name="ExpectedError.ExpectedErrorCategories.SyncServerNotResponding" xml:space="preserve">
+    <value>The server is not responding.  Please try again later.</value>
+  </data>
+  <data name="FindPanel.rbEvents.Text" xml:space="preserve">
+    <value>Entries</value>
+  </data>
+  <data name="FindPanel.rbBoth.Text" xml:space="preserve">
+    <value>Both</value>
+  </data>
+  <data name="FindPanel.lblSearch.Text" xml:space="preserve">
+    <value>Search:</value>
+  </data>
+  <data name="Export.Text" xml:space="preserve">
+    <value>Export ({0})</value>
+  </data>
+  <data name="Export.gbFileSettings.Text" xml:space="preserve">
+    <value>File Settings</value>
+  </data>
+  <data name="Export.lblFileName.Text" xml:space="preserve">
+    <value>File Name:</value>
+  </data>
+  <data name="Export.lblSplitExport.Text" xml:space="preserve">
+    <value>Split Export:</value>
+  </data>
+  <data name="Export.cmbSplitExport.Items" xml:space="preserve">
+    <value>Single File|Per Year|Per Month|Per Entry</value>
+  </data>
+  <data name="Export.gbExporterInfo.Text" xml:space="preserve">
+    <value>Export Info</value>
+  </data>
+  <data name="Export.gbExportSettings.Text" xml:space="preserve">
+    <value>Export Settings</value>
+  </data>
+  <data name="Export.btnOk.Text" xml:space="preserve">
+    <value>O&amp;k</value>
+  </data>
+  <data name="Export.btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="Export.lblAuthor.Text" xml:space="preserve">
+    <value>by {0}</value>
+  </data>
+  <data name="Explorer.browser.NoEntryText" xml:space="preserve">
+    <value>&lt;html&gt;
+  &lt;head&gt;
+    &lt;style type="text/css"&gt;
+&lt;!--
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: verdana, sans-serif;
+	color: #333;
+	background: #fff;
+	font-size: x-small;
+}
+
+table {
+	width: 100%;
+	height: 100%;
+}
+
+td {
+	vertical-align: middle;
+	text-align: center;
+}
+
+--&gt;
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;table border=0&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+			No Entry Selected.
+		&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</value>
+  </data>
+  <data name="Properties.Text" xml:space="preserve">
+    <value>{0} Properties</value>
+  </data>
+  <data name="Properties.lblUsernameTag.Text" xml:space="preserve">
+    <value>User Name:</value>
+  </data>
+  <data name="Properties.lblLocationTag.Text" xml:space="preserve">
+    <value>Location:</value>
+  </data>
+  <data name="Properties.lblSizeTag.Text" xml:space="preserve">
+    <value>Size:</value>
+  </data>
+  <data name="Properties.lblEntryCountTag.Text" xml:space="preserve">
+    <value>Entry Count:</value>
+  </data>
+  <data name="Properties.lblCommentCountTag.Text" xml:space="preserve">
+    <value>Comment Count:</value>
+  </data>
+  <data name="Properties.grpJournalSettings.Text" xml:space="preserve">
+    <value>Journal Settings</value>
+  </data>
+  <data name="Properties.lblServerURL.Text" xml:space="preserve">
+    <value>Server URL:</value>
+  </data>
+  <data name="Properties.lblPassword.Text" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="Properties.lblWarning.Text" xml:space="preserve">
+    <value>Only enter a new password into the text box if you want to change it.</value>
+  </data>
+  <data name="Properties.chkGetComments.Text" xml:space="preserve">
+    <value>Download comments</value>
+  </data>
+  <data name="Properties.lblCommentCount.Text" xml:space="preserve">
+    <value>{0} comments</value>
+  </data>
+  <data name="Properties.lblEntryCount.Text" xml:space="preserve">
+    <value>{0} entries</value>
+  </data>
+  <data name="Properties.btnOK.Text" xml:space="preserve">
+    <value>O&amp;k</value>
+  </data>
+  <data name="Properties.btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="Explorer.ws.Text" xml:space="preserve">
+    <value>Create New Journal Archive</value>
+  </data>
+  <data name="Explorer.njaip.PageTitle" xml:space="preserve">
+    <value>Select File</value>
+  </data>
+  <data name="Explorer.njaip.PageDescription" xml:space="preserve">
+    <value>Select a file to save the journal archive.</value>
+  </data>
+  <data name="Explorer.njaas.PageTitle" xml:space="preserve">
+    <value>Account Settings</value>
+  </data>
+  <data name="Explorer.njaas.PageDescription" xml:space="preserve">
+    <value>Enter your username and password.</value>
+  </data>
+  <data name="Explorer.njaf.PageTitle" xml:space="preserve">
+    <value>Finish</value>
+  </data>
+  <data name="Explorer.njaf.PageDescription" xml:space="preserve">
+    <value>Ready to download your entries.</value>
+  </data>
+  <data name="NewJournalArchiveAccountSettings.grpLogin.Text" xml:space="preserve">
+    <value>Login Information</value>
+  </data>
+  <data name="NewJournalArchiveAccountSettings.lblLogin.Text" xml:space="preserve">
+    <value>Login:</value>
+  </data>
+  <data name="NewJournalArchiveAccountSettings.lblPassword.Text" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="NewJournalArchiveAccountSettings.grpOptions.Text" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="NewJournalArchiveAccountSettings.chkGetComments.Text" xml:space="preserve">
+    <value>Download comments</value>
+  </data>
+  <data name="NewJournalArchiveAccountSettings.grpAlternateServer.Text" xml:space="preserve">
+    <value>Alternate Server</value>
+  </data>
+  <data name="NewJournalArchiveAccountSettings.chkCommunity.Text" xml:space="preserve">
+    <value>I want to archive the following community:</value>
+  </data>
+  <data name="NewJournalArchiveAccountSettings.chkAlternateServer.Text" xml:space="preserve">
+    <value>I want to connect to the following server:</value>
+  </data>
+  <data name="NewJournalArchiveFinish.lblFinish.Text" xml:space="preserve">
+    <value>Thank you.
+
+Once you click 'Finish', ljArchive will create your journal archive, connect to the LiveJournal server, and download your entries.
+
+Remember, this could take a while!</value>
+  </data>
+  <data name="NewJournalArchiveIntroPage.lblIntro.Text" xml:space="preserve">
+    <value>Welcome!  This dialog will guide you through creating a new journal archive.
+
+First, please specify where you'd like to store the journal archive file.
+
+After you have selected a file location, click 'Next'.</value>
+  </data>
+  <data name="NewJournalArchiveIntroPage.sfd.Filter" xml:space="preserve">
+    <value>ljArchive Files (*.lja)|*.lja|All files (*.*)|*.*</value>
+  </data>
+  <data name="Options.Text" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="Options.lblAlign.Text" xml:space="preserve">
+    <value>How would you like to orient the events/comments grid?</value>
+  </data>
+  <data name="Options.rbAlignLeft.Text" xml:space="preserve">
+    <value>Align left</value>
+  </data>
+  <data name="Options.rbAlignTop.Text" xml:space="preserve">
+    <value>Align top</value>
+  </data>
+  <data name="Options.btnOK.Text" xml:space="preserve">
+    <value>O&amp;k</value>
+  </data>
+  <data name="Options.btnCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="Options.grpGridOrientation.Text" xml:space="preserve">
+    <value>Grid Orientation</value>
+  </data>
+  <data name="Explorer.UpdateExistsMessage" xml:space="preserve">
+    <value>A new version of ljArchive is available.  Do you want to install automatically?</value>
+  </data>
+  <data name="Explorer.UpdateExistsTitle" xml:space="preserve">
+    <value>Autoupdate</value>
+  </data>
+  <data name="Options.grpMiscellaneous.Text" xml:space="preserve">
+    <value>Miscellaneous</value>
+  </data>
+  <data name="Options.chkAutomaticallyCheckForUpdates.Text" xml:space="preserve">
+    <value>Automatically check for updates</value>
+  </data>
+  <data name="Options.chkSyncOnStartup.Text" xml:space="preserve">
+    <value>Sync on startup</value>
+  </data>
+  <data name="Options.btnCheckForUpdate.Text" xml:space="preserve">
+    <value>Check for update now</value>
+  </data>
+  <data name="Options.NoUpdateExistsMessage" xml:space="preserve">
+    <value>Your version of ljArchive is up to date.</value>
+  </data>
+  <data name="Options.NoUpdateExistsTitle" xml:space="preserve">
+    <value>Autoupdate</value>
+  </data>
+  <data name="CommandBarManager.Calendar.Text" xml:space="preserve">
+    <value>&amp;Calendar</value>
+  </data>
+  <data name="SyncOperation.PartialSync" xml:space="preserve">
+    <value>Partial sync.  Downloaded {0} entries and {1} comments.</value>
+  </data>
+  <data name="NewJournalArchiveAccountSettings.grpCommunity.Text" xml:space="preserve">
+    <value>Community</value>
+  </data>
+  <data name="ExpectedError.ExpectedErrorCategories.SyncCommunityAccessDenied" xml:space="preserve">
+    <value>You do not have moderator access to this community.</value>
+  </data>
+</root>

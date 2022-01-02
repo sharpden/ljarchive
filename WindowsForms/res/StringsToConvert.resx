@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<data name="CommandBarManager.NewArchive.Text">
+		<value>&amp;New Archive ...</value>
+	</data>
+	<data name="CommandBarManager.Open.Text">
+		<value>&amp;Open ...</value>
+	</data>
+	<data name="CommandBarManager.Print.Text">
+		<value>&amp;Print ...</value>
+	</data>
+	<data name="CommandBarManager.exportMenu.Text">
+		<value>Export</value>
+	</data>
+	<data name="CommandBarManager.Exit.Text">
+		<value>E&amp;xit</value>
+	</data>
+	<data name="CommandBarManager.JournalSettings.Text">
+		<value>Journal &amp;Settings</value>
+	</data>
+	<data name="CommandBarManager.GotoDayEntry.Text">
+		<value>Go to &amp;Day Entry</value>
+	</data>
+	<data name="CommandBarManager.GoBack.Text">
+		<value>Go &amp;Back</value>
+	</data>
+	<data name="CommandBarManager.GoForward.Text">
+		<value>Go &amp;Forward</value>
+	</data>
+	<data name="CommandBarManager.Find.Text">
+		<value>&amp;Find</value>
+	</data>
+	<data name="CommandBarManager.Grid.Text">
+		<value>&amp;Grid</value>
+	</data>
+	<data name="CommandBarManager.HtmlSettings.Text">
+		<value>&amp;HTML Settings</value>
+	</data>
+	<data name="CommandBarManager.Sync.Text">
+		<value>&amp;Sync</value>
+	</data>
+	<data name="CommandBarManager.Abort.Text">
+		<value>&amp;Abort</value>
+	</data>
+	<data name="CommandBarManager.Options.Text">
+		<value>&amp;Options</value>
+	</data>
+	<data name="CommandBarManager.pluginsMenu.Text">
+		<value>&amp;Plugins</value>
+	</data>
+	<data name="CommandBarManager.Website.Text">
+		<value>ljArchive &amp;Web Site</value>
+	</data>
+	<data name="CommandBarManager.About.Text">
+		<value>&amp;About</value>
+	</data>
+	<data name="CommandBarManager.fileMenu.Text">
+		<value>&amp;File</value>
+	</data>
+	<data name="CommandBarManager.editMenu.Text">
+		<value>&amp;Edit</value>
+	</data>
+	<data name="CommandBarManager.viewMenu.Text">
+		<value>&amp;View</value>
+	</data>
+	<data name="CommandBarManager.toolsMenu.Text">
+		<value>&amp;Tools</value>
+	</data>
+	<data name="CommandBarManager.helpMenu.Text">
+		<value>&amp;Help</value>
+	</data>
+	<data name="FindPanel.lblFindJournalItems.Text">
+		<value>Find Journal Items</value>
+	</data>
+	<data name="FindPanel.lblWithText.Text">
+		<value>With Text:</value>
+	</data>
+	<data name="FindPanel.rbComments.Text">
+		<value>Comments</value>
+	</data>
+	<data name="FindPanel.btnGo.Text">
+		<value>Go!</value>
+	</data>
+	<data name="FindPanel.btnClose.Text">
+		<value>Close</value>
+	</data>
+	<data name="About.lblAbout.Text">
+		<value>ljArchive version {0}, by Erik Frey</value>
+	</data>
+	<data name="About.btnOK.Text">
+		<value>OK</value>
+	</data>
+	<data name="About.Text">
+		<value>About</value>
+	</data>
+	<data name="Explorer.browser.DefaultText">
+		<value>&lt;html&gt;
+  &lt;head&gt;
+    &lt;style type="text/css"&gt;
+	body
+	{
+	font-family: verdana, sans-serif;
+	color: #333;
+	background: #fff;
+	font-size: x-small;
+	}
+
+	a:link
+	{
+	color: #5b80b2;
+	}
+
+	a:visited
+	{
+	color: #969;
+	}
+
+	a:hover
+	{
+	color: #036;
+	}
+
+	p
+	{
+	margin: 1em 0 1em;
+	padding: 0;
+	}
+
+	h1
+	{
+	font-family: "lucida grande", verdana, sans-serif;
+	font-size: 110%;
+	font-weight: bold;
+	color: #930;
+	padding: 0;
+	margin: 0;
+	}
+
+	h2
+	{
+	font-family: "lucida grande", verdana, sans-serif;
+	font-size: 105%;
+	color: #930;
+	padding: 0;
+	margin: 0 0 1em 0;
+	}     
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Welcome to ljArchive&lt;/h1&gt;
+    &lt;p&gt;To create a new journal archive, select the menu item &lt;b&gt;File|New Archive...&lt;/b&gt;.&lt;/p&gt;
+    &lt;p&gt;Once you've downloaded your journal, be sure to try the plugins!  You can access them by selecting the menu item &lt;b&gt;Tools|Plugins...&lt;/b&gt;.&lt;/p&gt;
+    &lt;p&gt;For answers to questions, developer information, and technical information regarding this software, please visit the &lt;a href="http://fawx.com/ljArchive/"&gt;ljArchive web site&lt;/a&gt;.
+    &lt;p&gt;Have fun!&lt;/b&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</value>
+	</data>
+	<data name="Explorer.tpEvents.Text">
+		<value>Entries</value>
+	</data>
+	<data name="Explorer.tpComments.Text">
+		<value>Comments</value>
+	</data>
+	<data name="Explorer.ofd.Filter">
+		<value>ljArchive Files (*.lja)|*.lja|All files (*.*)|*.*</value>
+	</data>
+	<data name="ExpectedError.Text">
+		<value>Info</value>
+	</data>
+	<data name="ExpectedError.llEmail.Text">
+		<value>Is this a bug?  If so, email {0} and supply the following info:</value>
+	</data>
+	<data name="ExpectedError.btnCopyToClipboard.Text">
+		<value>Copy Error to Clipboard</value>
+	</data>
+	<data name="ExpectedError.llMoreInfo.Text">
+		<value>More Info &gt;</value>
+	</data>
+	<data name="ExpectedError.btnOK.Text">
+		<value>O&amp;k</value>
+	</data>
+	<data name="ExpectedError.ExpectedErrorCategories.BadFileFormat">
+		<value>ljArchive could not open this file, because it did not recognize the file format.</value>
+	</data>
+	<data name="GeneralError.Text">
+		<value>Error</value>
+	</data>
+	<data name="GeneralError.lblTitle.Text">
+		<value>General Error</value>
+	</data>
+	<data name="GeneralError.lblFoundTheFollowingError.Text">
+		<value>ljArchive found the following error while trying to process your request:</value>
+	</data>
+	<data name="GeneralError.btnCopyToClipboard.Text">
+		<value>Copy Error to Clipboard</value>
+	</data>
+	<data name="GeneralError.btnClose.Text">
+		<value>Continue</value>
+	</data>
+	<data name="SyncOperation.ExportCommentsBody">
+		<value>Downloading comments - {0} of {1}...</value>
+	</data>
+	<data name="SyncOperation.ExportCommentsMeta">
+		<value>Downloading comment index...</value>
+	</data>
+	<data name="SyncOperation.Failure">
+		<value>Sync Error</value>
+	</data>
+	<data name="SyncOperation.GetEvents">
+		<value>Downloading entries - {0} of {1}...</value>
+	</data>
+	<data name="SyncOperation.Initialize">
+		<value>Initializing...</value>
+	</data>
+	<data name="SyncOperation.Login">
+		<value>Logging in...</value>
+	</data>
+	<data name="SyncOperation.Merge">
+		<value>Merging downloaded data...</value>
+	</data>
+	<data name="SyncOperation.SessionGenerate">
+		<value>Generating web session...</value>
+	</data>
+	<data name="SyncOperation.Success">
+		<value>Done.  Downloaded {0} entries and {1} comments.</value>
+	</data>
+	<data name="SyncOperation.SyncItems">
+		<value>Downloading sync index - {0} of {1}...</value>
+	</data>
+	<data name="ExpectedError.ExpectedErrorCategories.SyncCancel">
+		<value>Cancelled</value>
+	</data>
+	<data name="ExpectedError.ExpectedErrorCategories.SyncInvalidPassword">
+		<value>Invalid password.  Please change the password in Edit-&gt;Journal Settings, and try again.</value>
+	</data>
+	<data name="ExpectedError.ExpectedErrorCategories.SyncRepeatedRequests">
+		<value>The server has aborted the sync due to repeated requests.  Please try again later.  (It usually takes an hour to reset).</value>
+	</data>
+	<data name="ExpectedError.ExpectedErrorCategories.SyncNoEncodingSettings">
+		<value>The server requires that you set your encoding setting before your journal can be downloaded.  This setting can be found at your journal's web site, at the bottom of the 'Edit Personal Information' page in the 'Auto-convert older entries from:' box.</value>
+	</data>
+	<data name="ExpectedError.ExpectedErrorCategories.SyncXMLRPCNotSupported">
+		<value>The server does not support XML-RPC.  Did you enter the correct address?  You can check in Edit-&gt;Journal Settings.</value>
+	</data>
+	<data name="ExpectedError.ExpectedErrorCategories.SyncExportCommentsNotSupported">
+		<value>The server does not support exporting comments.  You can turn off the option to download comments in Edit-&gt;Journal Settings.</value>
+	</data>
+	<data name="ExpectedError.ExpectedErrorCategories.FileNotFound">
+		<value>File not found.</value>
+	</data>
+	<data name="ExpectedError.ExpectedErrorCategories.SyncServerNotResponding">
+		<value>The server is not responding.  Please try again later.</value>
+	</data>
+	<data name="FindPanel.rbEvents.Text">
+		<value>Entries</value>
+	</data>
+	<data name="FindPanel.rbBoth.Text">
+		<value>Both</value>
+	</data>
+	<data name="FindPanel.lblSearch.Text">
+		<value>Search:</value>
+	</data>
+	<data name="Export.Text">
+		<value>Export ({0})</value>
+	</data>
+	<data name="Export.gbFileSettings.Text">
+		<value>File Settings</value>
+	</data>
+	<data name="Export.lblFileName.Text">
+		<value>File Name:</value>
+	</data>
+	<data name="Export.lblSplitExport.Text">
+		<value>Split Export:</value>
+	</data>
+	<data name="Export.cmbSplitExport.Items">
+		<value>Single File|Per Year|Per Month|Per Entry</value>
+	</data>
+	<data name="Export.gbExporterInfo.Text">
+		<value>Export Info</value>
+	</data>
+	<data name="Export.gbExportSettings.Text">
+		<value>Export Settings</value>
+	</data>
+	<data name="Export.btnOk.Text">
+		<value>O&amp;k</value>
+	</data>
+	<data name="Export.btnCancel.Text">
+		<value>&amp;Cancel</value>
+	</data>
+	<data name="Export.lblAuthor.Text">
+		<value>by {0}</value>
+	</data>
+	<data name="Explorer.browser.NoEntryText">
+		<value>&lt;html&gt;
+  &lt;head&gt;
+    &lt;style type="text/css"&gt;
+&lt;!--
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: verdana, sans-serif;
+	color: #333;
+	background: #fff;
+	font-size: x-small;
+}
+
+table {
+	width: 100%;
+	height: 100%;
+}
+
+td {
+	vertical-align: middle;
+	text-align: center;
+}
+
+--&gt;
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;table border=0&gt;
+	&lt;tr&gt;
+		&lt;td&gt;
+			No Entry Selected.
+		&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</value>
+	</data>
+	<data name="Properties.Text">
+		<value>{0} Properties</value>
+	</data>
+	<data name="Properties.lblUsernameTag.Text">
+		<value>User Name:</value>
+	</data>
+	<data name="Properties.lblLocationTag.Text">
+		<value>Location:</value>
+	</data>
+	<data name="Properties.lblSizeTag.Text">
+		<value>Size:</value>
+	</data>
+	<data name="Properties.lblEntryCountTag.Text">
+		<value>Entry Count:</value>
+	</data>
+	<data name="Properties.lblCommentCountTag.Text">
+		<value>Comment Count:</value>
+	</data>
+	<data name="Properties.grpJournalSettings.Text">
+		<value>Journal Settings</value>
+	</data>
+	<data name="Properties.lblServerURL.Text">
+		<value>Server URL:</value>
+	</data>
+	<data name="Properties.lblPassword.Text">
+		<value>Password:</value>
+	</data>
+	<data name="Properties.lblWarning.Text">
+		<value>Only enter a new password into the text box if you want to change it.</value>
+	</data>
+	<data name="Properties.chkGetComments.Text">
+		<value>Download comments</value>
+	</data>
+	<data name="Properties.lblCommentCount.Text">
+		<value>{0} comments</value>
+	</data>
+	<data name="Properties.lblEntryCount.Text">
+		<value>{0} entries</value>
+	</data>
+	<data name="Properties.btnOK.Text">
+		<value>O&amp;k</value>
+	</data>
+	<data name="Properties.btnCancel.Text">
+		<value>&amp;Cancel</value>
+	</data>
+	<data name="Explorer.ws.Text">
+		<value>Create New Journal Archive</value>
+	</data>
+	<data name="Explorer.njaip.PageTitle">
+		<value>Select File</value>
+	</data>
+	<data name="Explorer.njaip.PageDescription">
+		<value>Select a file to save the journal archive.</value>
+	</data>
+	<data name="Explorer.njaas.PageTitle">
+		<value>Account Settings</value>
+	</data>
+	<data name="Explorer.njaas.PageDescription">
+		<value>Enter your username and password.</value>
+	</data>
+	<data name="Explorer.njaf.PageTitle">
+		<value>Finish</value>
+	</data>
+	<data name="Explorer.njaf.PageDescription">
+		<value>Ready to download your entries.</value>
+	</data>
+	<data name="NewJournalArchiveAccountSettings.grpLogin.Text">
+		<value>Login Information</value>
+	</data>
+	<data name="NewJournalArchiveAccountSettings.lblLogin.Text">
+		<value>Login:</value>
+	</data>
+	<data name="NewJournalArchiveAccountSettings.lblPassword.Text">
+		<value>Password:</value>
+	</data>
+	<data name="NewJournalArchiveAccountSettings.grpOptions.Text">
+		<value>Options</value>
+	</data>
+	<data name="NewJournalArchiveAccountSettings.chkGetComments.Text">
+		<value>Download comments</value>
+	</data>
+	<data name="NewJournalArchiveAccountSettings.grpAlternateServer.Text">
+		<value>Alternate Server</value>
+	</data>
+	<data name="NewJournalArchiveAccountSettings.lblAlternateServer.Text">
+		<value>If you are trying to connect to a different LiveJournal server, check here:</value>
+	</data>
+	<data name="NewJournalArchiveAccountSettings.chkAlternateServer.Text">
+		<value>I want to connect to the following alternate address:</value>
+	</data>
+	<data name="NewJournalArchiveFinish.lblFinish.Text">
+		<value>Thank you.
+
+Once you click 'Finish', ljArchive will create your journal archive, connect to the LiveJournal server, and download your entries.
+
+Remember, this could take a while!</value>
+	</data>
+	<data name="NewJournalArchiveIntroPage.lblIntro.Text">
+		<value>Welcome!  This dialog will guide you through creating a new journal archive.
+
+First, please specify where you'd like to store the journal archive file.
+
+After you have selected a file location, click 'Next'.</value>
+	</data>
+	<data name="NewJournalArchiveIntroPage.sfd.Filter">
+		<value>ljArchive Files (*.lja)|*.lja|All files (*.*)|*.*</value>
+	</data>
+	<data name="Options.Text">
+		<value>Options</value>
+	</data>
+	<data name="Options.lblAlign.Text">
+		<value>How would you like to orient the events/comments grid?</value>
+	</data>
+	<data name="Options.rbAlignLeft.Text">
+		<value>Align left</value>
+	</data>
+	<data name="Options.rbAlignTop.Text">
+		<value>Align top</value>
+	</data>
+	<data name="Options.btnOK.Text">
+		<value>O&amp;k</value>
+	</data>
+	<data name="Options.btnCancel.Text">
+		<value>&amp;Cancel</value>
+	</data>
+	<data name="Options.grpGridOrientation.Text">
+		<value>Grid Orientation</value>
+	</data>
+	<data name="Explorer.UpdateExistsMessage">
+		<value>A new version of ljArchive is available.  Do you want to install automatically?</value>
+	</data>
+	<data name="Explorer.UpdateExistsTitle">
+		<value>Autoupdate</value>
+	</data>
+	<data name="Options.grpMiscellaneous.Text">
+		<value>Miscellaneous</value>
+	</data>
+	<data name="Options.chkAutomaticallyCheckForUpdates.Text">
+		<value>Automatically check for updates</value>
+	</data>
+	<data name="Options.chkSyncOnStartup.Text">
+		<value>Sync on startup</value>
+	</data>
+	<data name="Options.btnCheckForUpdate.Text">
+		<value>Check for update now</value>
+	</data>
+	<data name="Options.NoUpdateExistsMessage">
+		<value>Your version of ljArchive is up to date.</value>
+	</data>
+	<data name="Options.NoUpdateExistsTitle">
+		<value>Autoupdate</value>
+	</data>
+	<data name="CommandBarManager.Calendar.Text">
+		<value>&amp;Calendar</value>
+	</data>
+</root>

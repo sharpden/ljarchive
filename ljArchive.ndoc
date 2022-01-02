@@ -1,0 +1,55 @@
+<project SchemaVersion="1.3">
+    <assemblies>
+        <assembly location="bin\Doc\EF.ljArchive.Common.dll" documentation="Common\doc\EF.ljArchive.Common.xml" />
+        <assembly location="bin\Doc\EF.ljArchive.Engine.dll" documentation="Engine\doc\EF.ljNavigator.Engine.xml" />
+        <assembly location="bin\Doc\plugins\EF.ljArchive.Plugins.Core.dll" documentation="PluginsCore\doc\EF.ljArchive.Plugins.Core.xml" />
+    </assemblies>
+    <namespaces>
+        <namespace name="EF.ljArchive.Common"><para>This namespace contains common types used by ljArchive and by plugins.</para>
+
+<para>It is compiled into a separate assembly that developers can reference as a type library.</para></namespace>
+        <namespace name="EF.ljArchive.Engine"><para>This namespace contains the core execution classes of ljArchive</para></namespace>
+        <namespace name="EF.ljArchive.Engine.Collections"><para>This namespace contains some strongly typed utility collection classes used by ljArchive</para></namespace>
+        <namespace name="EF.ljArchive.Engine.HTML"><para>This namespace contains tools used by ljArchive to render HTML.</para></namespace>
+        <namespace name="EF.ljArchive.Engine.XMLStructs"><para>This namespace contains internal classes used by ljArchive to communicate with livejournal servers via XML-RPC</para></namespace>
+        <namespace name="EF.ljArchive.Plugins.Core"><para>This namespace contains core plugin routines</para></namespace>
+    </namespaces>
+    <documenters>
+        <documenter name="JavaDoc">
+            <property name="OutputDirectory" value=".\doc\" />
+        </documenter>
+        <documenter name="LaTeX">
+            <property name="OutputDirectory" value=".\doc\" />
+            <property name="TextFileFullName" value="Documentation.tex" />
+            <property name="TexFileBaseName" value="Documentation" />
+            <property name="LatexCompiler" value="latex" />
+            <property name="TexFileFullPath" value=".\doc\Documentation.tex" />
+        </documenter>
+        <documenter name="LinearHtml">
+            <property name="OutputDirectory" value=".\doc\" />
+            <property name="Title" value="An NDoc Documented Class Library" />
+        </documenter>
+        <documenter name="MSDN">
+            <property name="OutputDirectory" value=".\doc\" />
+            <property name="HtmlHelpName" value="ljArchive Documentation" />
+            <property name="Title" value="ljArchive Core Class Library" />
+            <property name="RootPageTOCName" value="ljArchive Core Class Library" />
+            <property name="RootPageFileName" value="etc\helpintro.htm" />
+            <property name="FilesToInclude" value="etc\journalSchema.gif" />
+            <property name="DocumentProtected" value="False" />
+            <property name="AutoDocumentConstructors" value="False" />
+        </documenter>
+        <documenter name="MSDN 2003">
+            <property name="OutputDirectory" value=".\doc\" />
+            <property name="Title" value="An NDoc Documented Class Library" />
+        </documenter>
+        <documenter name="VS.NET 2003">
+            <property name="OutputDirectory" value=".\doc\" />
+            <property name="HtmlHelpName" value="Documentation" />
+            <property name="Title" value="An NDoc documented library" />
+        </documenter>
+        <documenter name="XML">
+            <property name="OutputFile" value=".\doc\doc.xml" />
+        </documenter>
+    </documenters>
+</project>

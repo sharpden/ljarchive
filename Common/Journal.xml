@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<doc>
+  <members>
+          <member name="T:EF.ljArchive.Common.Journal">
+            <summary>
+            Class for representing and manipulating a journal.
+            </summary>
+            <remarks>This is the base class that represents the ljArchive schema.</remarks>
+        </member>
+        <member name="M:EF.ljArchive.Common.Journal.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:EF.ljArchive.Common.Journal"/> class.
+            </summary>
+        </member>
+        <member name="M:EF.ljArchive.Common.Journal.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Protected serialization constructor.
+            </summary>
+            <param name="si">The serialization info.</param>
+            <param name="context">The streaming context.</param>
+        </member>
+        <member name="M:EF.ljArchive.Common.Journal.Clone">
+            <summary>
+            Copies the structure of the System.Data.DataSet, including all System.Data.DataTable schemas,
+            relations, and constraints. Does not copy any data.
+            </summary>
+            <returns>A new System.Data.DataSet with the same schema as the current System.Data.DataSet,
+            but none of the data.</returns>
+        </member>
+        <member name="M:EF.ljArchive.Common.Journal.ShouldSerializeTables">
+            <summary>
+            Gets a value indicating whether System.Data.DataSet.Tables property should be persisted.
+            </summary>
+            <returns>true if the property value has been changed from its default; otherwise, false.</returns>
+        </member>
+        <member name="M:EF.ljArchive.Common.Journal.ShouldSerializeRelations">
+            <summary>
+            Gets a value indicating whether System.Data.DataSet.Relations property should be persisted. 
+            </summary>
+            <returns>true if the property value has been changed from its default; otherwise, false.</returns>
+        </member>
+        <member name="M:EF.ljArchive.Common.Journal.ReadXmlSerializable(System.Xml.XmlReader)">
+            <summary>
+            Custom Xml deserialization reading.
+            </summary>
+            <param name="reader">The reader to deserialize from.</param>
+        </member>
+        <member name="M:EF.ljArchive.Common.Journal.GetSchemaSerializable">
+            <summary>
+            Gets a serializable schema.
+            </summary>
+            <returns>a serializable schema.</returns>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.Options">
+            <summary>
+            Gets a collection of <see cref="T:EF.ljArchive.Common.Journal.OptionsRow"/> objects for this <see cref="T:EF.ljArchive.Common.Journal"/>.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.Events">
+            <summary>
+            Gets a collection of <see cref="T:EF.ljArchive.Common.Journal.EventsRow"/> objects for this <see cref="T:EF.ljArchive.Common.Journal"/>.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.UserPics">
+            <summary>
+            Gets a collection of <see cref="T:EF.ljArchive.Common.Journal.UserPicsRow"/> objects for this <see cref="T:EF.ljArchive.Common.Journal"/>.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.Moods">
+            <summary>
+            Gets a collection of <see cref="T:EF.ljArchive.Common.Journal.MoodsRow"/> objects for this <see cref="T:EF.ljArchive.Common.Journal"/>.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.Comments">
+            <summary>
+            Gets a collection of <see cref="T:EF.ljArchive.Common.Journal.CommentsRow"/> objects for this <see cref="T:EF.ljArchive.Common.Journal"/>.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.Users">
+            <summary>
+            Gets a collection of <see cref="T:EF.ljArchive.Common.Journal.UsersRow"/> objects for this <see cref="T:EF.ljArchive.Common.Journal"/>.
+            </summary>
+        </member>
+        <member name="T:EF.ljArchive.Common.Journal.OptionsDataTable">
+            <summary>
+            A collection of <see cref="T:EF.ljArchive.Common.Journal.OptionsRow"/> objects.
+            </summary>
+            <remarks><para>Only one <see cref="T:EF.ljArchive.Common.Journal.OptionsRow"/> should exist in the <see cref="T:EF.ljArchive.Common.Journal.OptionsDataTable"/>,
+            and should be found at index zero.</para></remarks>
+        </member>
+        <member name="T:EF.ljArchive.Common.Journal.OptionsRow">
+            <summary>
+            Livejournal options.
+            </summary>
+            <remarks><para><see cref="P:EF.ljArchive.Common.Journal.OptionsRow.ServerURL"/>, <see cref="P:EF.ljArchive.Common.Journal.OptionsRow.UserName"/>,
+            <see cref="P:EF.ljArchive.Common.Journal.OptionsRow.HPassword"/>, and <see cref="P:EF.ljArchive.Common.Journal.OptionsRow.GetComments"/> are settings
+            the user can set for the table.</para>
+            <para><see cref="P:EF.ljArchive.Common.Journal.OptionsRow.DefaultPicURL"/>, <see cref="P:EF.ljArchive.Common.Journal.OptionsRow.FullName"/>, and
+            <see cref="P:EF.ljArchive.Common.Journal.OptionsRow.LastSync"/> are options that are retrieved from the server.</para></remarks>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.OptionsRow.ServerURL">
+            <summary>
+            The server that this journal connects to.
+            </summary>
+            <remarks><para>By convention, <see cref="P:EF.ljArchive.Common.Journal.OptionsRow.ServerURL"/> should be stored as <i>protocol::/hostname</i>,
+            such as <i>http://www.livejournal.com</i></para>
+            <para>Notice the lack of a trailing forward slash.</para></remarks>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.OptionsRow.DefaultPicURL">
+            <summary>
+            The default icon URL for this journal.
+            </summary>
+            <remarks>This option is set by the server.</remarks>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.OptionsRow.FullName">
+            <summary>
+            The full name of the user of this <see cref="T:EF.ljArchive.Common.Journal"/>.
+            </summary>
+            <remarks>This option is set by the server.</remarks>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.OptionsRow.UserName">
+            <summary>
+            The user name for this <see cref="T:EF.ljArchive.Common.Journal"/>.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.OptionsRow.HPassword">
+            <summary>
+            The MD5-hashed password for this <see cref="T:EF.ljArchive.Common.Journal"/>.
+            </summary>
+            <remarks>For security, the password is NOT stored as plain-text.</remarks>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.OptionsRow.LastSync">
+            <summary>
+            The date the <see cref="T:EF.ljArchive.Common.Journal"/> was last synchronized with the server.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.OptionsRow.GetComments">
+            <summary>
+            If true, will try to download comments for this <see cref="T:EF.ljArchive.Common.Journal"/>.
+            </summary>
+        </member>
+        <member name="T:EF.ljArchive.Common.Journal.EventsDataTable">
+            <summary>
+            A collection of <see cref="T:EF.ljArchive.Common.Journal.EventsRow"/> objects.
+            </summary>
+            <remarks>Here be monsters.</remarks>
+        </member>
+        <member name="T:EF.ljArchive.Common.Journal.EventsRow">
+            <summary>
+            An event.
+            </summary>
+            <remarks><para>This contains all the information of a livejournal <i>entry</i>.</para>
+            <para>In livejournal development parlance, it's called an event.</para>
+            <para>To see the source of this schema, visit the
+            <a href="http://www.livejournal.com/doc/server/ljp.csp.xml-rpc.getevents.html">livejournal doc</a> on
+            events.</para>
+            <para>Also see the <a href="http://www.livejournal.com/doc/server/ljp.csp.proplist.html">livejournal
+            doc</a> on meta-data.</para></remarks>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.ID">
+            <summary>
+            Gets/sets the unique integer ID of the <see cref="T:EF.ljArchive.Common.Journal.EventsRow"/>.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.Date">
+            <summary>
+            Gets/sets the time the user posted (or said they posted, rather, since users can back-date posts) the
+            <see cref="T:EF.ljArchive.Common.Journal.EventsRow"/>.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.Security">
+            <summary>
+            Gets/sets the security of this <see cref="T:EF.ljArchive.Common.Journal.EventsRow"/>.
+            </summary>
+            <remarks>If null then the <see cref="T:EF.ljArchive.Common.Journal.EventsRow"/> is public, otherwise this value will be private
+            or usemask.</remarks>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.AllowMask">
+            <summary>
+            Gets/sets the 32-bit unsigned int bit-mask of who is allowed to access this post.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.Subject">
+            <summary>
+            Gets/sets the subject of this <see cref="T:EF.ljArchive.Common.Journal.EventsRow"/>.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.Body">
+            <summary>
+            Gets/sets the event text itself.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.Poster">
+            <summary>
+            Gets/sets the username of the poster of this <see cref="T:EF.ljArchive.Common.Journal.EventsRow"/>.
+            </summary>
+            <remarks>If null, then it is safe to assume that the poster of this <see cref="T:EF.ljArchive.Common.Journal.EventsRow"/> is
+            none other than the user.</remarks>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.CurrentMood">
+            <summary>
+            Gets/sets the current mood of the <see cref="T:EF.ljArchive.Common.Journal.EventsRow"/>.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.CurrentMoodID">
+            <summary>
+            Gets/sets the current mood ID.
+            </summary>
+            <remarks>If set, this number will correspond to an ID in the <see cref="T:EF.ljArchive.Common.Journal.MoodsDataTable"/>.</remarks>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.CurrentMusic">
+            <summary>
+            Gets/sets the current music.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.Preformatted">
+            <summary>
+            Gets/sets if the <see cref="T:EF.ljArchive.Common.Journal.EventsRow"/> contains HTML and shouldn't be formatted
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.NoComments">
+            <summary>
+            Gets/sets if readers can't comment on this entry.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.PictureKeyword">
+            <summary>
+            Gets/sets the keyword that aligns to a defined picture.
+            </summary>
+            <remarks>This keyword may correspond to a <see cref="T:EF.ljArchive.Common.Journal.UserPicsRow"/> in the
+            <see cref="T:EF.ljArchive.Common.Journal.UserPicsDataTable"/>.</remarks>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.Backdated">
+            <summary>
+            Gets/sets if this item shouldn't show up on people's friends lists (because it occurred in the past).
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.NoEmail">
+            <summary>
+            Gets/sets if the poster isn't interested in receiving comments to this post by email.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.Unknown8Bit">
+            <summary>
+            Gets/sets if text has 8-bit data that's not in UTF-8.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.ScreenedComments">
+            <summary>
+            Gets/sets if comments to this item include screened comments.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.NumberOfRevisions">
+            <summary>
+            Gets/sets number of times the post has been edited.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.CommentAlter">
+            <summary>
+            Gets/sets the unix time of the last change to number of comments to this post.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.SyndicationURL">
+            <summary>
+            Gets/sets the original URL of syndication item.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.SyndicationID">
+            <summary>
+            Gets/sets the unique id of syndication item.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.LastRevision">
+            <summary>
+            Gets/sets the time of last edit.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.EventsRow.TagList">
+            <summary>
+            Gets/sets the list of tags on this <see cref="T:EF.ljArchive.Common.Journal.EventsRow"/>.
+            </summary>
+            <remarks>If null, then there are no tags on this <see cref="T:EF.ljArchive.Common.Journal.EventsRow"/>
+            yet (or possibly the server doesn't support tags yet).</remarks>
+        </member>
+        <member name="T:EF.ljArchive.Common.Journal.UserPicsDataTable">
+            <summary>
+            A collection of <see cref="T:EF.ljArchive.Common.Journal.UserPicsRow"/> objects.
+            </summary>
+        </member>
+        <member name="T:EF.ljArchive.Common.Journal.UserPicsRow">
+            <summary>
+            A user picture.
+            </summary>
+            <remarks><para>User pictures downloaded from the server only represent the current selection
+            of icons the user has.</para>
+            <para>Many <see cref="T:EF.ljArchive.Common.Journal.EventsRow"/> objects may exist in the <see cref="T:EF.ljArchive.Common.Journal.EventsDataTable"/> with
+            <see cref="P:EF.ljArchive.Common.Journal.EventsRow.PictureKeyword"/> values that don't correspond to a
+            <see cref="!:UserPicsRow.PickKeyword"/>.  Bummer.</para></remarks>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.UserPicsRow.PicKeyword">
+            <summary>
+            Gets/sets the picture keyword.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.UserPicsRow.PicURL">
+            <summary>
+            Gets/sets the picture URL.
+            </summary>
+        </member>
+        <member name="T:EF.ljArchive.Common.Journal.MoodsDataTable">
+            <summary>
+            A collection of <see cref="T:EF.ljArchive.Common.Journal.MoodsRow"/> objects.
+            </summary>
+        </member>
+        <member name="T:EF.ljArchive.Common.Journal.MoodsRow">
+            <summary>
+            A mood.
+            </summary>
+            <remarks><para>Moods are downloaded from the server upon logging in.</para>
+            <para>Many <see cref="T:EF.ljArchive.Common.Journal.EventsRow"/> objects may exist in the <see cref="T:EF.ljArchive.Common.Journal.EventsDataTable"/> with
+            <see cref="P:EF.ljArchive.Common.Journal.EventsRow.CurrentMoodID"/> values that correspond to a
+            <see cref="P:EF.ljArchive.Common.Journal.MoodsRow.ID"/>.  Awesome.</para></remarks>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.MoodsRow.ID">
+            <summary>
+            Gets/sets the Mood ID.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.MoodsRow.Name">
+            <summary>
+            The mood name.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.MoodsRow.Parent">
+            <summary>
+            The mood's parent (base) Mood ID.
+            </summary>
+            <remarks><para>I think this is used for common mood icons.</para>
+            <para>Or maybe it's some profound treatise regarding the taxonomy of human emotion.</para></remarks>
+        </member>
+        <member name="T:EF.ljArchive.Common.Journal.CommentsDataTable">
+            <summary>
+            A collection of <see cref="T:EF.ljArchive.Common.Journal.CommentsRow"/> objects.
+            </summary>
+        </member>
+        <member name="T:EF.ljArchive.Common.Journal.CommentsRow">
+            <summary>
+            A comment.
+            </summary>
+            <remarks><para>To see the source of this schema, visit the
+            <a href="http://www.livejournal.com/developer/exporting.bml">livejournal doc</a> on comments.</para>
+            </remarks>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.CommentsRow.ID">
+            <summary>
+            Gets/sets the id of this particular comment.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.CommentsRow.PosterID">
+            <summary>
+            Gets/sets the ID of the poster of this comment.
+            </summary>
+            <remarks><para>This ID should ALWAYS correspond to a <see cref="P:EF.ljArchive.Common.Journal.UsersRow.ID"/> in the
+            <see cref="T:EF.ljArchive.Common.Journal.UsersDataTable"/>.</para>
+            <para>An ID of 0 (zero) means anonymous.</para></remarks>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.CommentsRow.State">
+            <summary>
+            Gets/sets the state of this comment.
+            </summary>
+            <remarks><para>S = screened comment, D = deleted comment, A = active (visible) comment. If null, it
+            is assumed to be A.</para>
+            <para>If the comment is deleted, it will have no relevant info besides the
+            <see cref="P:EF.ljArchive.Common.Journal.CommentsRow.Date"/> and the <see cref="P:EF.ljArchive.Common.Journal.CommentsRow.PosterID"/>.</para></remarks>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.CommentsRow.JItemID">
+            <summary>
+            Gets/sets the <see cref="P:EF.ljArchive.Common.Journal.EventsRow.ID"/> this comment was posted in.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.CommentsRow.ParentID">
+            <summary>
+            Gets/sets the ID of the parent <see cref="T:EF.ljArchive.Common.Journal.CommentsRow"/> in the thread.
+            </summary>
+            <remarks>Top level comments have this property marked as 0 (zero).</remarks>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.CommentsRow.Body">
+            <summary>
+            Gets/sets the text of the comment.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.CommentsRow.Subject">
+            <summary>
+            Gets/sets the subject of the comment.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.CommentsRow.Date">
+            <summary>
+            Gets/sets the date of the comment.
+            </summary>
+        </member>
+        <member name="T:EF.ljArchive.Common.Journal.UsersDataTable">
+            <summary>
+            A collection of <see cref="T:EF.ljArchive.Common.Journal.UsersRow"/> objects.
+            </summary>
+        </member>
+        <member name="T:EF.ljArchive.Common.Journal.UsersRow">
+            <summary>
+            A livejournal user.
+            </summary>
+            <remarks><para>User names can be changed, but the user ID should always remain the same.</para>
+            <para>(In theory, right.)</para></remarks>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.UsersRow.ID">
+            <summary>
+            Gets/sets the ID of this user.
+            </summary>
+        </member>
+        <member name="P:EF.ljArchive.Common.Journal.UsersRow.User">
+            <summary>
+            Gets/sets the user name of this user.
+            </summary>
+        </member>
+  </members>
+</doc>

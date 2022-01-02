@@ -1,0 +1,397 @@
+<html>
+<head>
+<title>XML-RPC.Net</title>
+<meta name="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="keywords" content="Charles Cook, XML-RPC, xmlrpc, .Net, C#, Cook Computing" >
+
+<style type="text/css">
+pre {
+	font-family:monospace, arial, verdana;
+	font-size: 100%;
+	color:black;
+    background: #d9e3e9;
+    border: 1px black solid ;
+    padding: 5px;
+}
+
+<!--
+body {
+  font-size: 93%; /* for IE/Win */
+  font-family:  "Lucida Grande", "Trebuchet MS", Verdana, Geneva, Lucida, Helvetica, sans-serif;
+}
+-->
+body {
+	font-size: 93%; /* for IE/Win */
+	font-family:verdana, arial, sans-serif;
+}
+html>body {
+  font-size: 100%; /* for Opera */
+}
+H1, H2, H3, H4 {
+	font-family:verdana, arial, sans-serif;
+}
+H1 {
+  font-size: 30px;
+}
+H2 {
+  font-size: 110%;
+}
+H3, H4 {
+  font-size: 100%;
+}
+</style>
+
+</head>
+
+<body bgcolor="#FFFFFF">
+<table width="100%" border="0">
+  <tr>
+    <td width="50%"> 
+      <h1>XML-RPC.NET</h1>
+    </td>
+    <td width="50%">
+      <h3 align="center"><a href="http://www.cookcomputing.com">Cook Computing</a></h3>
+    </td>
+  </tr>
+</table>
+<h2>Overview</h2>
+<p>XML-RPC.NET is a library for implementing <a href="http://www.xmlrpc.com">XML-RPC</a> 
+  Services and clients in the .NET environment.The library has been in development 
+  since March 2001 and is used in many open-source and business applications. 
+  The current version of XML-RPC.NET is 0.8.1. Its features include:</p>
+<p>- interface based definition of XML-RPC servers and clients<br>
+  - code generation of type-safe client proxies<br>
+  - support for .NET Remoting on both client and server<br>
+  - ASP.NET Web Services which support both XML-RPC and SOAP<br>
+  - client support for asynchronous calls<br>
+  - client support for various XML encodings and XML indentation styles<br>
+  &nbsp;&nbsp;(some other XML-RPC server implementations incorrectly only accept 
+  certain indentation styles)<br>
+  - built-in support for XML-RPC Introspection API on server<br>
+  - dynamic generation of documentation page at URL of XML-RPC end-point<br>
+  - support for mapping XML-RPC method and struct member names to .NET-compatible 
+  names<br>
+  - support for Unicode XML-RPC strings in both client and server<br>
+  - support for optional struct members when mapping between .NET and XML-RPC 
+  types <br>
+</p>
+<p>The XML-RPC.NET library is CLS-compliant and so can be called from any CLS-compliant 
+  language, the main examples being C# and VB.NET.</p>
+<p>The <a href="http://www.cookcomputing.com/faq/xmlrpcnetfaq.html">FAQ</a> provides 
+  more information and the mailing list - the <a href="http://groups.yahoo.com/group/XMLRPCNET/">XMLRPCNET</a> 
+  Yahoo group - contains discussion, peer support, code example, and announcements 
+  relating to XML-RPC.NET.</p>
+<h3>XML-RPC Clients</h3>
+<p>It is easy to create client code which makes calls to XML-RPC servers. All 
+  you need to do is define an interface representing the XML-RPC end-point and 
+  then use the XmlRpcProxyGen class to automatically generate the code for the 
+  proxy. </p>
+<pre>[XmlRpcUrl(&quot;http://betty.userland.com/RPC2&quot;)]
+interface IStateName
+{
+&nbsp;&nbsp;&nbsp;&nbsp;[XmlRpcMethod(&quot;examples.getStateName&quot;)]
+&nbsp;&nbsp;&nbsp;&nbsp;string GetStateName(int stateNumber); 
+}</pre>
+<p>The proxy instance is generated using static method Create of the XmlRpcProxyGen 
+  class:</p>
+<pre>IStateName proxy = (IStateName)XmlRpcProxyGen.Create(typeof(IStateName));</pre>
+<p>The method on the proxy can then be called to make the XML-RPC request to the 
+  server:<br>
+  <br>
+
+<pre>string stateName = proxy.GetStateName(41);</pre>
+<h3>XML-RPC Services </h3>
+<p>XML-RPC.NET implements XML-RPC services as Services running in the Microsoft 
+  IIS web server environment. The model for XML-RPC Services are SOAP-based Web 
+  Services implemented as part of ASP.Net. An XML-RPC Service is implemented (in 
+  any CLS-compliant language, e.g. C#, VB.Net, etc) by creating a class which 
+  derives from the XmlRpcService base class and decorating the methods to be exposed 
+  via XML-RPC with the XmlRpcMethod attribute. For example:</p>
+<pre>public class StateNameService : XmlRpcService 
+{
+  [XmlRpcMethod(&quot;examples.getStateName&quot;,
+    Description="Return name of state given its number")] 
+  public string getStateName(int stateNum)
+  {
+    if (stateNum == 41)
+      return &quot;South Dakota&quot;;
+    else
+      return &quot;Don't know&quot;;
+  }
+}</pre>
+<p>As well as specifying an XML-RPC method the XmlRpcMethod attribute is here 
+  used to specify that the method is to be called using the XML-RPC protocol as 
+  &quot;examples.getStateName&quot;, not the name of the method used in the Service 
+  class.The string assigned to Description is used for automatic documentation 
+  generation as described below when a Service is invoked via a HTTP GET request.</p>
+<p>Alternatively the service class may also derive from an interface which defines 
+  the XML-RPC methods. The interface can then be also used to generate a proxy 
+  class as described above. For example, using the IStateName interface defined 
+  earlier:</p>
+<pre>public class StateNameService : XmlRpcService, IStateName
+{
+  public string getStateName(int stateNum)
+  {
+    if (stateNum == 41)
+        return &quot;South Dakota&quot;;
+    else
+      return &quot;Don't know&quot;;
+  }
+}</pre>
+<p></p>
+<p>A class may implement many XML-RPC methods, not just a single method as in 
+  these examples.</p>
+<p>The resulting assembly DLL placed in the <i>bin</i> directory of an IIS virtual 
+  directory and a <i>web.config</i> file is used to dispatch HTTP requests to 
+  the custom handler implemented by class XmlRpcService. For example, if cookcomputing.com 
+  has a virtual directory called <i>xmlrpc</i> and the following config file is 
+  placed in the root directory of <i>xmlrpc</i>:</p>
+<pre>&lt;configuration&gt;
+  &lt;system.web&gt;
+    &lt;httpHandlers&gt;
+      &lt;add verb=&quot;*&quot; path=&quot;statename.rem&quot; 
+        type=&quot;CookComputing.StateNameService, StateNameService&quot; /&gt;
+    &lt;/httpHandlers&gt;
+  &lt;/system.web&gt; 
+&lt;/configuration&gt;</pre>
+<p>The Service can be invoked via the XML-RPC protocol at this URL:<br>
+<pre>    http://localhost/xmlrpc/statename.rem</pre>
+<p>Note that the type is assembly qualified: the name of the class is <i>CookComputing.StateNameService</i> 
+  in the assembly <i>StateNameService</i> (i.e. <i>StateNameService.dll</i>).</p>
+<p>If, instead of making an XML-RPC request via a HTTP POST request, the caller 
+  makes a HTTP GET request to the same URL, the Service returns an automatically 
+  generated page describing itself. For the example service above, this <a href="http://www.dev1.eraserver.net/cookcomputing/math.aspx">page</a> 
+  is returned.</p>
+<p>Alternatively the Service can implemented via XML-RPC.NET's support for .NET 
+  Remoting.This has the advantage that the same Service can then be accessed by 
+  either the XML-RPC or SOAP protocols.</p>
+<h2>Further Information</h2>
+<p><a href="http://www.cookcomputing.com/faq/xmlrpcnetfaq.html">FAQ</a> - this 
+  provides the documentation for XML-RPC.NET. </p>
+<p><a href="xmlrpcsamples.html">Samples</a> - several samples are available.<br>
+  <a href="xmlrpcerrorhandling.html"> </a></p>
+<h2>Current Release - 0.8.1</h2>
+<p><a href="xml-rpc.net.0.8.1.zip">xml-rpc.net.0.8.1.zip</a> </p>
+<ul>
+  <li>temporary fix for nullable types XmlRpcBoolean, XmlRpcDateTime, XmlRcDouble, 
+    XmlRpcInt </li>
+  <li>The zip file contains a bin directory containing:</li>
+</ul>
+<ul>
+  <li><b>CookComputing.XmlRpc.dll</b></li>
+  <li><b>bettyapp.exe </b>(A WinForms application which calls the UserLand betty 
+    example server.)</li>
+  <li><b>asyncbettyapp.exe</b> (Another WinForms app illustrating how to make 
+    async calls.)</li>
+  <li><b>mathservice.exe</b> (A simple XML-RPC service.)</li>
+  <li><b>mathapp.exe </b>(A WinForms application which calls MathService.)</li>
+</ul>
+<h3>Limitations of Current Release<br>
+</h3>
+<ul>
+  <li>FAQ has not been updated.</li>
+  <li>If a struct has been marked as an optional member of another struct, then 
+    all the members of the child struct must be marked as optional</li>
+</ul>
+<h3></h3>
+<h2>Change History</h2>
+<h2> 0.8.0</h2>
+<p><a href="xml-rpc.net.0.8.0.zip">xml-rpc.net.0.8.0.zip</a> </p>
+<ul>
+  <li>optional struct members</li>
+  <li>The zip file contains a bin directory containing:</li>
+</ul>
+<ul>
+  <li><b>CookComputing.XmlRpc.dll</b></li>
+  <li><b>bettyapp.exe </b>(A WinForms application which calls the UserLand betty 
+    example server.)</li>
+  <li><b>asyncbettyapp.exe</b> (Another WinForms app illustrating how to make 
+    async calls.)</li>
+  <li><b>mathservice.exe</b> (A simple XML-RPC service.)</li>
+  <li><b>mathapp.exe </b>(A WinForms application which calls MathService.)</li>
+</ul>
+<h3>Limitations of Current Release<br>
+</h3>
+<ul>
+  <li>FAQ has not been updated.</li>
+  <li>If a struct has been marked as an optional member of another struct, then 
+    all the members of the child struct must be marked as optional</li>
+</ul>
+<h3></h3>
+<h2></h2>
+<h2>0.7.1</h2>
+<p><a href="xml-rpc.net.0.7.1.zip">xml-rpc.net.0.7.1.zip</a> </p>
+<ul>
+  <li>License change.</li>
+  <li>Fixed problem in XmlRpcServerFormatterSink.cs whereby an exception was thrown 
+    if the XML-RPC and .NET method names are different.</li>
+</ul>
+<h3></h3>
+<h2>0.7.0</h2>
+<p><a href="xml-rpc.net.0.7.0.zip">xml-rpc.net.0.7.0.zip</a> </p>
+<ul>
+  <li>error reporting of parsing errors using parse stack</li>
+  <li>support for async proxy method generation</li>
+  <li>contiuning work on auto-generated documentation</li>
+  <li>params keywords used in XmlRpcClientProtocol.Invoke</li>
+  <li>server method can return void (return empty string in XML-RPC response)</li>
+  <li> proxy method can return void (return value in XML-RPC response discarded)</li>
+  <li>deserializer throws exception if an XML-RPC struct is missing one or more 
+    expected members</li>
+  <li>fixed irritating warning when compiling XmlRpcStruct</li>
+  <li>add version of BeginInvoke taking correct params as per docs</li>
+  <li>Close always called on WebResponse </li>
+  <li>fixed usage of XmlRpcClientProtocol Proxy property when used in VS designer 
+    (Drew Marsh)</li>
+  <li>fixed handling of response without Content-Length during async calls (Dmitry 
+    Jemerov)</li>
+  <li>fixed case when zero-length string in default string value is passed as 
+    &lt;value/&gt; (Drew Marsh)</li>
+  <li>The zip file contains a bin directory containing:</li>
+</ul>
+<ul>
+  <li><b>CookComputing.XmlRpc.dll</b></li>
+  <li><b>bettyapp.exe </b>(A WinForms application which calls the UserLand betty 
+    example server.)</li>
+  <li><b>asyncbettyapp.exe</b> (Another WinForms app illustrating how to make 
+    async calls.)</li>
+  <li><b>mathservice.exe</b> (A simple XML-RPC service.)</li>
+  <li><b>mathapp.exe </b>(A WinForms application which calls MathService.)</li>
+</ul>
+<h3>Limitations of Current Release<br>
+</h3>
+<ul>
+  <li>Auto-documentation generation not fully implemented.</li>
+  <li>No tracing/logging functionality.</li>
+</ul>
+<h3></h3>
+<h3>0.6.0</h3>
+<p><a href="xml-rpc.net.0.6.0.zip">xml-rpc.net.0.6.0.zip</a></p>
+<ul>
+  <li>Fixed UserAgent property of XmlRpcClientProtocol.</li>
+  <li>Added Proxy property to XmlRpcClientProtocol.</li>
+  <li>Default for XML-RPC request XML document is no explicit encoding, i.e. implicitly 
+    UTF-8.</li>
+  <li>Added Encoding property to XmlRpcClientProtocol to set explicit encoding 
+    on XML-RPC request XML document</li>
+  <li>Can now use interface to define XML-RPC methods. For example can use same 
+    interface to implement both server and client. MathService changed to illustrate 
+    use of interface.</li>
+  <li>Added XmlRpcProxyGen class to dynamically create a proxy object from an 
+    interface, i.e. makes hand-coding of proxies unnecessary in most cases. bettyapp 
+    sample changed to illustrate this.</li>
+  <li>Fixed parsing of double type to be culture independent.</li>
+  <li>Fault response XML document now generated in same way as ordinary response, 
+    i.e. will be in same format and encoding.</li>
+</ul>
+<h3>0.5.5</h3>
+<p><a href="http://www.cookcomputing.com/xmlrpc/xml-rpc.net.0.5.2.zip"></a><a href="xml-rpc.net.0.5.4.zip"></a><a href="xml-rpc.net.0.5.5.zip">xml-rpc.net.0.5.5.zip</a> 
+</p>
+<ul>
+  <li>Added ClientCertificates property to XmlRpcClientProtocol<br>
+  </li>
+  <li>The zip file contains a bin directory containing:</li>
+</ul>
+<ul>
+  <li><b>CookComputing.XmlRpc.dll</b></li>
+  <li><b>bettyapp.exe </b>(A WinForms application which calls the UserLand betty 
+    example server.)</li>
+  <li><b>asyncbettyapp.exe</b> (Another WinForms app illustrating how to make 
+    async calls.)</li>
+  <li><b>mathservice.exe</b> (A simple XML-RPC service.)</li>
+  <li><b>mathapp.exe </b>(A WinForms application which calls MathService.)</li>
+</ul>
+<h4>Limitations of Current Release<br>
+</h4>
+<ul>
+  <li>Auto-documentation generation not fully implemented.</li>
+  <li>No tracing/logging functionality.</li>
+</ul>
+<h3>0.5.4</h3>
+<p><a href="http://www.cookcomputing.com/xmlrpc/xml-rpc.net.0.5.2.zip"></a><a href="xml-rpc.net.0.5.4.zip">xml-rpc.net.0.5.4.zip</a></p>
+<ul>
+  <li>Added Headers property to XmlRpcClientProtocol. </li>
+  <li>Added XmlRpcMemberAttribute. </li>
+  <li>Modified deserialization of arrays to return more specific array type when 
+    all elements are of the same type.</li>
+</ul>
+<h4></h4>
+<h3>0.5.3</h3>
+<p><a href="http://www.cookcomputing.com/xmlrpc/xml-rpc.net.0.5.2.zip"></a><a href="xml-rpc.net.0.5.3.zip">xml-rpc.net.0.5.3.zip</a></p>
+<ul>
+  <li>Fixed problem with deserializing arrays.</li>
+</ul>
+<h3>0.5.2</h3>
+<p><a href="http://www.cookcomputing.com/xmlrpc/xml-rpc.net.0.5.2.zip">xml-rpc.net.0.5.2.zip</a></p>
+<ul>
+  <li>Improved handling of XmlRpcFaultException in server formatter sink..</li>
+</ul>
+<h4></h4>
+<h3>0.5.1</h3>
+<p><a href="http://www.cookcomputing.com/xmlrpc/xml-rpc.net.0.5.1.zip">xml-rpc.net.0.5.1.zip</a></p>
+<ul>
+  <li>Improved handling of XmlRpcFaultException in server formatter sink..</li>
+</ul>
+<h3>0.5.0</h3>
+<p><a href="http://www.cookcomputing.com/xmlrpc/xml-rpc.net.0.5.0.zip">xml-rpc.net.0.5.0.zip</a></p>
+<ul>
+  <li>Interim release containing preliminary code for client and server NET Remoting 
+    formatter sinks.</li>
+  <li>A Remoting sample, with assemblies and config files.</li>
+</ul>
+<h3>0.4.3</h3>
+<p><a href="http://www.cookcomputing.com/xmlrpc/xml-rpc.net.0.4.3.zip">xml-rpc.net.0.4.3.zip</a></p>
+<ul>
+  <li>Interim release containing bug fixes, mainly in the serialization/deserialization 
+    code.</li>
+  <li>Some restructuring in preparation for some major changes in the 0.5 series 
+    of releases.</li>
+</ul>
+<h3>0.4.2</h3>
+<p><a href="http://www.cookcomputing.com/xmlrpc/xml-rpc.net.0.4.2.zip">xml-rpc.net.0.4.2.zip</a></p>
+<ul>
+  <li>Build for .NET RTM.</li>
+  <li>Added preliminary support for Introspection API.</li>
+</ul>
+<h4></h4>
+<h4></h4>
+<h3>0.4.1</h3>
+<p><a href="http://www.cookcomputing.com/xmlrpc/xml-rpc.net.0.4.1.zip">xml-rpc.net.0.4.1.zip</a></p>
+<ul>
+  <li>Major changes to XmlRpcClientProtocol class to support async calls, working 
+    but coding not completed.</li>
+  <li>Extra sample - AsyncBettyApp - to illustrate async calls.</li>
+</ul>
+<h4></h4>
+<h3>0.4.0</h3>
+<p>Initial release for .NET beta 2.</p>
+<p><a href="http://www.cookcomputing.com/xmlrpc/xml-rpc.net.0.4.0.zip">xml-rpc.net.0.4.0.zip</a></p>
+<h3>0.3.0</h3>
+<p>Initial release for .NET beta 1.</p>
+<h2>Developers</h2>
+<p>Lead Developer - Charles Cook.</p>
+<h2>License</h2>
+<p>XML-RPC.NET is released under the terms of the <a href="http://www.opensource.org/licenses/mit-license.html">MIT 
+  X11</a> license. </p>
+<h2>Contact</h2>
+<p>Please contact <script language="JavaScript" type="text/javascript">
+<!--
+document.write('<a href="mailto:' + '&#99;&#104;&#97;&#114;&#108;&#101;&#115;&#99;&#111;&#111;&#107;' + '&#64;' + '&#117;&#107;&#111;&#110;&#108;&#105;&#110;&#101;&#46;&#99;&#111;&#46;&#117;&#107;' + '" title="Charles Cook">' + 'Charles Cook' + '</a>');
+// -->
+</script> 
+  with any feedback or suggestions for XML-RPC.NET. </p>
+<p>&nbsp; </p>
+<table width="100%" border="0">
+  <tr> 
+    <td><i><font face="Georgia, Times New Roman, Times, serif" size="1">© Charles 
+      Cook, 2001, 2002,2003 All Rights Reserved. </font></i></td>
+    <td> 
+      <div align="right"><font face="Georgia, Times New Roman, Times, serif" size="1"><i>24 
+        February 2003</i></font></div>
+    </td>
+  </tr>
+</table>
+<p align="center">&nbsp;</p>
+<p align="center"><i></i></p>
+</body>
+</html>
