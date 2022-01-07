@@ -70,7 +70,7 @@ Section "MainSection" SEC01
   File "bin\Release\ljArchive.exe"
   CreateDirectory "$SMPROGRAMS\ljArchive"
   CreateShortCut "$SMPROGRAMS\ljArchive\ljArchive.lnk" "$INSTDIR\ljArchive.exe"
-  File "bin\Release\Update.exe"
+  ;File "bin\Release\Update.exe"
   SetOverwrite ifnewer
   File "index.htm"
   CreateShortCut "$SMPROGRAMS\ljArchive\ljArchive Info.lnk" "$INSTDIR\index.htm"

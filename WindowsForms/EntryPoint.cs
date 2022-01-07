@@ -39,10 +39,6 @@ namespace EF.ljArchive.WindowsForms
 				Dialogs.GeneralError.Go("ljArchive encountered the following fatal error: " + ex.ToString(), null);
 			}
 #endif
-			if (e != null && e.UpdateRequested)
-				System.Diagnostics.Process.Start(System.IO.Path.Combine(Application.StartupPath, _updateFileName));
 		}
-
-		private const string _updateFileName = "Update.exe";
 	}
 }

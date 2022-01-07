@@ -43,21 +43,9 @@ namespace EF.ljArchive.WindowsForms
 
 		static public bool UpdateAvailable()
 		{
-			try
-			{
-				WebRequest request = WebRequest.Create(_manifestURL);
-				WebResponse response = request.GetResponse();
-				Version serverVersion;
-				using (StreamReader sr = new StreamReader(response.GetResponseStream()))
-					serverVersion = new Version(sr.ReadToEnd());
-				if (serverVersion > System.Reflection.Assembly.GetExecutingAssembly().GetName().Version)
-					return true;
-			}
-			catch {}
 			return false;
 		}
 
-		private const string _manifestURL = "http://ljarchive.sourceforge.net/CurrentVersion/Manifest";
 		static private Thread t;
 		static private UpdateExistsCallBack uccb;
 	}
