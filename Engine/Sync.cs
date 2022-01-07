@@ -139,7 +139,7 @@ namespace EF.ljArchive.Engine
 		/// </summary>
 		private Sync() {}
 		#endregion
-		
+
 		#region Public Static Methods
 		/// <summary>
 		/// Begins a <see cref="Journal"/> sync.
@@ -455,6 +455,7 @@ namespace EF.ljArchive.Engine
 				HttpWebRequest w = HttpWebRequestFactory.Create(uri.AbsoluteUri, sgr.ljsession);
 				socb(new SyncOperationEventArgs(SyncOperation.ExportCommentsBody, count - localMaxID,
 					serverMaxID - localMaxID));
+				bool wasProgress = false;
 				using (Stream s = w.GetResponse().GetResponseStream())
 				{
 					System.Text.Encoding ec;
@@ -465,13 +466,16 @@ namespace EF.ljArchive.Engine
 					StreamReader sr = new StreamReader(s, ec);
 					XmlCommentReader xcr = new XmlCommentReader(sr);
 					while (xcr.Read())
+					{
 						cc.Add(xcr.Comment);
+						wasProgress = true;
+					}
 					xcr.Close();
 				}
-				count = cc.GetMaxID();
+				count = wasProgress ? cc.GetMaxID() : count + 1;
 			}
 		}
-		
+
 		static private void ParseException(Exception ex, ref Exception result)
 		{
 			if (ex.GetType() == typeof(CookComputing.XmlRpc.XmlRpcFaultException))
