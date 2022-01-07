@@ -1,3 +1,14 @@
+2022-01-07  sharpden <sharp-c@yandex.ru>
+
+* Version 0.9.9
+
+* Removed obsolete files for VS2003
+
+* Sometimes LJ sends empty comment body XML, ExportCommentsBody does not update max got comment ID and go to infinite loop
+
+* Removed Update.exe
+
+
 2022-01-02  sharpden <sharp-c@yandex.ru>
 
 * Bump version numbers for 0.9.8, changed About window, site and name according to license

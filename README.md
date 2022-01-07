@@ -4,7 +4,7 @@ This is a fork of ljArchive 0.9.7 by Erik Frey https://sourceforge.net/projects/
 
 It contains minimal fixes to make it work with LiveJournal servers in 2022.
 
-[Release 0.9.8](https://github.com/sharpden/ljarchive/releases/download/0.9.8/ljArchive-0.9.8-setup.exe)
+[Release 0.9.9](https://github.com/sharpden/ljarchive/releases/download/0.9.9/ljArchive-0.9.9-setup.exe)
 
 
 # How to build
