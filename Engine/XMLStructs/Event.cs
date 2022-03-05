@@ -9,7 +9,7 @@ namespace EF.ljArchive.Engine.XMLStructs
 	public struct Event
 	{
 		public Event(int itemid, string eventtime, string security, System.Int32 allowmask, string subject,
-			string eventText, string poster, int anum, EventProps props)
+			string eventText, string poster, string postername, string repostername, int anum, EventProps props)
 		{
 			this.itemid = itemid;
 			this.eventtime = eventtime;
@@ -18,6 +18,8 @@ namespace EF.ljArchive.Engine.XMLStructs
 			this.subject = subject;
 			this.eventText = eventText;
 			this.poster = poster;
+			this.postername = postername;
+			this.repostername = repostername;
 			this.anum = anum;
 			this.props = props;
 		}
@@ -34,7 +36,11 @@ namespace EF.ljArchive.Engine.XMLStructs
 		public int anum;
 		[XmlRpcMissingMapping(MappingAction.Ignore)]
 		public string poster;
-		
+		[XmlRpcMissingMapping(MappingAction.Ignore)]
+		public string postername;
+		[XmlRpcMissingMapping(MappingAction.Ignore)]
+		public string repostername;
+
 		public EventProps props;
 	}
 }

@@ -381,6 +381,20 @@ namespace EF.ljArchive.Engine
 				GetEventsResponse ger;
 				socb(new SyncOperationEventArgs(SyncOperation.GetEvents, total - sic.Count, total));
 				ger = iLJ.GetEvents(gep);
+
+				// Journal may contain reposts (with members postername and repostername)
+				// with the same itemid as regular journal item
+				// so reposts should be removed from events list
+				System.Collections.Generic.List<Event> events_without_reposts = new System.Collections.Generic.List<Event>();
+				foreach (Event e in ger.events)
+				{
+					if (e.postername == null && e.repostername == null)
+					{
+						events_without_reposts.Add(e);
+					}
+				}
+				ger.events = events_without_reposts.ToArray();
+
 				// remove this item in case it isn't returned by getevents
 				// this signifies that the item has been deleted
 				// this also ensures we don't get stuck in an endless loop

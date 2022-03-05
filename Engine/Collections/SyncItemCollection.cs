@@ -22,7 +22,7 @@ namespace EF.ljArchive.Engine.Collections
 			}
 		}
 		#endregion
-		
+
 		#region Public Instance Methods
 		public void AddRangeLog( SyncItem[] values )
 		{
@@ -36,27 +36,27 @@ namespace EF.ljArchive.Engine.Collections
 			foreach (SyncItem value in values)
 				List.Add(value);
 		}
-		
+
 		public int Add( SyncItem value )
 		{
 			return( List.Add( value ) );
 		}
-	
+
 		public int IndexOf(SyncItem   value )
 		{
 			return( List.IndexOf( value ) );
 		}
-	
+
 		public void Insert( int index, SyncItem value )
 		{
 			List.Insert( index, value );
 		}
-	
+
 		public void Remove( SyncItem value )
 		{
 			List.Remove( value );
 		}
-	
+
 		public bool Contains( SyncItem value )
 		{
 			// If value is not of type SyncItem, this will return false.
@@ -95,12 +95,20 @@ namespace EF.ljArchive.Engine.Collections
 		{
 			ArrayList al = new ArrayList();
 			foreach (Event e in events)
+            {
 				foreach (SyncItem s in List)
-					if (s.item.StartsWith(_syncitemtypelogprefix) &&
-						int.Parse(s.item.Substring(_syncitemtypelogprefix.Length)) == e.itemid)
+				{
+					int sitemid = int.Parse(s.item.Substring(_syncitemtypelogprefix.Length));
+					if (s.item.StartsWith(_syncitemtypelogprefix) && sitemid == e.itemid)
+					{
 						al.Add(s);
+					}
+				}
+			}
 			foreach (SyncItem s in al)
+			{
 				List.Remove(s);
+			}
 		}
 		#endregion
 
