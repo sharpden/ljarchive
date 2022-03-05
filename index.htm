@@ -1,253 +1,329 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
-	<head>
-		<title></title>
-		<meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
-		<meta name="ProgId" content="VisualStudio.HTML">
-		<meta name="Originator" content="Microsoft Visual Studio .NET 7.1">
-	</head>
-	<body>
-		<h1>ljArchive</h1>
-		<p />
-		A Livejournal backup utility by Erik Frey.
-		<p />
-		The web site for ljArchive is <a href="http://ljarchive.sourceforge.net/">http://ljarchive.sourceforge.net/</a>.
-		<p />
-		ljArchive is released under the terms of the <a href="http://www.opensource.org/licenses/zlib-license.html">
-			zlib/libpng License</a>.
-		<h3>Revision History</h3>
-		<dl>
-			<dt>0.9.7</dt><dd>Bug-fixes and a few new features:
-				<ul>
-					<li>
-						Can now archive communities.
-					</li>
-					<li>
-						Proper "go to entry" instead of "go to day entry".
-					</li>
-					<li>
-						Fixed lj comm tag display.
-					</li>
-					<li>
-						Fixed handling of invalid UTF8 characters.
-					</li>
-					<li>
-						Added automatic proxy support for .NET 1.1.
-					</li>
-					<li>
-						Fixed ljArchive Core to build in Mono.
-					</li>
-					<li>
-						Fixed some internationalization issues regarding how ljArchive stores dates and numbers.
-					</li>
-					<li>
-						Fixed ' (single tick) crashing search.
-					</li>
-					<li>
-						Fixed thread abort error when cancelling a Sync.
-					</li>
-					<li>
-						Better archive file format support.
-					</li>
-				</ul>			
-			</dd>		
-                <dt>0.9.6</dt>
-                  <dd>XMLRPC bugfixes and LJ cookie changes.</dd>
-                <dt>0.9.5</dt>
-                  <dd>Initial tags support, move to sourceforge, and minor bugfixes.</dd>
-		<dt>0.9.4.3</dt><dd>New feature and minor fix:
-				<ul>
-					<li>
-						Can now partially sync.  This is useful when the Livejournal server is bogged down and dies
-						halfway through a big sync.
-					</li>
-					<li>
-						Changed request header to disable Keep-alive.  This was causing LiveJournal to return
-						bad HTTP responses.
-					</li>
-				</ul>
-			</dd>
-			<dt>0.9.4.2</dt><dd>Bug-fixes and two new features:
-				<ul>
-					<li>
-						Added new calendar panel.  Allows user to navigate through months, and view entries by day.
-					</li>
-					<li>
-						Added new template: unearthed.
-					</li>
-					<li>
-						Fixed error in XMLRPC trying to cast values improperly reported as integer by the server.
-					</li>
-					<li>
-						Fixed "Go To Day Entry" formatting improperly on non-English computers.
-					</li>
-					<li>
-						Fixed wrong ExpectedSyncException ocassionally being reported.
-					</li>
-					<li>
-						Fixed error window popping up sometimes in background.
-					</li>
-					<li>
-						Fixed "anonymous" user not being rendered properly.
-					</li>
-					<li>
-						Fixed HTML color settings not being saved properly.
-					</li>
-					<li>
-						Fixed File->New Dialog occasionally defaulting to invalid path.
-					</li>
-					<li>
-						Fixed CommentCount sometimes throwing exception when initialized.
-					</li>
-					<li>
-						Fixed ToolTip not always showing properly on CommentCount.
-					</li>
-					<li>
-						Fixed protected icon not showing in Component template.
-					</li>
-					<li>
-						Fixed grid sort: now defaults to date descending.
-					</li>
-					<li>
-						Fixed find results not clearing when panel was hidden.
-					</li>
-				</ul>			
-			</dd>
-			<dt>0.9.4.1</dt><dd>Bug-fixes and a few small feature updates:
-				<ul>
-					<li>
-						Fixed plugins crashing if the journal archive was empty.
-					</li>
-					<li>
-						Tweaked Regressive Imagery Analysis behavior for potentially bad analyses, such
-						as running the analysis on a non-English journal.
-					</li>
-					<li>
-						Fixed extra line-breaks occurring in RID HTML output.
-					</li>
-					<li>
-						Fixed plugins and journalwriters settings serializing in an assembly-version-dependant
-						manner.
-					</li>
-					<li>
-						Fixed plugin collection crashing if a target invocation exception occurred while loading a
-						plugin.
-					</li>
-					<li>
-						Added 'Split File Per Entry' setting in File->Export.
-					</li>
-					<li>
-						Added 'Top Three Categories' and 'Bottom Three Categories' to RID analysis presets.
-					</li>
-				</ul>
-			</dd>
-			<dt>0.9.4</dt><dd>New features and a few bug fixes:
-				<ul>
-					<li>
-						New plugin - <a href="http://fawx.com/ljArchive/rid.htm">Regressive Imagery Analysis</a>.
-						This plugin provides a psychological profile of your journal by performing a <i>categorical
-						content analysis</i>, and provides the results as a Summary graph, a graph Over Time,
-						or a summary as HTML Code that you can paste in your journal.</li>
-					<li>
-						New plugin - <a href="http://fawx.com/ljArchive/entryreader.htm">Entry Reader</a>,
-						reads your journal entries aloud using text-to-speech technology.</li>
-					<li>
-						Auto-update - ljArchive can now alert the user when a new version is available, and
-						update itself automatically.</li>
-					<li>
-						Smaller install size - dropped some propietary HTML libraries, allowing the install
-						size to shrink from ~9M to ~1.3M.</li>
-					<li>
-						Minor UI improvements.  Most notably, clicking on a comment will now scroll the browser
-						page so the comment comes into view.</li>
-					<li>
-						French language support (courtesy of Frederic Barthelemy).</li>
-				</ul>
-				</dd>
-			<dt>0.9.3</dt><dd>Restructured and rewrote parts of the ljArchive core classes:
-				<ul>
-					<li>
-						New <a href="http://fawx.com/ljArchive/doc/">core class library</a> is 
-						completely OS-agnostic and should support any ECMA-compatible runtime engine 
-						with .NET core libraries (such as <a href="http://www.mono-project.com/">mono</a>).</li>
-					<li>
-						Cleaned up code and created <a href="http://fawx.com/ljArchive/doc/">documentation</a>
-						for the new core library.</li>
-					<li>
-						Implemented new functionality in the HTML journal renderer. Now supports lots 
-						of colors, and a more thorough template system. Tuned performance (33% speed 
-						gain).</li>
-				</ul>
-				Lots of UI improvements:
-				<ul>
-					<li>
-						Completely rewrote the main explorer window to support multiple resizable panes.</li>
-					<li>
-						Implemented informative error messages for commonly expected errors.</li>
-					<li>
-						Implemented localization support. The only language currently is English :-)</li>
-					<li>
-						Added a couple more templates and documented them so users can make their own.</li>
-				</ul>
-				And lots of bug fixes. Fixed bugs related to users not being able to connect 
-				with free accounts and not being able to connect to alternate servers. Tested 
-				with <a href="http://www.livejournal.com/">LiveJournal</a>, <a href="http://www.deadjournal.com/">
-					DeadJournal</a>, and <a href="http://www.ujournal.org/">UJournal</a>.
-			</dd>
-			<dt>0.9.2</dt><dd>Added support for downloading/browsing/searching comments.<br />
-				Updated loading/saving code - new file format is about 35% smaller and loads 
-				approximately <b>6x</b> faster than the old format.<br />
-				Updated the common IPlugin/IEventWriter interfaces to allow Plugins and 
-				EventWriters to support the new comment functionality.<br />
-				Updated the template rendering structure of HTMLEventWriter to support 
-				comments.<br />
-				Added ability to cancel a sync as it's happening.
-			</dd>
-			<dt>0.9.1</dt><dd>Coalesced business and network code into a single business 
-				library. (Paving the way for a Mono version - only needs to implement UI)<br />
-				Added setup project, application icon.<br />
-				Fixed problem where links clicked in the internal browser opened internally.<br />
-				Fixed problem where ljArchive croaked if it got back a type it didn't expect 
-				from the server.<br />
-				Added more user-friendly error reporting.<br />
-				Added generator template.<br />
-				Added a simple options dialog box.</dd>
-			<dt>0.9</dt><dd>Initial Release.</dd></dl>
-		<h3>ljArchive uses code from the following open source projects:</h3>
-		CommandBar for .NET, by Lutz Roeder - <a href="http://www.aisto.com/roeder/dotnet/">
-			http://www.aisto.com/roeder/dotnet/</a>.
-		<p />
-		Writer for .NET, by Lutz Roeder - <a href="http://www.aisto.com/roeder/dotnet/">
-			http://www.aisto.com/roeder/dotnet/</a>.
-		<p />
-		ZedGraph, a free, open source graph tool, by John Champion - <a href="http://www.codeproject.com/csharp/ZedGraph.asp">
-			http://www.codeproject.com/csharp/ZedGraph.asp</a>.
-		<p />
-		Portions copyright 2002-2004 The Genghis Group (<a href="http://www.genghisgroup.com/">http://www.genghisgroup.com/</a>).
-		<p />
-		SimpleMIDI, a free, open source .NET MIDI Library, by Erik Frey - <a href="http://fawx.com/">
-			http://fawx.com/</a>.
-		<p />
-		<div style="border: 1px solid #000;">
-			XML-RPC.NET by Charles Cook - <a href="http://www.xml-rpc.net">http://www.xml-rpc.net</a>.
-			<TT>
-				<P>Copyright (c) Charles Cooke</P>
-				<P>Permission is hereby granted, free of charge, to any person obtaining a copy of 
-					this software and associated documentation files (the "Software"), to deal in 
-					the Software without restriction, including without limitation the rights to 
-					use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
-					of the Software, and to permit persons to whom the Software is furnished to do 
-					so, subject to the following conditions:</P>
-				<P>The above copyright notice and this permission notice shall be included in all 
-					copies or substantial portions of the Software.</P>
-				<P>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
-					IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-					FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
-					AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
-					LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
-					OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
-					SOFTWARE.</P>
-			</TT>
-		</div>
-	</body>
+    <head>
+        <title>ljArchive</title>
+        <meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+        <meta name="ProgId" content="VisualStudio.HTML">
+        <meta name="Originator" content="Microsoft Visual Studio .NET 7.1">
+    </head>
+    <body>
+        <h1>ljArchive</h1>
+        <p />
+        A fork of Livejournal backup utility by Erik Frey.
+        <p />
+        The web site for ljArchive is <a href="https://github.com/sharpden/ljarchive">https://github.com/sharpden/ljarchive</a> (previous <a href="http://ljarchive.sourceforge.net/">http://ljarchive.sourceforge.net/</a>).
+        <p />
+        ljArchive is released under the terms of the <a href="http://www.opensource.org/licenses/zlib-license.html">
+            zlib/libpng License</a>.
+
+
+        <h3>Revision History</h3>
+        <dl>
+            <dt>0.9.10 (2022-03-05) sharpden</dt>
+            <dd>
+                <ul>
+                    <li>Journal may contain reposts (with members postername and repostername) with the same itemid as regular journal item, so reposts should be removed from events list</li>
+                    <li>CHANGELOG and index.htm were merged because only index.htm goes to installer</li>
+                </ul>
+            </dd>
+
+            <dt>0.9.9 (2022-01-07) sharpden</dt>
+            <dd>
+                <ul>
+                    <li>Removed obsolete files for VS2003</li>
+                    <li>Sometimes LJ sends empty comment body XML, ExportCommentsBody does not update max got comment ID and go to infinite loop</li>
+                    <li>Removed Update.exe</li>
+                </ul>
+            </dd>
+
+            <dt>0.9.8 (2022-01-02) sharpden</dt>
+            <dd>
+                <ul>
+                    <li>changed About window, site and name according to license</li>
+                    <li>Solution updated for VS 2019 and .NET 4.0</li>
+                    <li>Fixed cookie</li>
+                    <li>Fix for TLS 1.2</li>
+                    <li>Fix for compilation with .NET 4.0</li>
+                    <li>Removed EntryReader plugin, it depends on Microsoft Agent Control with bindings of unknown origin</li>
+                </ul>
+            </dd>
+
+            <dt>0.9.7 (2006-03-22) Erik Frey</dt>
+            <dd>Bug-fixes and a few new features:
+                <ul>
+                    <li>
+                        Can now archive communities.
+                    </li>
+                    <li>
+                        Proper "go to entry" instead of "go to day entry".
+                    </li>
+                    <li>
+                        Fixed lj comm tag display.
+                    </li>
+                    <li>
+                        Fixed handling of invalid UTF8 characters.
+                    </li>
+                    <li>
+                        Added automatic proxy support for .NET 1.1.
+                    </li>
+                    <li>
+                        Fixed ljArchive Core to build in Mono.
+                    </li>
+                    <li>
+                        Fixed some internationalization issues regarding how ljArchive stores dates and numbers.
+                    </li>
+                    <li>
+                        Fixed ' (single tick) crashing search.
+                    </li>
+                    <li>
+                        Fixed thread abort error when cancelling a Sync.
+                    </li>
+                    <li>
+                        Better archive file format support.
+                    </li>
+                    <li>XP-theming if built on .NET 2.0.</li>
+                    <li>Manual build files.</li>
+                </ul>            
+            </dd>
+
+            <dt>0.9.6 (2006-02-19) Deb Hooker</dt>
+            <dd>XMLRPC bugfixes and LJ cookie changes.
+                <ul>
+                    <li>Use the new LJ session cookies (we still set the old one as well, in case we're communicating with a site that uses old-style cookies).</li>
+                    <li>Some low-level changes to the XMLRPC protocol to match what LJ is now doing.  Hopefully this'll stop all the XmlRpc errors.</li>
+                </ul>
+            </dd>
+
+            <dt>0.9.5 (2005-07-27) Deb Hooker</dt>
+            <dd>Initial tags support, move to sourceforge, and minor bugfixes.
+                <ul>
+                    <li>Basic support for tags.  (Nothing fancy, but at least we download them and display them now.)</li>
+                    <li>Update various URLs and informational strings to point to the
+                        sourceforge homepage instead of to fawx.com for now.
+                        (The sourceforge page will maintain a link to fawx.com, of course,
+                        but as we update things we'd rather have people come to the up-to-date site
+                        first.) Also update the online-update-check links to something we can
+                        actually update as we release new releases.</li>
+                    <li>ljArchive.build:  Add a really basic NAnt build file to build the various
+                        release file packages.  Has hardcoded pathnames to executables in it, so it
+                        needs work, but it's a start.</li>
+                    <li>WindowsForms/Explorer.cs:  Handle FormatException and InvalidCastException
+                        when trying to get the last update-check date.  (Fixes bug 1235116.)</li>
+                </ul>
+            </dd>
+
+            <dt>0.9.4.3</dt>
+            <dd>New feature and minor fix:
+                <ul>
+                    <li>
+                        Can now partially sync.  This is useful when the Livejournal server is bogged down and dies
+                        halfway through a big sync.
+                    </li>
+                    <li>
+                        Changed request header to disable Keep-alive.  This was causing LiveJournal to return
+                        bad HTTP responses.
+                    </li>
+                </ul>
+            </dd>
+
+            <dt>0.9.4.2</dt>
+            <dd>Bug-fixes and two new features:
+                <ul>
+                    <li>
+                        Added new calendar panel.  Allows user to navigate through months, and view entries by day.
+                    </li>
+                    <li>
+                        Added new template: unearthed.
+                    </li>
+                    <li>
+                        Fixed error in XMLRPC trying to cast values improperly reported as integer by the server.
+                    </li>
+                    <li>
+                        Fixed "Go To Day Entry" formatting improperly on non-English computers.
+                    </li>
+                    <li>
+                        Fixed wrong ExpectedSyncException ocassionally being reported.
+                    </li>
+                    <li>
+                        Fixed error window popping up sometimes in background.
+                    </li>
+                    <li>
+                        Fixed "anonymous" user not being rendered properly.
+                    </li>
+                    <li>
+                        Fixed HTML color settings not being saved properly.
+                    </li>
+                    <li>
+                        Fixed File->New Dialog occasionally defaulting to invalid path.
+                    </li>
+                    <li>
+                        Fixed CommentCount sometimes throwing exception when initialized.
+                    </li>
+                    <li>
+                        Fixed ToolTip not always showing properly on CommentCount.
+                    </li>
+                    <li>
+                        Fixed protected icon not showing in Component template.
+                    </li>
+                    <li>
+                        Fixed grid sort: now defaults to date descending.
+                    </li>
+                    <li>
+                        Fixed find results not clearing when panel was hidden.
+                    </li>
+                </ul>            
+            </dd>
+
+            <dt>0.9.4.1</dt>
+            <dd>Bug-fixes and a few small feature updates:
+                <ul>
+                    <li>
+                        Fixed plugins crashing if the journal archive was empty.
+                    </li>
+                    <li>
+                        Tweaked Regressive Imagery Analysis behavior for potentially bad analyses, such
+                        as running the analysis on a non-English journal.
+                    </li>
+                    <li>
+                        Fixed extra line-breaks occurring in RID HTML output.
+                    </li>
+                    <li>
+                        Fixed plugins and journalwriters settings serializing in an assembly-version-dependant
+                        manner.
+                    </li>
+                    <li>
+                        Fixed plugin collection crashing if a target invocation exception occurred while loading a
+                        plugin.
+                    </li>
+                    <li>
+                        Added 'Split File Per Entry' setting in File->Export.
+                    </li>
+                    <li>
+                        Added 'Top Three Categories' and 'Bottom Three Categories' to RID analysis presets.
+                    </li>
+                </ul>
+            </dd>
+
+            <dt>0.9.4</dt>
+            <dd>New features and a few bug fixes:
+                <ul>
+                    <li>
+                        New plugin - <a href="http://fawx.com/ljArchive/rid.htm">Regressive Imagery Analysis</a>.
+                        This plugin provides a psychological profile of your journal by performing a <i>categorical
+                        content analysis</i>, and provides the results as a Summary graph, a graph Over Time,
+                        or a summary as HTML Code that you can paste in your journal.</li>
+                    <li>
+                        New plugin - <a href="http://fawx.com/ljArchive/entryreader.htm">Entry Reader</a>,
+                        reads your journal entries aloud using text-to-speech technology.</li>
+                    <li>
+                        Auto-update - ljArchive can now alert the user when a new version is available, and
+                        update itself automatically.</li>
+                    <li>
+                        Smaller install size - dropped some propietary HTML libraries, allowing the install
+                        size to shrink from ~9M to ~1.3M.</li>
+                    <li>
+                        Minor UI improvements.  Most notably, clicking on a comment will now scroll the browser
+                        page so the comment comes into view.</li>
+                    <li>
+                        French language support (courtesy of Frederic Barthelemy).</li>
+                </ul>
+            </dd>
+
+            <dt>0.9.3</dt>
+            <dd>Restructured and rewrote parts of the ljArchive core classes:
+                <ul>
+                    <li>
+                        New <a href="http://fawx.com/ljArchive/doc/">core class library</a> is 
+                        completely OS-agnostic and should support any ECMA-compatible runtime engine 
+                        with .NET core libraries (such as <a href="http://www.mono-project.com/">mono</a>).</li>
+                    <li>
+                        Cleaned up code and created <a href="http://fawx.com/ljArchive/doc/">documentation</a>
+                        for the new core library.</li>
+                    <li>
+                        Implemented new functionality in the HTML journal renderer. Now supports lots 
+                        of colors, and a more thorough template system. Tuned performance (33% speed 
+                        gain).</li>
+                </ul>
+                Lots of UI improvements:
+                <ul>
+                    <li>
+                        Completely rewrote the main explorer window to support multiple resizable panes.</li>
+                    <li>
+                        Implemented informative error messages for commonly expected errors.</li>
+                    <li>
+                        Implemented localization support. The only language currently is English :-)</li>
+                    <li>
+                        Added a couple more templates and documented them so users can make their own.</li>
+                </ul>
+                And lots of bug fixes. Fixed bugs related to users not being able to connect 
+                with free accounts and not being able to connect to alternate servers. Tested 
+                with <a href="http://www.livejournal.com/">LiveJournal</a>, <a href="http://www.deadjournal.com/">
+                    DeadJournal</a>, and <a href="http://www.ujournal.org/">UJournal</a>.
+            </dd>
+
+            <dt>0.9.2</dt>
+            <dd>Added support for downloading/browsing/searching comments.<br />
+                Updated loading/saving code - new file format is about 35% smaller and loads 
+                approximately <b>6x</b> faster than the old format.<br />
+                Updated the common IPlugin/IEventWriter interfaces to allow Plugins and 
+                EventWriters to support the new comment functionality.<br />
+                Updated the template rendering structure of HTMLEventWriter to support 
+                comments.<br />
+                Added ability to cancel a sync as it's happening.
+            </dd>
+
+            <dt>0.9.1</dt>
+            <dd>Coalesced business and network code into a single business 
+                library. (Paving the way for a Mono version - only needs to implement UI)<br />
+                Added setup project, application icon.<br />
+                Fixed problem where links clicked in the internal browser opened internally.<br />
+                Fixed problem where ljArchive croaked if it got back a type it didn't expect 
+                from the server.<br />
+                Added more user-friendly error reporting.<br />
+                Added generator template.<br />
+                Added a simple options dialog box.
+            </dd>
+
+            <dt>0.9</dt>
+            <dd>Initial Release.</dd>
+        </dl>
+
+
+        <h3>ljArchive uses code from the following open source projects:</h3>
+        CommandBar for .NET, by Lutz Roeder - <a href="http://www.aisto.com/roeder/dotnet/">
+            http://www.aisto.com/roeder/dotnet/</a>.
+        <p />
+        Writer for .NET, by Lutz Roeder - <a href="http://www.aisto.com/roeder/dotnet/">
+            http://www.aisto.com/roeder/dotnet/</a>.
+        <p />
+        ZedGraph, a free, open source graph tool, by John Champion - <a href="http://www.codeproject.com/csharp/ZedGraph.asp">
+            http://www.codeproject.com/csharp/ZedGraph.asp</a>.
+        <p />
+        Portions copyright 2002-2004 The Genghis Group (<a href="http://www.genghisgroup.com/">http://www.genghisgroup.com/</a>).
+        <p />
+        SimpleMIDI, a free, open source .NET MIDI Library, by Erik Frey - <a href="http://fawx.com/">
+            http://fawx.com/</a>.
+        <p />
+        <div style="border: 1px solid #000;">
+            XML-RPC.NET by Charles Cook - <a href="http://www.xml-rpc.net">http://www.xml-rpc.net</a>.
+            <TT>
+                <P>Copyright (c) Charles Cooke</P>
+                <P>Permission is hereby granted, free of charge, to any person obtaining a copy of 
+                    this software and associated documentation files (the "Software"), to deal in 
+                    the Software without restriction, including without limitation the rights to 
+                    use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
+                    of the Software, and to permit persons to whom the Software is furnished to do 
+                    so, subject to the following conditions:</P>
+                <P>The above copyright notice and this permission notice shall be included in all 
+                    copies or substantial portions of the Software.</P>
+                <P>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+                    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+                    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+                    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+                    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+                    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
+                    SOFTWARE.</P>
+            </TT>
+        </div>
+    </body>
 </html>
