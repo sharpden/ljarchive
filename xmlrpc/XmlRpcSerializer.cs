@@ -1028,6 +1028,25 @@ namespace CookComputing.XmlRpc
     {
       if (ValueType != null && ValueType != typeof(System.String) && ValueType != typeof(Object))
       {
+        if (ValueType == typeof(int))
+        {
+            // Hack: unit32 allowmask can be returned from server as <value><string>2147483649</string></value>
+            string value;
+            value = node.FirstChild.Value;
+            if (m_decoding != null)
+            {
+                value = m_decoding.GetString((new UTF8Encoding()).GetBytes(value));
+            }
+            try
+            {
+                long result = long.Parse(value);
+                return (int) result;
+            }
+            catch (Exception exc)
+            {
+            }
+        }
+
         throw new XmlRpcTypeMismatchException(parseStack.ParseType 
           + " contains string value where " 
           + XmlRpcServiceInfo.GetXmlRpcTypeString(ValueType) 
