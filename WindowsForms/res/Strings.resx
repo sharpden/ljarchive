@@ -577,29 +577,11 @@ After you have selected a file location, click 'Next'.</value>
   <data name="Options.grpGridOrientation.Text" xml:space="preserve">
     <value>Grid Orientation</value>
   </data>
-  <data name="Explorer.UpdateExistsMessage" xml:space="preserve">
-    <value>A new version of ljArchive is available.  Do you want to install automatically?</value>
-  </data>
-  <data name="Explorer.UpdateExistsTitle" xml:space="preserve">
-    <value>Autoupdate</value>
-  </data>
   <data name="Options.grpMiscellaneous.Text" xml:space="preserve">
     <value>Miscellaneous</value>
   </data>
-  <data name="Options.chkAutomaticallyCheckForUpdates.Text" xml:space="preserve">
-    <value>Automatically check for updates</value>
-  </data>
   <data name="Options.chkSyncOnStartup.Text" xml:space="preserve">
     <value>Sync on startup</value>
-  </data>
-  <data name="Options.btnCheckForUpdate.Text" xml:space="preserve">
-    <value>Check for update now</value>
-  </data>
-  <data name="Options.NoUpdateExistsMessage" xml:space="preserve">
-    <value>Your version of ljArchive is up to date.</value>
-  </data>
-  <data name="Options.NoUpdateExistsTitle" xml:space="preserve">
-    <value>Autoupdate</value>
   </data>
   <data name="CommandBarManager.Calendar.Text" xml:space="preserve">
     <value>&amp;Calendar</value>

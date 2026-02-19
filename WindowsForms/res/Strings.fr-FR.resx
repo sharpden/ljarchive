@@ -577,29 +577,11 @@ Apres que vous avez choisi votre endroit, cliquez 'Suivant'.</value>
   <data name="Options.grpGridOrientation.Text" xml:space="preserve">
     <value>Orientation</value>
   </data>
-  <data name="Explorer.UpdateExistsMessage" xml:space="preserve">
-    <value>Une nouvelle version de ljArchive est disponible. Voulez-vous installer automatiquement?</value>
-  </data>
-  <data name="Explorer.UpdateExistsTitle" xml:space="preserve">
-    <value>Autoupdate</value>
-  </data>
   <data name="Options.grpMiscellaneous.Text" xml:space="preserve">
     <value>Divers</value>
   </data>
-  <data name="Options.chkAutomaticallyCheckForUpdates.Text" xml:space="preserve">
-    <value>Vérifiez automatiquement la dernière version.</value>
-  </data>
   <data name="Options.chkSyncOnStartup.Text" xml:space="preserve">
     <value>Syncronize sur le démarrage.</value>
-  </data>
-  <data name="Options.btnCheckForUpdate.Text" xml:space="preserve">
-    <value>Vérifiez la dernière version maintenant</value>
-  </data>
-  <data name="Options.NoUpdateExistsMessage" xml:space="preserve">
-    <value>Votre version de ljArchive est la plus tardive.</value>
-  </data>
-  <data name="Options.NoUpdateExistsTitle" xml:space="preserve">
-    <value>Autoupdate</value>
   </data>
   <data name="CommandBarManager.Calendar.Text" xml:space="preserve">
     <value>&amp;Calendrier</value>

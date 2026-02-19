@@ -492,27 +492,6 @@ namespace EF.ljArchive.WindowsForms
 			// moveToComment
 			moveToComment = -1;
 
-			// lastUpdateCheck
-			// I'm open to a cleaner implementation of this.  --Deb
-			lastUpdateCheck = DateTime.MinValue;
-			try 
-			{
-				lastUpdateCheck = (DateTime) prefs.GetProperty("lastUpdateCheck", DateTime.MinValue);
-			}
-			catch (FormatException)  {}
-			catch (InvalidCastException) {}
-
-			if (DateTime.MinValue == lastUpdateCheck) 
-			{
-				// Ah, well.  Reset out lastUpdateCheck and use MinValue.
-				// Done here so that if we fall through any of the exception handlers,
-				// we do the right things.
-				prefs.SetProperty("lastUpdateCheck", DateTime.MinValue);
-			}
-
-			// updateRequested
-			updateRequested = false;
-
 			// syncOnStartup
 			syncOnStartup = prefs.GetBoolean("syncOnStartup", true);
 		}
@@ -746,17 +725,6 @@ namespace EF.ljArchive.WindowsForms
 			browser.LoadHtml(html, null);
 		}
 
-		protected void AskUpdate()
-		{
-			if (MessageBox.Show(Localizer.GetString(this.GetType(), "UpdateExistsMessage"),
-				Localizer.GetString(this.GetType(), "UpdateExistsTitle"), MessageBoxButtons.YesNo) ==
-				DialogResult.Yes)
-			{
-				updateRequested = true;
-				this.Close();
-			}
-		}
-
 		protected Size FlipSize(Size oldSize, Rectangle bounds)
 		{
 			System.Drawing.Size s = new Size(oldSize.Height, oldSize.Width);
@@ -790,11 +758,6 @@ namespace EF.ljArchive.WindowsForms
 					dgEvents.CurrentRowIndex = prefs.GetInt32("dgEvents.CurrentRowIndex", 0);
 				if (dgEvents.CurrentRowIndex != -1 && !dgEvents.IsSelected(dgEvents.CurrentRowIndex))
 					dgEvents.RefreshSelect();
-				if ((DateTime.Now - lastUpdateCheck).TotalDays >= 2F)
-				{
-					lastUpdateCheck = DateTime.Now;
-					UpdateChecker.Start(new UpdateExistsCallBack(UpdateExists));
-				}
 				if (syncOnStartup)
 					cbm_Command_Click(cbm.Sync, EventArgs.Empty);
 			}
@@ -802,8 +765,6 @@ namespace EF.ljArchive.WindowsForms
 
 		private void Explorer_Closing(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			if (UpdateChecker.IsAlive)
-				UpdateChecker.Abort();
 			if (Engine.Sync.IsAlive)
 				Engine.Sync.Abort();
 			prefs.SetProperty("dgEvents.ColumnSettings", dgEvents.ColumnSettings);
@@ -834,19 +795,7 @@ namespace EF.ljArchive.WindowsForms
 			prefs.SetProperty("dgEvents.CurrentRowIndex", dgEvents.CurrentRowIndex);
 			prefs.SetProperty("journalWriters.Settings", journalWriters.Settings);
 			prefs.SetProperty("plugins.Settings", plugins.Settings);
-			prefs.SetProperty("lastUpdateCheck", lastUpdateCheck.ToString());
 			prefs.SetProperty("syncOnStartup", syncOnStartup);
-		}
-
-		private void UpdateExists()
-		{
-			if (this.IsHandleCreated)
-				this.Invoke(new TS_UpdateExistsDelegate(TS_UpdateExists));
-		}
-
-		private void TS_UpdateExists()
-		{
-			AskUpdate();
 		}
 
 		private void cbm_Command_Click(object sender, EventArgs e)
@@ -1022,12 +971,7 @@ namespace EF.ljArchive.WindowsForms
 			else if (sender == cbm.Options)
 			{
 				DockStyle d = tabControl.Dock;
-				Dialogs.Options.Go(ref d, ref lastUpdateCheck, ref syncOnStartup);
-				if (Dialogs.Options.UpdateCheckRequested)
-				{
-					AskUpdate();
-					return;
-				}
+				Dialogs.Options.Go(ref d, ref syncOnStartup);
 				if (d != tabControl.Dock)
 				{
 					this.SuspendLayout();
@@ -1272,14 +1216,6 @@ namespace EF.ljArchive.WindowsForms
 		}
 		#endregion
 
-		#region Public Instance Properties
-		public bool UpdateRequested
-		{
-			get { return this.updateRequested; }
-			set { this.updateRequested = value; }
-		}
-		#endregion
-
 		#region Private Instance Fields
 		private Genghis.Preferences prefs;
 		private Controls.CommandBarManager cbm;
@@ -1290,9 +1226,6 @@ namespace EF.ljArchive.WindowsForms
 		private Engine.HTML.HTMLJournalWriter hjw;
 		private TemplateCollection tc;
 		private int moveToComment;
-		private delegate void TS_UpdateExistsDelegate();
-		private DateTime lastUpdateCheck;
-		private bool updateRequested;
 		private bool syncOnStartup;
 		#endregion
 

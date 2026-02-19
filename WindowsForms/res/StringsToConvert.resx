@@ -460,29 +460,11 @@ After you have selected a file location, click 'Next'.</value>
 	<data name="Options.grpGridOrientation.Text">
 		<value>Grid Orientation</value>
 	</data>
-	<data name="Explorer.UpdateExistsMessage">
-		<value>A new version of ljArchive is available.  Do you want to install automatically?</value>
-	</data>
-	<data name="Explorer.UpdateExistsTitle">
-		<value>Autoupdate</value>
-	</data>
 	<data name="Options.grpMiscellaneous.Text">
 		<value>Miscellaneous</value>
 	</data>
-	<data name="Options.chkAutomaticallyCheckForUpdates.Text">
-		<value>Automatically check for updates</value>
-	</data>
 	<data name="Options.chkSyncOnStartup.Text">
 		<value>Sync on startup</value>
-	</data>
-	<data name="Options.btnCheckForUpdate.Text">
-		<value>Check for update now</value>
-	</data>
-	<data name="Options.NoUpdateExistsMessage">
-		<value>Your version of ljArchive is up to date.</value>
-	</data>
-	<data name="Options.NoUpdateExistsTitle">
-		<value>Autoupdate</value>
 	</data>
 	<data name="CommandBarManager.Calendar.Text">
 		<value>&amp;Calendar</value>

@@ -156,7 +156,6 @@
     <Compile Include="Utils\Busy.cs" />
     <Compile Include="Utils\Localizer.cs" />
     <Compile Include="Utils\TemplateCollection.cs" />
-    <Compile Include="Utils\UpdateChecker.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.2005.csproj">

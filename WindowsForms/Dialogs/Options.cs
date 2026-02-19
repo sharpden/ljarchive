@@ -20,9 +20,7 @@ namespace EF.ljArchive.WindowsForms.Dialogs
 		private System.Windows.Forms.RadioButton rbAlignTop;
 		private System.Windows.Forms.Label lblAlign;
 		private System.Windows.Forms.GroupBox grpMiscellaneous;
-		private System.Windows.Forms.CheckBox chkAutomaticallyCheckForUpdates;
 		private System.Windows.Forms.CheckBox chkSyncOnStartup;
-		private System.Windows.Forms.Button btnCheckForUpdate;
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -36,18 +34,17 @@ namespace EF.ljArchive.WindowsForms.Dialogs
 			InitializeComponent();
 
 			Localizer.SetControlText(this.GetType(), grpGridOrientation, lblAlign, rbAlignLeft, rbAlignTop,
-				grpMiscellaneous, chkAutomaticallyCheckForUpdates, chkSyncOnStartup, btnCheckForUpdate, btnOK,
+				grpMiscellaneous, chkSyncOnStartup, btnOK,
 				btnCancel);
 		}
 
-		static public void Go(ref DockStyle dock, ref DateTime lastUpdateCheck, ref bool syncOnStartup)
+		static public void Go(ref DockStyle dock, ref bool syncOnStartup)
 		{
 			Options o = new Options();
 			if (dock == DockStyle.Top)
 				o.rbAlignTop.Checked = true;
 			else
 				o.rbAlignLeft.Checked = true;
-			o.chkAutomaticallyCheckForUpdates.Checked = (lastUpdateCheck != DateTime.MaxValue);
 			o.chkSyncOnStartup.Checked = syncOnStartup;
 			if (o.ShowDialog() == DialogResult.OK)
 			{
@@ -55,10 +52,6 @@ namespace EF.ljArchive.WindowsForms.Dialogs
 					dock = DockStyle.Top;
 				else
 					dock = DockStyle.Left;
-				if (o.chkAutomaticallyCheckForUpdates.Checked && (lastUpdateCheck == DateTime.MaxValue))
-					lastUpdateCheck = DateTime.MinValue;
-				else if (!o.chkAutomaticallyCheckForUpdates.Checked)
-					lastUpdateCheck = DateTime.MaxValue;
 				syncOnStartup = o.chkSyncOnStartup.Checked;
 			}
 		}
@@ -96,8 +89,6 @@ namespace EF.ljArchive.WindowsForms.Dialogs
 			this.btnOK = new System.Windows.Forms.Button();
 			this.grpMiscellaneous = new System.Windows.Forms.GroupBox();
 			this.chkSyncOnStartup = new System.Windows.Forms.CheckBox();
-			this.chkAutomaticallyCheckForUpdates = new System.Windows.Forms.CheckBox();
-			this.btnCheckForUpdate = new System.Windows.Forms.Button();
 			this.grpGridOrientation.SuspendLayout();
 			this.grpMiscellaneous.SuspendLayout();
 			this.SuspendLayout();
@@ -180,8 +171,6 @@ namespace EF.ljArchive.WindowsForms.Dialogs
 			// grpMiscellaneous
 			// 
 			this.grpMiscellaneous.Controls.Add(this.chkSyncOnStartup);
-			this.grpMiscellaneous.Controls.Add(this.chkAutomaticallyCheckForUpdates);
-			this.grpMiscellaneous.Controls.Add(this.btnCheckForUpdate);
 			this.grpMiscellaneous.Dock = System.Windows.Forms.DockStyle.Top;
 			this.grpMiscellaneous.Location = new System.Drawing.Point(0, 112);
 			this.grpMiscellaneous.Name = "grpMiscellaneous";
@@ -197,23 +186,6 @@ namespace EF.ljArchive.WindowsForms.Dialogs
 			this.chkSyncOnStartup.Size = new System.Drawing.Size(320, 24);
 			this.chkSyncOnStartup.TabIndex = 1;
 			this.chkSyncOnStartup.Text = "Sync on startup";
-			// 
-			// chkAutomaticallyCheckForUpdates
-			// 
-			this.chkAutomaticallyCheckForUpdates.Location = new System.Drawing.Point(16, 20);
-			this.chkAutomaticallyCheckForUpdates.Name = "chkAutomaticallyCheckForUpdates";
-			this.chkAutomaticallyCheckForUpdates.Size = new System.Drawing.Size(320, 24);
-			this.chkAutomaticallyCheckForUpdates.TabIndex = 0;
-			this.chkAutomaticallyCheckForUpdates.Text = "Automatically check for updates";
-			// 
-			// btnCheckForUpdate
-			// 
-			this.btnCheckForUpdate.Location = new System.Drawing.Point(16, 84);
-			this.btnCheckForUpdate.Name = "btnCheckForUpdate";
-			this.btnCheckForUpdate.Size = new System.Drawing.Size(232, 23);
-			this.btnCheckForUpdate.TabIndex = 5;
-			this.btnCheckForUpdate.Text = "Check for update now";
-			this.btnCheckForUpdate.Click += new System.EventHandler(this.btnCheckForUpdate_Click);
 			// 
 			// Options
 			// 
@@ -236,27 +208,5 @@ namespace EF.ljArchive.WindowsForms.Dialogs
 
 		}
 		#endregion
-
-		private void btnCheckForUpdate_Click(object sender, System.EventArgs e)
-		{
-			if (UpdateChecker.UpdateAvailable())
-			{
-				updateCheckRequested = true;
-				this.DialogResult = DialogResult.Cancel;
-				this.Close();
-			}
-			else
-			{
-				MessageBox.Show(Localizer.GetString(this.GetType(), "NoUpdateExistsMessage"),
-					Localizer.GetString(this.GetType(), "NoUpdateExistsTitle"));
-			}
-		}
-
-		static public bool UpdateCheckRequested
-		{
-			get { return updateCheckRequested; }
-		}
-
-		static private bool updateCheckRequested;
 	}
 }
