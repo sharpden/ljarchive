@@ -81,7 +81,7 @@ namespace EF.ljArchive.WindowsForms.Dialogs
 			// btnOK
 			// 
 			this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.btnOK.Location = new System.Drawing.Point(168, 64);
+			this.btnOK.Location = new System.Drawing.Point(218, 64);
 			this.btnOK.Name = "btnOK";
 			this.btnOK.TabIndex = 2;
 			this.btnOK.Text = "&OK";
@@ -89,7 +89,7 @@ namespace EF.ljArchive.WindowsForms.Dialogs
 			// pictureBox1
 			// 
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(208, 8);
+			this.pictureBox1.Location = new System.Drawing.Point(258, 8);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(32, 32);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -101,7 +101,7 @@ namespace EF.ljArchive.WindowsForms.Dialogs
 			this.AcceptButton = this.btnOK;
 			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
 			this.CancelButton = this.btnOK;
-			this.ClientSize = new System.Drawing.Size(250, 95);
+			this.ClientSize = new System.Drawing.Size(300, 95);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.btnOK);
 			this.Controls.Add(this.llURL);
@@ -110,6 +110,7 @@ namespace EF.ljArchive.WindowsForms.Dialogs
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "About";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "About";
 			this.ResumeLayout(false);
 
