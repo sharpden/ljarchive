@@ -1,4 +1,4 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -19,6 +19,8 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <NoStdLib>false</NoStdLib>
@@ -31,6 +33,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <DebugType>Full</DebugType>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <NoStdLib>false</NoStdLib>
@@ -43,6 +46,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <DebugType>None</DebugType>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Doc|AnyCPU' ">
     <NoStdLib>false</NoStdLib>
@@ -55,6 +59,7 @@
     <OutputPath>bin\Doc\</OutputPath>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <DebugType>None</DebugType>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

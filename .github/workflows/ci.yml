@@ -1,0 +1,46 @@
+name: Build C# and NSIS Installer
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Install .NET Targeting Pack 4.5.1
+      run: choco install netfx-4.5.1-devpack -y
+
+    - name: Install NSIS
+      run: choco install nsis -y
+
+    - name: Build with MSBuild
+      run: msbuild ljArchive.2005.sln /t:Build /p:Configuration=Release
+
+    - name: Build installer with NSIS
+      shell: cmd
+      run: '"C:\Program Files (x86)\NSIS\Bin\makensis.exe" makesetup.nsi'
+
+    - name: Rename installer
+      shell: bash
+      run: |
+        if [ "${{ github.ref_type }}" = "tag" ]; then
+          mv ljArchive-*-setup.exe ljArchive-${{ github.ref_name }}-setup.exe
+        else
+          mv ljArchive-*-setup.exe ljArchive-${{ github.sha }}-setup.exe
+        fi
+
+    - name: Upload installer artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Installer
+        path: ljArchive-*-setup.exe
