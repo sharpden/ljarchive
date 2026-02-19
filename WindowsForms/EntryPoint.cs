@@ -12,12 +12,15 @@ namespace EF.ljArchive.WindowsForms
 		/// The main entry point for the application.
 		/// </summary>
 		[STAThread]
-		static void Main() 
+		static void Main()
 		{
 			Explorer e = null;
-			
+
 			// run internally system invariant to avoid date and decimal weirdness
-			Application.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
+			System.Globalization.CultureInfo culture = (System.Globalization.CultureInfo) System.Globalization.CultureInfo.InvariantCulture.Clone();
+			culture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd";
+			culture.DateTimeFormat.LongTimePattern = "hh:mm:ss";
+			Application.CurrentCulture = culture;
 
 			// https://www.koskila.net/how-to-force-an-outdated-net-project-to-use-tls-1-2/
 			// https://stackoverflow.com/questions/47269609/system-net-securityprotocoltype-tls12-definition-not-found
