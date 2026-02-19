@@ -66,11 +66,9 @@ Section "MainSection" SEC01
   File "bin\Release\fr-FR\ljArchive.resources.dll"
   SetOutPath "$INSTDIR"
   File "bin\Release\GenghisLocal.dll"
-  File "bin\Release\ICSharpCode.SharpZipLib.dll"
   File "bin\Release\ljArchive.exe"
   CreateDirectory "$SMPROGRAMS\ljArchive"
   CreateShortCut "$SMPROGRAMS\ljArchive\ljArchive.lnk" "$INSTDIR\ljArchive.exe"
-  ;File "bin\Release\Update.exe"
   SetOverwrite ifnewer
   File "index.htm"
   CreateShortCut "$SMPROGRAMS\ljArchive\ljArchive Info.lnk" "$INSTDIR\index.htm"
@@ -79,13 +77,9 @@ SectionEnd
 Section "Plugins" SEC02
   SetOutPath "$INSTDIR\plugins"
   SetOverwrite try
-  ;File "bin\Release\plugins\AxInterop.AgentObjects.dll"
-  File "bin\Release\plugins\EF.ljArchive.MIDIJournalWriter.dll"
   File "bin\Release\plugins\EF.ljArchive.Plugins.Core.dll"
   File "bin\Release\plugins\EF.ljArchive.Plugins.WindowsForms.dll"
   File "bin\Release\plugins\EF.ljArchive.XMLJournalWriter.dll"
-  File "bin\Release\plugins\EF.SimpleMIDI.dll"
-  ;File "bin\Release\plugins\Interop.AgentObjects.dll"
   File "bin\Release\plugins\ZedGraph.dll"
 SectionEnd
 
@@ -145,6 +139,7 @@ Function un.onInit
 FunctionEnd
 
 Section Uninstall
+  ; Should remove everything previous installer could create
   Delete "$INSTDIR\uninst.exe"
   Delete "$INSTDIR\templates\unearthed.ljt"
   Delete "$INSTDIR\templates\talkread.ljt"
@@ -152,13 +147,13 @@ Section Uninstall
   Delete "$INSTDIR\templates\generator.ljt"
   Delete "$INSTDIR\templates\component.ljt"
   Delete "$INSTDIR\plugins\ZedGraph.dll"
-  ;Delete "$INSTDIR\plugins\Interop.AgentObjects.dll"
+  Delete "$INSTDIR\plugins\Interop.AgentObjects.dll"
   Delete "$INSTDIR\plugins\EF.SimpleMIDI.dll"
   Delete "$INSTDIR\plugins\EF.ljArchive.XMLJournalWriter.dll"
   Delete "$INSTDIR\plugins\EF.ljArchive.Plugins.WindowsForms.dll"
   Delete "$INSTDIR\plugins\EF.ljArchive.Plugins.Core.dll"
   Delete "$INSTDIR\plugins\EF.ljArchive.MIDIJournalWriter.dll"
-  ;Delete "$INSTDIR\plugins\AxInterop.AgentObjects.dll"
+  Delete "$INSTDIR\plugins\AxInterop.AgentObjects.dll"
   Delete "$INSTDIR\index.htm"
   Delete "$INSTDIR\Update.exe"
   Delete "$INSTDIR\ljArchive.exe"
