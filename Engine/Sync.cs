@@ -339,17 +339,54 @@ namespace EF.ljArchive.Engine
 			SyncItemsParams sip;
 			SyncItemsResponse sir;
 			int total = -1, count = 0;
+			Exception lastException = null;
 
 			lastSync = (or.IsLastSyncNull() ? DateTime.MinValue : or.LastSync);
 			do
 			{
 				string lastSyncString = (lastSync == DateTime.MinValue ? string.Empty :
 					lastSync.ToString(_datetimeformat));
-				gcr = iLJ.GetChallenge();
-				auth_response = MD5Hasher.Compute(gcr.challenge + or.HPassword);
-				sip = new SyncItemsParams(or.UserName, "challenge", gcr.challenge, auth_response, 1,
-				                          lastSyncString, (or.IsUseJournalNull() ? string.Empty : or.UseJournal));
-				sir = iLJ.SyncItems(sip);
+
+				int attempt = 0;
+				while (true)
+				{
+					try
+					{
+						gcr = iLJ.GetChallenge();
+						auth_response = MD5Hasher.Compute(gcr.challenge + or.HPassword);
+						sip = new SyncItemsParams(or.UserName, "challenge", gcr.challenge, auth_response, 1,
+												lastSyncString, (or.IsUseJournalNull() ? string.Empty : or.UseJournal));
+						// Exception in SyncItems should not stop sync without anything downloaded
+						sir = iLJ.SyncItems(sip);
+						if (sir.syncitems == null)
+						{
+							throw new CookComputing.XmlRpc.XmlRpcIllFormedXmlException("sir.syncitems == null");
+						}
+						break;
+					}
+					catch (System.Threading.ThreadAbortException)
+					{
+						throw;
+					}
+					catch (Exception exc)
+					{
+						// When server timeout
+						// CookComputing.XmlRpc.XmlRpcIllFormedXmlException raised with
+						// "Response from server does not contain valid XML."
+						// and exc.InnerException is "The operation has timed out."
+
+						// If we read string from respStm in XmlRpcClientProtocol.Invoke
+						// Exception is related to values == null in SyncItemCollection.AddRangeLog
+
+						lastException = exc;
+						++attempt;
+						if (attempt > 5)
+						{
+							throw lastException;
+						}
+					}
+				}
+
 				total = (total == -1 ? sir.total : total);
 				count += sir.count;
 				sic.AddRangeLog(sir.syncitems);
@@ -357,7 +394,9 @@ namespace EF.ljArchive.Engine
 				if (sic.GetMostRecentTime() > lastSync)
 					lastSync = sic.GetMostRecentTime();
 				socb(new SyncOperationEventArgs(SyncOperation.SyncItems, count, total));
-			} while (sir.count < sir.total);
+				// sir.total decreases with lastSync increase
+				// Some users report that count can be larger than total in statusbar
+			} while (sir.count < sir.total && count < total);
 		}
 
 		static private void GetEvents(Journal.OptionsRow or, ILJServer iLJ, ref SyncItemCollection sic,
